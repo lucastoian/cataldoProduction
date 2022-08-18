@@ -1,0 +1,31 @@
+{
+  "name": "@eshop-frontend/products",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^13.0.0",
+    "@angular/core": "^13.0.0",
+    "rxjs": "~7.4.0",
+    "@angular/router": "^13.0.0",
+    "primeng": "^13.0.2",
+    "@eshop-frontend/users": "0.0.1",
+    "@angular/forms": "^13.0.0",
+    "i18n-iso-countries": "^7.2.0",
+    "@ngrx/store": "~13.0.0",
+    "@ngrx/effects": "~13.0.0",
+    "@nrwl/angular": "13.2.4",
+    "@ngrx/entity": "~13.0.0",
+    "@eshop-frontend/orders": "0.0.1",
+    "@eshop-frontend/ui": "0.0.1"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "module": "esm2020/eshop-frontend-products.mjs",
+  "es2020": "esm2020/eshop-frontend-products.mjs",
+  "esm2020": "esm2020/eshop-frontend-products.mjs",
+  "typings": "eshop-frontend-products.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "node --eval \"console.error('ERROR: Trying to publish a package that has been compiled by Ivy in full compilation mode. This is not allowed.\\nPlease delete and rebuild the package with Ivy partial compilation mode, before attempting to publish.\\n')\" && exit 1"
+  }
+}

@@ -1,0 +1,18 @@
+import { Component } from '@angular/core';
+import * as i0 from "@angular/core";
+export class ProductsSearchComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+}
+ProductsSearchComponent.ɵfac = function ProductsSearchComponent_Factory(t) { return new (t || ProductsSearchComponent)(); };
+ProductsSearchComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: ProductsSearchComponent, selectors: [["eshop-frontend-products-search"]], decls: 6, vars: 0, consts: [[1, "grid"], [1, "col-12"], [1, "search"], [1, "products-search"], [1, "pi", "pi-search"], ["type", "text", "placeholder", "Find Products", "name", "search", "id", "search", 1, "products-search-input"]], template: function ProductsSearchComponent_Template(rf, ctx) { if (rf & 1) {
+        i0.ɵɵelementStart(0, "div", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3);
+        i0.ɵɵelement(4, "i", 4)(5, "input", 5);
+        i0.ɵɵelementEnd()()()();
+    } }, encapsulation: 2 });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ProductsSearchComponent, [{
+        type: Component,
+        args: [{ selector: 'eshop-frontend-products-search', styles: [], template: "<div class=\"grid\">\r\n    <div class=\"col-12\">\r\n        <div class=\"search\">\r\n\r\n\r\n        <div class=\"products-search\">\r\n            <i class=\"pi pi-search\"></i>\r\n            <input \r\n            type=\"text\"\r\n            placeholder=\"Find Products\"\r\n            class=\"products-search-input\"\r\n            name=\"search\"\r\n            id=\"search\"\r\n            >\r\n        </div>\r\n        </div>\r\n\r\n    </div>\r\n</div>\r\n" }]
+    }], function () { return []; }, null); })();
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJvZHVjdHMtc2VhcmNoLmNvbXBvbmVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL2xpYnMvcHJvZHVjdHMvc3JjL2xpYi9jb21wb25lbnRzL3Byb2R1Y3RzLXNlYXJjaC9wcm9kdWN0cy1zZWFyY2guY29tcG9uZW50LnRzIiwiLi4vLi4vLi4vLi4vLi4vLi4vLi4vbGlicy9wcm9kdWN0cy9zcmMvbGliL2NvbXBvbmVudHMvcHJvZHVjdHMtc2VhcmNoL3Byb2R1Y3RzLXNlYXJjaC5jb21wb25lbnQuaHRtbCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsU0FBUyxFQUFVLE1BQU0sZUFBZSxDQUFDOztBQVFsRCxNQUFNLE9BQU8sdUJBQXVCO0lBRWxDLGdCQUFnQixDQUFDO0lBRWpCLFFBQVE7SUFDUixDQUFDOzs4RkFMVSx1QkFBdUI7MEVBQXZCLHVCQUF1QjtRQ1JwQyw4QkFBa0IsYUFBQSxhQUFBLGFBQUE7UUFNTix1QkFBNEIsZUFBQTtRQVFoQyxpQkFBTSxFQUFBLEVBQUEsRUFBQTs7dUZETkQsdUJBQXVCO2NBTm5DLFNBQVM7MkJBQ0UsZ0NBQWdDLFVBRWxDLEVBQ1AiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb21wb25lbnQsIE9uSW5pdCB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xyXG5cclxuQENvbXBvbmVudCh7XHJcbiAgc2VsZWN0b3I6ICdlc2hvcC1mcm9udGVuZC1wcm9kdWN0cy1zZWFyY2gnLFxyXG4gIHRlbXBsYXRlVXJsOiAnLi9wcm9kdWN0cy1zZWFyY2guY29tcG9uZW50Lmh0bWwnLFxyXG4gIHN0eWxlczogW1xyXG4gIF1cclxufSlcclxuZXhwb3J0IGNsYXNzIFByb2R1Y3RzU2VhcmNoQ29tcG9uZW50IGltcGxlbWVudHMgT25Jbml0IHtcclxuXHJcbiAgY29uc3RydWN0b3IoKSB7IH1cclxuXHJcbiAgbmdPbkluaXQoKTogdm9pZCB7XHJcbiAgfVxyXG5cclxufVxyXG4iLCI8ZGl2IGNsYXNzPVwiZ3JpZFwiPlxyXG4gICAgPGRpdiBjbGFzcz1cImNvbC0xMlwiPlxyXG4gICAgICAgIDxkaXYgY2xhc3M9XCJzZWFyY2hcIj5cclxuXHJcblxyXG4gICAgICAgIDxkaXYgY2xhc3M9XCJwcm9kdWN0cy1zZWFyY2hcIj5cclxuICAgICAgICAgICAgPGkgY2xhc3M9XCJwaSBwaS1zZWFyY2hcIj48L2k+XHJcbiAgICAgICAgICAgIDxpbnB1dCBcclxuICAgICAgICAgICAgdHlwZT1cInRleHRcIlxyXG4gICAgICAgICAgICBwbGFjZWhvbGRlcj1cIkZpbmQgUHJvZHVjdHNcIlxyXG4gICAgICAgICAgICBjbGFzcz1cInByb2R1Y3RzLXNlYXJjaC1pbnB1dFwiXHJcbiAgICAgICAgICAgIG5hbWU9XCJzZWFyY2hcIlxyXG4gICAgICAgICAgICBpZD1cInNlYXJjaFwiXHJcbiAgICAgICAgICAgID5cclxuICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L2Rpdj5cclxuXHJcbiAgICA8L2Rpdj5cclxuPC9kaXY+XHJcbiJdfQ==
