@@ -18,11 +18,11 @@ app.options('*', cors());
 app.use(express.json());
 app.use(morgan('tiny'));
 app.use(authJwt());
-app.use('/public/uploads', express.static(__dirname + '/public/uploads'));
+app.use('/public/uploads', express.static('/public/uploads'));
 app.use(errorHandler);
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static(process.cwd()+"/dist/apps/cataldo-store"));
+app.use(express.static("/dist/apps/cataldo-store"));
 
 //Routes
 const categoriesRoutes = require('./routes/categories');
@@ -47,7 +47,7 @@ app.use(`${api}/w-variants`, W_variantsRoutes)
 app.use(`${api}/brands`, brandsRoutes);
 
 app.get('/', (req,res) => {
-    res.sendFile(process.cwd()+"/dist/apps/cataldo-store/index.html");
+    res.sendFile("/dist/apps/cataldo-store/index.html");
   });
 
 
@@ -60,7 +60,7 @@ mongoose.connect(process.env.CONNECTION_STRING).then(() => {
 
 //Server
 app.listen(process.env.PORT || 8080, () => {
-    console.log('server is running on http://localhost:3000');
+    console.log('server is running on http://localhost:8080');
 
 })
 
