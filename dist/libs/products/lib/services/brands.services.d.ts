@@ -4,8 +4,9 @@ import { Brand } from '../models/brand';
 import * as i0 from "@angular/core";
 export declare class BrandsService {
     private http;
-    apiUrlBrands: string;
-    constructor(http: HttpClient);
+    private environment;
+    private apiUrlBrands;
+    constructor(http: HttpClient, environment: any);
     getBrands(): Observable<Brand[]>;
     getBrand(brandId: string): Observable<Brand>;
     getBrandByName(brandName: string): Observable<Brand>;

@@ -4,10 +4,11 @@ import { Order } from '../models/order';
 import * as i0 from "@angular/core";
 export declare class OrdersService {
     private http;
-    apiURLOrders: string;
-    apiURLProducts: string;
-    apiUrlW_Products: string;
-    constructor(http: HttpClient);
+    private apiURLOrders;
+    private apiURLProducts;
+    private apiUrlW_Products;
+    private environment;
+    constructor(http: HttpClient, environment: any);
     getOrders(): Observable<Order[]>;
     getOrder(orderId: string): Observable<Order>;
     createOrder(order: Order): Observable<Order>;

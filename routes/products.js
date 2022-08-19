@@ -6,11 +6,15 @@ const multer = require('multer');
 const path = require('path');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types;
+const { S3Client } = require('@aws-sdk/client-s3')
+const multerS3 = require('multer-s3')
+const aws = require('aws-sdk');
 
-
-
-
-
+aws.config.update({
+    secretAccessKey: process.env.AWSsecret,
+    accessKeyId: process.env.AWSkey,
+    region: "eu-west-3"
+    });
 
 //Multer config
 const FILE_TYPE_MAP = {
@@ -34,6 +38,12 @@ const storage = multer.diskStorage({
     }
 })
 
+function filename (file) {
+    const fileName = file.originalname.split(' ').join('-');
+    console.log("original name = " + JSON.stringify(file));
+    const extension = FILE_TYPE_MAP[file.mimetype];
+    return `${fileName}.${extension}`;
+}
 
 
 
@@ -46,6 +56,33 @@ const uploadOptions = multer({
               files: 10,
               fields: 10 }
 })
+
+
+let s3 = new S3Client({
+    region: 'eu-west-3',
+    credentials: {
+      accessKeyId: process.env.AWSkey,
+      secretAccessKey: process.env.AWSsecret,
+    },
+    sslEnabled: false,
+    s3ForcePathStyle: true,
+    signatureVersion: 'v4',
+  });
+  
+
+  uploadS3 = multer({
+    storage: multerS3({
+      s3: s3,
+      bucket: 'cataldostore',
+      contentType: multerS3.AUTO_CONTENT_TYPE,
+      metadata: function (req, file, cb) {
+        cb(null, { fieldName: filename(file) });
+      },
+      key: function (req, file, cb) {
+        cb(null, filename(file));
+      },
+    }),
+  });  
 
 // Get all products in the database - OPTIONAL CATEGORY FILTER
 
@@ -526,23 +563,30 @@ router.put('/:id/add/variant', uploadOptions.single('image'), async (req, res) =
 
 
 // (WIP) Add gallery
-router.post('/gallery-images/:id', uploadOptions.array('image'), async (req, res) => {
+router.post('/gallery-images/:id', uploadS3.array('image'), async (req, res) => {
+    
 
 
     console.log("***********************************************************************adding images");
+    
 
     if (!mongoose.isValidObjectId(req.params.id)) {
         return res.status(400).send('Invalid Product Id')
     }
 
-    console.log(req.files)
+
+    console.log("files = " + req.files + "binary of the image: " + req.image);
 
     files = req.files;
+
+    
+
+
     //console.log("files= " + files);
     let imagesPaths = [];
     
     files.forEach(file => {
-        imagesPaths.push("http://localhost:3000/" + file.destination + "/" + file.filename);
+        imagesPaths.push("https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file));
     });
 
     imagesPaths.forEach(element => {

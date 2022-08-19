@@ -4,7 +4,8 @@ import { LocalstorageService } from './localstorage.service';
 import * as i0 from "@angular/core";
 export declare class JwtInterceptor implements HttpInterceptor {
     private localStorageToken;
-    constructor(localStorageToken: LocalstorageService);
+    private environment;
+    constructor(localStorageToken: LocalstorageService, environment: any);
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>>;
     static ɵfac: i0.ɵɵFactoryDeclaration<JwtInterceptor, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<JwtInterceptor>;

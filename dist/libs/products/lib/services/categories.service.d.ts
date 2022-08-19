@@ -4,8 +4,9 @@ import { Category } from '../models/category';
 import * as i0 from "@angular/core";
 export declare class CategoriesService {
     private http;
-    apiUrlCategories: string;
-    constructor(http: HttpClient);
+    private environment;
+    private apiUrlCategories;
+    constructor(http: HttpClient, environment: any);
     getCategories(): Observable<Category[]>;
     getCategory(categoryId: string): Observable<Category>;
     createCategory(category: Category): Observable<Category>;

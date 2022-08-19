@@ -4,8 +4,9 @@ import { W_Variant } from "../models/w-variant";
 import * as i0 from "@angular/core";
 export declare class W_VariantsService {
     private http;
-    apiUrlW_Variants: string;
-    constructor(http: HttpClient);
+    private environment;
+    private apiUrlW_Variants;
+    constructor(http: HttpClient, environment: any);
     getW_Variants(): Observable<W_Variant[]>;
     getW_Variant(variantId: string): Observable<W_Variant>;
     getProdW_Variants(productId: any): Observable<W_Variant[]>;

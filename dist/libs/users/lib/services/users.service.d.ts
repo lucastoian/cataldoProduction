@@ -6,8 +6,9 @@ import * as i0 from "@angular/core";
 export declare class UsersService {
     private http;
     private usersFacade;
-    apiUrlUsers: string;
-    constructor(http: HttpClient, usersFacade: UsersFacade);
+    private environment;
+    private apiUrlUsers;
+    constructor(http: HttpClient, usersFacade: UsersFacade, environment: any);
     getUsers(): Observable<User[]>;
     getUser(userId: string): Observable<User>;
     createUser(user: User): Observable<User>;

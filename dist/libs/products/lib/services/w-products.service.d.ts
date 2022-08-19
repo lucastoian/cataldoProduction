@@ -4,8 +4,9 @@ import { W_Product } from '../models/w-product';
 import * as i0 from "@angular/core";
 export declare class W_ProductsService {
     private http;
-    apiUrlW_Products: string;
-    constructor(http: HttpClient);
+    private environment;
+    private apiUrlW_Products;
+    constructor(http: HttpClient, environment: any);
     getWProducts(categoriesFilter?: string[]): Observable<W_Product[]>;
     getProductByName(prodName: string): Observable<W_Product[]>;
     getWProduct(productId: string): Observable<W_Product>;

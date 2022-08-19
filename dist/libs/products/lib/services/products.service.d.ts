@@ -4,8 +4,9 @@ import { Product123 } from '../models/product123';
 import * as i0 from "@angular/core";
 export declare class ProductsService {
     private http;
-    apiUrlProducts: string;
-    constructor(http: HttpClient);
+    private environment;
+    private apiUrlProducts;
+    constructor(http: HttpClient, environment: any);
     getProducts(categoriesFilter?: string[]): Observable<Product123[]>;
     getMProducts(categoriesFilter?: string[]): Observable<Product123[]>;
     getWProducts(categoriesFilter?: string[]): Observable<Product123[]>;

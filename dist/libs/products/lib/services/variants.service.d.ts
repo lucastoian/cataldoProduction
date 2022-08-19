@@ -4,8 +4,9 @@ import { Variant } from "../models/variant";
 import * as i0 from "@angular/core";
 export declare class VariantsService {
     private http;
-    apiUrlVariants: string;
-    constructor(http: HttpClient);
+    private environment;
+    private apiUrlVariants;
+    constructor(http: HttpClient, environment: any);
     getVariants(): Observable<Variant[]>;
     getVariant(variantId: string): Observable<Variant>;
     getProdVariants(productId: any): Observable<Variant[]>;

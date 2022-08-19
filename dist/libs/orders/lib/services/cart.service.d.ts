@@ -8,9 +8,9 @@ export declare const CART_KEY = "cart";
 export declare class CartService implements OnInit {
     productVariants: ProductVariant[];
     cart: Cart;
+    private environment;
     cart$: BehaviorSubject<Cart>;
     cart2$: BehaviorSubject<Cart>;
-    constructor();
     ngOnInit(): void;
     initCartLocalStorage(): void;
     emptyCart(): void;

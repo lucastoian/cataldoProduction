@@ -51,6 +51,11 @@ app.get('/', (req,res) => {
   });
 
 
+  app.get('/admin', (req,res) => {
+    res.sendFile(process.cwd()+"/dist/apps/admin/index.html");
+  });  
+
+
 //Database connection
 mongoose.connect(process.env.CONNECTION_STRING).then(() => {
     console.log('Database connection ready...');

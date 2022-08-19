@@ -8,8 +8,9 @@ export declare class AuthService {
     private http;
     private router;
     private token;
-    apiURLUsers: string;
-    constructor(http: HttpClient, router: Router, token: LocalstorageService);
+    private environment;
+    private apiURLUsers;
+    constructor(http: HttpClient, environment: any, router: Router, token: LocalstorageService);
     login(email: string, password: string): Observable<User>;
     logout(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<AuthService, never>;
