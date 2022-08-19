@@ -23,6 +23,7 @@ app.use(errorHandler);
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(process.cwd()+"/dist/apps/cataldo-store"));
+app.use(express.static(process.cwd()+"/dist/apps/admin"));
 
 //Routes
 const categoriesRoutes = require('./routes/categories');
