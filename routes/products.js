@@ -34,7 +34,7 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb) {
         let fileName = file.originalname.split(' ').join('-');
-        filename = fileName.split('-')[0];
+        
         const extension = FILE_TYPE_MAP[file.mimetype];
         cb(null, `${fileName}-${Date.now()}.${extension}`)
     }
@@ -44,10 +44,11 @@ function filename (file) {
    // const fileName = file.originalname.split(' ').join('-');
    // console.log("original name = " + JSON.stringify(file));
    // const extension = FILE_TYPE_MAP[file.mimetype];
-   const fileName = file.originalname.split(' ').join('-');
+   let fileName = file.originalname.split(' ').join('-');
+   filename = fileName.split('-')[0];
    const extension = FILE_TYPE_MAP[file.mimetype];
     //return randomWords({ exactly: 5, join: '' }) +"." + extension;
-    return  `${fileName}-${Date.now()}.${extension}`;
+    return  `${fileName}.${extension}`;
 }
 
 function getRandomArbitrary(min, max) {
@@ -641,5 +642,5 @@ module.exports = router;
 
 
 
-//https://cataldostore.s3.eu-west-3.amazonaws.com/D+tuPduCknryqdNeu-1661259641077.undefined
-//https://cataldostore.s3.eu-west-3.amazonaws.com/D%2BtuPduCknryqdNeu-1661259638863.undefined
+//https://cataldostore.s3.eu-west-3.amazonaws.com/D+tuPduCknryqdNeu-1661260009210.undefined
+//D+tuPduCknryqdNeu-1661260006679.undefined
