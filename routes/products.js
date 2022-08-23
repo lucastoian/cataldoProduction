@@ -44,7 +44,7 @@ function filename (file) {
     console.log("original name = " + JSON.stringify(file));
     const extension = FILE_TYPE_MAP[file.mimetype];
     
-    return randomWords({ exactly: 5, join: '' }) + extension;
+    return randomWords({ exactly: 5, join: '' }) +"." + extension;
 }
 
 function getRandomArbitrary(min, max) {
