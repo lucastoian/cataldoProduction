@@ -4,6 +4,9 @@ const { OrderItem } = require("../models/order-item");
 const router = express.Router();
 
 router.get(`/`, async (req, res) => {
+
+  console.log("******************************************************getting orders");
+
   const orderList = await Order.find()
     .populate("user", "name")
     .sort("dateOrdered");
@@ -13,20 +16,41 @@ router.get(`/`, async (req, res) => {
       success: false,
     });
   }
+  console.log("orderList = " + orderList);
   res.send(orderList);
 });
 
-router.get(`/:id`, async (req, res) => {
-  const order = await Order.findById(req.params.id)
-    .populate("user", "name")
-    .populate({
-      path: "orderItems",
-      populate: {
-        path: "product",
-        populate: "category",
-      },
-    });
 
+router.get(`/byUser/:id`, async (req, res) => {
+
+
+  console.log("user: " + req.params.id);
+  const order = await Order.find({user: req.params.id});
+  if (!order) {
+    res.status(500).json({
+      success: false,
+    });
+  }
+  res.send(order);
+ });
+ 
+
+
+router.get(`/:id`, async (req, res) => {
+
+
+  const order = await Order.findById(req.params.id);
+
+  console.log("*éé*é*é*é*é*é*é*é* ho trovato questo ordine: " + order);
+    //.populate("user", "name")
+    //.populate({
+    //  path: "orderItems",
+    //  populate: {
+    //    path: "product",
+    //    populate: "category",
+    //  },
+    //});
+//
   if (!order) {
     res.status(500).json({
       success: false,
@@ -34,6 +58,7 @@ router.get(`/:id`, async (req, res) => {
   }
   res.send(order);
 });
+
 
 
 
@@ -140,6 +165,40 @@ router.post("/", async (req, res) => {
   if (!order) return res.status(400).send("the order cannot be created!");
 
   res.send(order);
+});
+
+router.post("/createNewOrder", async (req, res) => {
+    console.log("creating a new order");
+    let order = new Order({
+      shippingAddress1: req.body.order.shippingAddress1,
+      city: req.body.order.city,
+      zip: req.body.order.zip,
+      country: req.body.order.country,
+      phone: req.body.order.phone,
+      totalPrice: req.body.order.totalPrice,
+      user: req.body.order.user,
+      email: req.body.email
+    });
+
+
+    let items = req.body.order.orderItems;
+
+    items.forEach(data => {
+      let item = {id: data.id, quantity: data.selected, size: data.size, mainImg: data.mainProductImage, name: data.mainProductName, barcode: data.barcode};
+      console.log("*éç*°ç*éç°ç*éç§°ç*éç*°    item: " + JSON.stringify(item));
+      order.items.push(item);
+    });
+
+    order = await order.save();
+
+    if (!order){
+      return res.status(400).send("the order cannot be created!");
+    } else{
+      return res.sendStatus(200);
+    }
+    
+
+    
 });
 
 router.put("/:id", async (req, res) => {
