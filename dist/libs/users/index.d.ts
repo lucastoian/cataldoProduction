@@ -11,6 +11,7 @@ export * from './lib/models/productVariant';
 export * from './lib/pages/login/login.component';
 export * from './lib/services/users.service';
 export * from './lib/services/auth-guard.service';
+export * from './lib/services/auth-guard-not-admin.service';
 export * from './lib/services/jwt.interceptor';
 export * from './lib/services/auth.service';
 export * from './lib/services/localstorage.service';

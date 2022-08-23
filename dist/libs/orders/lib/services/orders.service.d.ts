@@ -22,6 +22,7 @@ export declare class OrdersService {
     getTotalSales(): Observable<number>;
     getProduct(productId: string): Observable<any>;
     getWProduct(productId: string): Observable<any>;
+    parseJwt(token: any): any;
     static ɵfac: i0.ɵɵFactoryDeclaration<OrdersService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<OrdersService>;
 }
