@@ -43,7 +43,7 @@ function filename (file) {
     console.log("original name = " + JSON.stringify(file));
     const extension = FILE_TYPE_MAP[file.mimetype];
     
-    return "IMG" + getRandomArbitrary(0, 9999999) + "A" + getRandomArbitrary(0, 9999999) + + "A" + getRandomArbitrary(0, 9999999);
+    return "IMG" + getRandomArbitrary(0, 3000000) + "A";
 }
 
 function getRandomArbitrary(min, max) {
