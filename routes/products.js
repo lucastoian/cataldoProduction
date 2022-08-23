@@ -594,7 +594,7 @@ router.post('/gallery-images/:id', uploadS3.array('image'), async (req, res) => 
     let imagesPaths = [];
     
     files.forEach(file => {
-        imagesPaths.push("https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file));
+        imagesPaths.push("https://cataldostore.s3.eu-west-3.amazonaws.com/" + encodeURI(filename(file)));
     });
 
     imagesPaths.forEach(element => {
