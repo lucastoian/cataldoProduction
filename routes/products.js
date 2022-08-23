@@ -9,6 +9,7 @@ const ObjectId = mongoose.Types;
 const { S3Client } = require('@aws-sdk/client-s3')
 const multerS3 = require('multer-s3')
 const aws = require('aws-sdk');
+const randomWords = require('random-words');
 
 aws.config.update({
     secretAccessKey: process.env.AWSsecret,
@@ -43,7 +44,7 @@ function filename (file) {
     console.log("original name = " + JSON.stringify(file));
     const extension = FILE_TYPE_MAP[file.mimetype];
     
-    return getRandomArbitrary(0, 99999);
+    return randomWords({ exactly: 5, join: '' });
 }
 
 function getRandomArbitrary(min, max) {
