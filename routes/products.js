@@ -45,7 +45,7 @@ function filename (file) {
    // console.log("original name = " + JSON.stringify(file));
    // const extension = FILE_TYPE_MAP[file.mimetype];
    let fileName = file.originalname.split(' ').join('-');
-   filename = fileName.split('-')[0];
+   fileName = fileName.split('-')[0];
    const extension = FILE_TYPE_MAP[file.mimetype];
     //return randomWords({ exactly: 5, join: '' }) +"." + extension;
     return  `${fileName}.${extension}`;
