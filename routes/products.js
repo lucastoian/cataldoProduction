@@ -42,10 +42,13 @@ function filename (file) {
     const fileName = file.originalname.split(' ').join('-');
     console.log("original name = " + JSON.stringify(file));
     const extension = FILE_TYPE_MAP[file.mimetype];
-    return `${fileName}.${extension}`;
+    
+    return "IMG" + getRandomArbitrary(0, 9999999) + "A" + getRandomArbitrary(0, 9999999) + + "A" + getRandomArbitrary(0, 9999999);
 }
 
-
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
 const uploadOptions = multer({
     storage: storage,  
