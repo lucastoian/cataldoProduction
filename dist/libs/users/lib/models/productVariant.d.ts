@@ -6,7 +6,13 @@ export declare class ProductVariant {
     private selected;
     maxInventory: number;
     private barcode;
-    constructor(id: string, size: number, inventory: number, selected: number, barcode: string);
+    private mainProductName;
+    private mainProductImage;
+    private mainProductBrand;
+    constructor(id: string, size: any, inventory: number, selected: number, barcode: string);
+    setMainProductName(name: string): void;
+    setMainProductImage(image: string): void;
+    setMainProductBrand(brand: string): void;
     /**
      * Incrementa il numero di prodotti di questa variante selezionati
      */
@@ -17,7 +23,7 @@ export declare class ProductVariant {
     getSize(): any;
     getJson(): string;
     setId(id: string): void;
-    setSize(size: number): void;
+    setSize(size: any): void;
     setInventory(inventory: number): void;
     setSelected(select: number): void;
     setSelectedAndUpdateInventory(select: number): void;

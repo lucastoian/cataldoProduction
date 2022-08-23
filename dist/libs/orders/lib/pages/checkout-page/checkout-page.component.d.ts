@@ -10,6 +10,7 @@ import { CartService } from '../../services/cart.service';
 import { OrderItem } from '../../models/order-item';
 import { CheckoutService } from '../../services/checkout.service';
 import { Cart } from '@eshop-frontend/users';
+import { User } from '../../models/user';
 import * as i0 from "@angular/core";
 export declare class CheckoutPageComponent implements OnInit {
     private router;
@@ -30,7 +31,10 @@ export declare class CheckoutPageComponent implements OnInit {
     paymentHandler: any;
     success: boolean;
     failure: boolean;
+    user: User;
+    data: any;
     ngOnInit(): void;
+    parseJwt(token: any): any;
     private _initUserForm;
     private _autoFillUserData;
     private _getCartItems;

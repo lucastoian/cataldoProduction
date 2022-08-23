@@ -10,8 +10,10 @@ export declare class OrdersService {
     private environment;
     constructor(http: HttpClient, environment: any);
     getOrders(): Observable<Order[]>;
+    getOrdersDoneByUser(): Observable<Order[]>;
     getOrder(orderId: string): Observable<Order>;
     createOrder(order: Order): Observable<Order>;
+    createNewOrder(order: Order, email: string): Observable<Order>;
     updateOrder(orderStatus: {
         status: string;
     }, orderId: string): Observable<Order>;

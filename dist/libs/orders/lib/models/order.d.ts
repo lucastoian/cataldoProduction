@@ -1,7 +1,8 @@
-import { OrderItem } from "./order-item";
+import { User } from './user';
+import { ProductVariant } from '@eshop-frontend/users';
 export declare class Order {
     id?: string;
-    orderItems?: OrderItem[];
+    orderItems?: ProductVariant[];
     shippingAddress1?: string;
     shippingAddress2?: string;
     city?: string;
@@ -10,7 +11,7 @@ export declare class Order {
     phone?: string;
     status?: number;
     totalPrice?: string;
-    user?: any;
+    user?: User;
     dateOrdered?: string;
 }
 //# sourceMappingURL=order.d.ts.map
