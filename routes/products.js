@@ -40,11 +40,13 @@ const storage = multer.diskStorage({
 })
 
 function filename (file) {
-    const fileName = file.originalname.split(' ').join('-');
-    console.log("original name = " + JSON.stringify(file));
-    const extension = FILE_TYPE_MAP[file.mimetype];
-    
-    return randomWords({ exactly: 5, join: '' }) +"." + extension;
+   // const fileName = file.originalname.split(' ').join('-');
+   // console.log("original name = " + JSON.stringify(file));
+   // const extension = FILE_TYPE_MAP[file.mimetype];
+   const fileName = file.originalname.split(' ').join('-');
+   const extension = FILE_TYPE_MAP[file.mimetype];
+    //return randomWords({ exactly: 5, join: '' }) +"." + extension;
+    return  `${fileName}-${Date.now()}.${extension}`;
 }
 
 function getRandomArbitrary(min, max) {
