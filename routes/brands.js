@@ -3,12 +3,16 @@ const express = require ('express');
 const router = express.Router();
 const multer = require('multer');
 const mongoose = require('mongoose');
+const { S3Client } = require('@aws-sdk/client-s3')
+const multerS3 = require('multer-s3')
+const aws = require('aws-sdk');
 
 const FILE_TYPE_MAP = {
     'image/png': 'png',
     'image/jpeg': 'jpeg',
     'image/jpg': 'jpg'
 }
+
 
 const storage = multer.diskStorage({
         destination: function (req, file, cb) {
@@ -27,9 +31,57 @@ const storage = multer.diskStorage({
     limits: {fieldsize: 25 * 1024 * 1024}
 })
 
+function filename (file) {
+    // const fileName = file.originalname.split(' ').join('-');
+    // console.log("original name = " + JSON.stringify(file));
+    // const extension = FILE_TYPE_MAP[file.mimetype];
+    let fileName = file.originalname.split(' ').join('-');
+    fileName = fileName.split('-')[0];
+    fileName = fileName.replaceAll('+', 'a');
+    const extension = FILE_TYPE_MAP[file.mimetype];
+     //return randomWords({ exactly: 5, join: '' }) +"." + extension;
+     return  `${fileName}.${extension}`;
+ }
+
+
+
 const uploadOptions = multer({
-    storage: storage
+    storage: storage,  
+
+},
+{
+    limits: { fieldNameSize: 25 * 1024 * 1024,
+              files: 10,
+              fields: 10 }
 })
+
+
+let s3 = new S3Client({
+    region: 'eu-west-3',
+    credentials: {
+      accessKeyId: process.env.AWSkey,
+      secretAccessKey: process.env.AWSsecret,
+    },
+    sslEnabled: false,
+    s3ForcePathStyle: true,
+    signatureVersion: 'v4',
+  });
+  
+
+  uploadS3 = multer({
+    storage: multerS3({
+      s3: s3,
+      bucket: 'cataldostore',
+      contentType: multerS3.AUTO_CONTENT_TYPE,
+      metadata: function (req, file, cb) {
+        cb(null, { fieldName: filename(file) });
+      },
+      key: function (req, file, cb) {
+        cb(null, filename(file));
+      },
+    }),
+  });  
+
 
 router.get(`/`, async(req,res)=>{
     const brandsList = await Brand.find()
@@ -83,7 +135,7 @@ router.get(`/get/products/:name`, async(req,res)=>{
 
 
 
-router.post(`/`, uploadOptions.single('image'), async(req,res)=>{
+router.post(`/`, uploadS3.single('image'), async(req,res)=>{
 
     const file = req.file;
     if(!file){
@@ -91,12 +143,12 @@ router.post(`/`, uploadOptions.single('image'), async(req,res)=>{
     }
 
     const fileName = req.file.filename
-    const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
+  
 
 
     let brand = new Brand({
         name: req.body.name,
-        image: `${basePath}${fileName}`,
+        image: "https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file),
         m: req.body.m,
         w: req.body.w,
     })
@@ -110,16 +162,16 @@ router.post(`/`, uploadOptions.single('image'), async(req,res)=>{
     res.send(brand);
 })
 
-router.put(`/:id`, uploadOptions.single('image'), async(req,res)=>{
+router.put(`/:id`, uploadS3.single('image'), async(req,res)=>{
     const file = req.file;
     let imagepath;
     
     if (file){
         const fileName = file.filename;
         const basePath = `${req.protocol}://${req.get('host')}/public/uploads`;
-        imagepath = `${basePath}${fileName}`
+        imagepath = "https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file);
     }else{
-        imagepath = Brand.image;
+        imagepath = "https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file);
     }
 
     const updatedBrand = await Brand.findByIdAndUpdate(
