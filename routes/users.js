@@ -120,7 +120,7 @@ router.post('/register', async (req, res) => {
     let user = new User({
         name: req.body.name,
         email: req.body.email,
-        passwordHash: bcrypt.hashSync(req.body.password, 10),
+        passwordHash: bcrypt.hashSync(req.body.passwordHash, 10),
         phone: req.body.phone,
         isAdmin: req.body.isAdmin,
         street: req.body.street,
@@ -165,7 +165,7 @@ router.post('/register', async (req, res) => {
                 prefix: user.prefix
  
             },
-            secret,
+            process.env.secret,
             {expiresIn: '1d'}
         )
         res.status(200).send({user: user.email , token: token})
