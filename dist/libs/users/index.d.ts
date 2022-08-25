@@ -9,6 +9,7 @@ export * from './lib/models/cart';
 export * from './lib/models/productLuca';
 export * from './lib/models/productVariant';
 export * from './lib/pages/login/login.component';
+export * from './lib/register-component/register-component.component';
 export * from './lib/services/users.service';
 export * from './lib/services/auth-guard.service';
 export * from './lib/services/auth-guard-not-admin.service';

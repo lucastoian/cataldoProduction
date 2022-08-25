@@ -21,6 +21,8 @@ export declare class CheckoutPageComponent implements OnInit {
     private messageService;
     private checkout;
     private cart;
+    errorMessage: boolean;
+    errormessage: String[];
     constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, cart: Cart);
     checkoutFormGroup: FormGroup;
     isSubmitted: boolean;
@@ -41,6 +43,7 @@ export declare class CheckoutPageComponent implements OnInit {
     private _getCountries;
     backToCart(): void;
     placeOrder(): void;
+    checkShippingAddress(): Boolean;
     get checkoutForm(): {
         [key: string]: import("@angular/forms").AbstractControl;
     };

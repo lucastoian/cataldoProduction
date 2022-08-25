@@ -1,10 +1,13 @@
+import { UsersService } from '@eshop-frontend/users';
 import { OnInit } from '@angular/core';
 import { User23 } from '../../models/user23';
 import * as i0 from "@angular/core";
 export declare class MyProfileCheckOutComponent implements OnInit {
+    userService: UsersService;
     displayError: boolean;
     user: User23;
-    constructor();
+    constructor(userService: UsersService);
+    updateUser(): void;
     parseJwt(token: any): any;
     logout(): void;
     ngOnInit(): void;

@@ -1,15 +1,20 @@
 export declare class User {
-    id?: string;
-    name?: string;
-    password?: string;
-    email?: string;
-    phone?: string;
-    token?: string;
-    isAdmin?: string;
-    street?: string;
-    apartment?: string;
-    zip?: string;
-    city?: string;
-    country?: string;
+    fName: string;
+    lName: string;
+    email: string;
+    address1: string;
+    address2: string;
+    region: string;
+    city: string;
+    state: string;
+    postalCode: string;
+    country: string;
+    date: string;
+    sex: string;
+    prefix: string;
+    phone: string;
+    password: string;
+    id: string;
+    token: string;
 }
 //# sourceMappingURL=user.d.ts.map

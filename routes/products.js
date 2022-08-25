@@ -251,8 +251,10 @@ router.get(`/get/brand-and-category/men`, async (req, res) => {
     if (req.query.categories && req.query.brand){
 
         const productList = await Product.find({category: req.query.categories.split(','),brand: req.query.brand});
+        console.log("!=/()(/)(&/)(/)(/)(/)(/) product List = " + productList);
         const specificProductList = productList.filter((x) => x.sex === 'M');
-        
+        console.log("!=/()(/)(&/)(/)(/)(/)(/) specified product List = " + specificProductList);
+
         if (!specificProductList) {
             res.status(500).json({
                 success: false

@@ -86,22 +86,23 @@ router.post('/login', async (req,res)=>{
     if(user && bcrypt.compareSync(req.body.password, user.passwordHash)){
        const token = jwt.sign(
            {
-               userId: user.id,
-               isAdmin: user.isAdmin,
-               country: user.country,
-               address1 : user.address1,
-               address2 : user.address2,
-               dateOfBirth : user.dateOfBirth,
-               email: user.email,
-               phone: user.phone,
-               postalCode: user.postalCode,
-               gender: user.gender,
-               fName: user.name,
-               lName: user.lastName,
-               region: user.region,
-               city: user.city,
-               state: user.state,
-               prefix: user.prefix
+            userId: user.id,
+            isAdmin: user.isAdmin,
+            country: user.country,
+            address1 : user.address1,
+            address2 : user.address2,
+            dateOfBirth : user.dateOfBirth,
+            email: user.email,
+            phone: user.phone,
+            postalCode: user.postalCode,
+            sex: user.gender,
+            gender: user.gender,
+            fName: user.name,
+            lName: user.lastName,
+            region: user.region,
+            city: user.city,
+            state: user.state,
+            prefix: user.prefix
 
            },
            secret,
@@ -132,9 +133,10 @@ router.post('/register', async (req, res) => {
         address2: req.body.address2,
         dateOfBirth: req.body.dateOfBirth,
         postalCode: req.body.postalCode,
-        gender: req.body.gender,
+        gender: req.body.sex,
         fName: req.body.fName,
-        lName: req.body.lName,
+        lName: req.body.lastName,
+        lastName: req.body.lastName,
         region: req.body.region,
         state: req.body.state,
         prefix: req.body.prefix
@@ -157,8 +159,9 @@ router.post('/register', async (req, res) => {
                 phone: user.phone,
                 postalCode: user.postalCode,
                 sex: user.gender,
-                fName: user.fName,
-                lName: user.lName,
+                gender: user.gender,
+                fName: user.name,
+                lName: user.lastName,
                 region: user.region,
                 city: user.city,
                 state: user.state,
@@ -175,6 +178,8 @@ router.post('/register', async (req, res) => {
 
 router.put(`/:id`, async (req,res)=>{
 
+    console.log("OAISDJPAOAPèSKJDNAPOSUIDNAPSUDN UPDATING USER" );
+
   const userExist = await User.findById(req.params.id);
   let newPassword;
   if (req.body.password) {
@@ -186,9 +191,14 @@ router.put(`/:id`, async (req,res)=>{
     const user = await User.findByIdAndUpdate(
         req.params.id,
         {
-         name: req.body.name,
-         lastName: req.body.lastName,
-         userName: req.body.userName,
+         name: req.body.fName,
+         lastName: req.body.lName,
+         region: req.body.region,
+         postalCode: req.body.postalCode,
+         address1: req.body.address1,
+         address2: req.body.address2,
+         dateOfBirth: req.body.date,
+         userName: req.body.fName + req.body.lastName,
          email: req.body.email,
          passwordHash: newPassword,
          phone: req.body.phone,
@@ -198,6 +208,8 @@ router.put(`/:id`, async (req,res)=>{
          zip: req.body.zip,
          city: req.body.city,
          country: req.body.country,
+         gender: req.body.sex,
+         prefix: req.body.prefix
         },
         {new: true}
     )
@@ -207,7 +219,32 @@ router.put(`/:id`, async (req,res)=>{
             return res.status(400).send('the user cannot be created!');
         }
 
-        res.send(user);
+        const token = jwt.sign(
+            {
+                userId: user.id,
+                isAdmin: user.isAdmin,
+                country: user.country,
+                address1 : user.address1,
+                address2 : user.address2,
+                dateOfBirth : user.dateOfBirth,
+                email: user.email,
+                phone: user.phone,
+                postalCode: user.postalCode,
+                sex: user.gender,
+                gender: user.gender,
+                fName: user.name,
+                lName: user.lastName,
+                region: user.region,
+                city: user.city,
+                state: user.state,
+                prefix: user.prefix
+ 
+            },
+            process.env.secret,
+            {expiresIn: '1d'}
+        )
+        res.status(200).send({user: user.email , token: token})
+        
 })
 
 router.delete('/:id', (req, res) => {
