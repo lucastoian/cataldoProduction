@@ -9,7 +9,6 @@ const ObjectId = mongoose.Types;
 const { S3Client } = require('@aws-sdk/client-s3')
 const multerS3 = require('multer-s3')
 const aws = require('aws-sdk');
-const randomWords = require('random-words');
 
 aws.config.update({
     secretAccessKey: process.env.AWSsecret,
@@ -33,28 +32,25 @@ const storage = multer.diskStorage({
         cb(uploadError, 'public/uploads')
     },
     filename: function (req, file, cb) {
-        let fileName = file.originalname.split(' ').join('-');
-        
+        const fileName = file.originalname.split(' ').join('-');
         const extension = FILE_TYPE_MAP[file.mimetype];
         cb(null, `${fileName}-${Date.now()}.${extension}`)
     }
 })
 
 function filename (file) {
-   // const fileName = file.originalname.split(' ').join('-');
-   // console.log("original name = " + JSON.stringify(file));
-   // const extension = FILE_TYPE_MAP[file.mimetype];
-   let fileName = file.originalname.split(' ').join('-');
-   fileName = fileName.split('-')[0];
-   fileName = fileName.replaceAll('+', 'a');
-   const extension = FILE_TYPE_MAP[file.mimetype];
-    //return randomWords({ exactly: 5, join: '' }) +"." + extension;
-    return  `${fileName}.${extension}`;
-}
+    // const fileName = file.originalname.split(' ').join('-');
+    // console.log("original name = " + JSON.stringify(file));
+    // const extension = FILE_TYPE_MAP[file.mimetype];
+    let fileName = file.originalname.split(' ').join('-');
+    fileName = fileName.split('-')[0];
+    fileName = fileName.replaceAll('+', 'a');
+    const extension = FILE_TYPE_MAP[file.mimetype];
+     //return randomWords({ exactly: 5, join: '' }) +"." + extension;
+     return  `${fileName}.${extension}`;
+ }
 
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
+
 
 const uploadOptions = multer({
     storage: storage,  
@@ -450,7 +446,7 @@ router.post(`/`, uploadOptions.single('image'), async (req, res) => {
 
 
 // Put data in specific product
-router.put('/:id', uploadOptions.single('image'), async (req, res) => {
+router.put('/:id', uploadS3.single('image'), async (req, res) => {
     if (!mongoose.isValidObjectId(req.params.id)) {
         return res.status(400).send('Invalid Product Id')
     }
@@ -468,11 +464,11 @@ router.put('/:id', uploadOptions.single('image'), async (req, res) => {
     let imagepath;
 
     if (file) {
-        const fileName = file.filename;
-        const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
-        imagepath = `${basePath}${fileName}`;
+        //const fileName = file.filename;
+        //const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
+        imagepath = "https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file);
     } else {
-        imagepath = product.image;
+        imagepath ="https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file);
     } 
 
     // const variants = Promise.all(
@@ -497,7 +493,7 @@ router.put('/:id', uploadOptions.single('image'), async (req, res) => {
             description: req.body.description,
             category: req.body.category,
             sex: req.body.sex,
-            image: imagepath,
+            image: "https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file),
             brand: req.body.brand,
             price: req.body.price,
             isFeatured: req.body.isFeatured,
@@ -595,7 +591,7 @@ router.post('/gallery-images/:id', uploadS3.array('image'), async (req, res) => 
     let imagesPaths = [];
     
     files.forEach(file => {
-        imagesPaths.push("https://cataldostore.s3.eu-west-3.amazonaws.com/" + encodeURI(filename(file)));
+        imagesPaths.push("https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file));
     });
 
     imagesPaths.forEach(element => {
@@ -640,8 +636,3 @@ router.delete('/:id', (req,res)=>{
 })
 
 module.exports = router;
-
-
-
-//https://cataldostore.s3.eu-west-3.amazonaws.com/D+tuPduCknryqdNeu-1661260009210.undefined
-//D+tuPduCknryqdNeu-1661260006679.undefined
