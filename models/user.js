@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userSchema = mongoose.Schema({
     name:{
       type: String,
-      required: true
+      default: ''
     },
     lastName: {
         type: String,
@@ -23,7 +23,7 @@ const userSchema = mongoose.Schema({
     },
     phone:{
         type: String,
-        required: true
+        default: ''
     },
     isAdmin: {
             type: Boolean,

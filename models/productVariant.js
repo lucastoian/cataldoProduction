@@ -6,7 +6,7 @@ const productVariantSchema = mongoose.Schema({
         required: true
     },
     size:{
-        type: String,
+        type: mongoose.Schema.Types.Mixed,
         required: true        
     },
     inventory: {

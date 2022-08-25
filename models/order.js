@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
 
 const orderSchema = mongoose.Schema({
-    orderItems: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'OrderItem',
-        required: true
+    items: [{
+        id: {   type: mongoose.Schema.Types.ObjectId, ref: 'productvariants',}, 
+        mainImg: {type: String},
+        name: {type: String},
+        size: {type: mongoose.Schema.Types.Mixed, required:true},
+        brand: {type: String},
+        category: {type: String},
+        barcode: {type: String},
+        quantity: {type: Number, required:true},
+        
     }],
     shippingAddress1: {
         type: String,
@@ -40,6 +46,10 @@ const orderSchema = mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
+    },
+    email: {
+        type: String,
+        required: true
     },
     dateOrdered: {
         type: Date,
