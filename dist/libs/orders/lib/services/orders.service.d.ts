@@ -13,7 +13,7 @@ export declare class OrdersService {
     getOrdersDoneByUser(): Observable<Order[]>;
     getOrder(orderId: string): Observable<Order>;
     createOrder(order: Order): Observable<Order>;
-    createNewOrder(order: Order, email: string): Observable<Order>;
+    createNewOrder(order: Order, email: string): Observable<any>;
     updateOrder(orderStatus: {
         status: string;
     }, orderId: string): Observable<Order>;

@@ -219,7 +219,8 @@ router.post("/createNewOrder", async (req, res) => {
       phone: req.body.order.phone,
       totalPrice: req.body.order.totalPrice,
       user: req.body.order.user,
-      email: req.body.email
+      email: req.body.email,
+      id: getRandomInt(9999999) * getRandomInt(9999999)
     });
 
 
@@ -236,13 +237,13 @@ router.post("/createNewOrder", async (req, res) => {
     if (!order){
       return res.status(400).send("the order cannot be created!");
     } else{
-      return res.sendStatus(200);
+      return res.status(200).send(order);
     }
     
   }catch(e){
     res.status(500).json({
       success: false,
-      error: e
+      
   })
   }
     
@@ -300,5 +301,9 @@ router.delete("/:id", (req, res) => {
   })
   }
 });
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 
 module.exports = router;

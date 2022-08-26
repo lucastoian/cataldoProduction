@@ -7,6 +7,7 @@ export declare class Cart {
     private items;
     constructor();
     addProductLuca(ProductLuca: ProductLuca): void;
+    emptyCart(): void;
     getproducts(): ProductLuca[];
     getproductsSize(): number;
     getProduct(index: number): ProductLuca;
