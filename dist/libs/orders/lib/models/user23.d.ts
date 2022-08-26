@@ -16,6 +16,7 @@ export declare class User23 {
     password: string;
     id: string;
     token: string;
+    isAdmin: string;
     constructor();
 }
 //# sourceMappingURL=user23.d.ts.map

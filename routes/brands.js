@@ -84,6 +84,7 @@ let s3 = new S3Client({
 
 
 router.get(`/`, async(req,res)=>{
+    try{
     const brandsList = await Brand.find()
 
     if(!brandsList){
@@ -93,9 +94,15 @@ router.get(`/`, async(req,res)=>{
     }
 
     res.send(brandsList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    });
+}
 })
 
 router.get(`/:id`, async(req,res)=>{
+    try{
     const brand = await Brand.findById(req.params.id);
 
     if(!brand){
@@ -105,9 +112,15 @@ router.get(`/:id`, async(req,res)=>{
     }
 
     res.send(brand);
+}catch(e){
+    res.status(500).json({
+        success: false
+    });
+}
 })
 
 router.get(`/get/:name`, async(req,res)=>{
+    try{
     let name = req.params.name;
     const brand = await Brand.find({name: name});
 
@@ -118,9 +131,15 @@ router.get(`/get/:name`, async(req,res)=>{
     }
 
     res.send(brand);
+}catch(e){
+    res.status(500).json({
+        success: false
+    });
+}
 })
 
 router.get(`/get/products/:name`, async(req,res)=>{
+    try{
     let name = req.params.name;
     const brand = await Brand.find({name: name});
 
@@ -131,11 +150,17 @@ router.get(`/get/products/:name`, async(req,res)=>{
     }
 
     res.send(brand);
+}catch(e){
+    res.status(500).json({
+        success: false
+    });
+}
 })
 
 
 
 router.post(`/`, uploadS3.single('image'), async(req,res)=>{
+    try{
 
     const file = req.file;
     if(!file){
@@ -160,9 +185,13 @@ router.post(`/`, uploadS3.single('image'), async(req,res)=>{
     }
 
     res.send(brand);
+}catch(e){
+    return res.status(500).send('Brand could not be created' + e);
+}
 })
 
 router.put(`/:id`, uploadS3.single('image'), async(req,res)=>{
+    try{
     const file = req.file;
     let imagepath;
     
@@ -189,9 +218,13 @@ router.put(`/:id`, uploadS3.single('image'), async(req,res)=>{
     }
 
     res.send(updatedBrand);
+}catch(e){
+    return res.status(500).send('the brand cannot be updated')
+}
 })
 
 router.delete(`/:id`, (req,res)=>{
+    try{
     Brand.findByIdAndRemove(req.params.id).then(brand =>{
         if(brand){
             return res.status(200).json({
@@ -210,6 +243,9 @@ router.delete(`/:id`, (req,res)=>{
             error: err
         });
     })
+}catch(e){
+    return res.status(400).send('the brand cannot be updated')
+}
 })
 
 

@@ -40,6 +40,7 @@ const uploadOptions = multer({
 })
 
 router.get(`/`, async (req, res) => {
+    try{
     // localhost:3000/api/v1/products?categories=2342342,234234
     let filter = {};
     if (req.query.categories) {
@@ -56,9 +57,15 @@ router.get(`/`, async (req, res) => {
         })
     }
     res.send(productList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 router.get(`/prodname/:name`, async (req, res) => {
+    try{
     let prodName = req.params.name;
 
     const productsList = await W_product.find({
@@ -71,10 +78,16 @@ router.get(`/prodname/:name`, async (req, res) => {
         });
     }
     res.send(productsList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 router.get(`/:id`, async (req, res) => {
+    try{
     const product = await W_product.findById(req.params.id);
 
     if (!product) {
@@ -83,10 +96,16 @@ router.get(`/:id`, async (req, res) => {
         });
     }
     res.send(product);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 router.post(`/`, uploadOptions.single('image'), async (req, res) => {
+    try{
     const category = await Category.findById(req.body.category);
     if (!category) return res.status(400).send('Invalid category')
 
@@ -124,9 +143,15 @@ router.post(`/`, uploadOptions.single('image'), async (req, res) => {
 
     res.send(product)
     console.log(product);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 router.put('/:id', uploadOptions.single('image'), async (req, res) => {
+    try{
     if (!mongoose.isValidObjectId(req.params.id)) {
         return res.status(400).send('Invalid Product Id')
     }
@@ -189,9 +214,15 @@ router.put('/:id', uploadOptions.single('image'), async (req, res) => {
         return res.status(400).send('the product cannot be updated');
 
     res.send(updatedProduct);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 router.delete('/:id', (req, res) => {
+    try{
     W_product.findByIdAndRemove(req.params.id).then(W_product => {
         if (W_product) {
             return res.status(200).json({
@@ -210,6 +241,11 @@ router.delete('/:id', (req, res) => {
             error: err
         });
     })
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 module.exports = router;

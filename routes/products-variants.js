@@ -40,6 +40,7 @@ const uploadOptions = multer({
 
 
 router.get(`/`, async (req, res) => {
+    try{
     const variantsList = await ProductVariant.find();
 
     if (!variantsList) {
@@ -48,10 +49,16 @@ router.get(`/`, async (req, res) => {
         })
     }
     res.send(variantsList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 router.get('/product/:id', async (req, res) => {
+    try{
 
     const prodId = req.params.id;
     const variantsList = await ProductVariant.find({'product': prodId}).populate({
@@ -66,10 +73,15 @@ router.get('/product/:id', async (req, res) => {
     }
 
     res.send(variantsList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 router.get('/product/:id/form/edit', async (req, res) => {
-
+try{
     const variantId = req.params.id;
     const variantsList = await ProductVariant.findById(variantId).populate({
         path: 'product',
@@ -83,11 +95,17 @@ router.get('/product/:id/form/edit', async (req, res) => {
     }
 
     res.send(variantsList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 
 router.post('/', uploadOptions.single('image'), async (req, res) => {
+    try{
 
     let product = await Product.findById(req.body.product);
     if (!product) return res.status(400).send('Invalid product')
@@ -109,9 +127,15 @@ router.post('/', uploadOptions.single('image'), async (req, res) => {
         return res.status(404).send('the variant cannot be created');
 
     res.send(productVariant);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 router.put('/product/:id/form/edit', uploadOptions.single('image'), async (req, res) => {
+    try{
     if (!mongoose.isValidObjectId(req.params.id)) {
         return res.status(400).send('Invalid Variant Id')
     }
@@ -156,12 +180,18 @@ router.put('/product/:id/form/edit', uploadOptions.single('image'), async (req, 
         return res.status(400).send('the variant cannot be updated');
 
     res.send(updatedVariant);
+    }catch(e){
+        res.status(500).json({
+            success: false
+        })
+    }
 })
 
 
 
 
 router.delete('/:id', (req,res)=>{
+    try{
     ProductVariant.findByIdAndRemove(req.params.id).then(variant =>{
         if(variant){
             return res.status(200).json({
@@ -180,6 +210,11 @@ router.delete('/:id', (req,res)=>{
             error: err
         });
     })
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 

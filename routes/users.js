@@ -7,6 +7,7 @@ const jwt =  require('jsonwebtoken');
 
 //Retrieve all users
 router.get(`/`, async (req, res) => {
+    try{
     const usersList = await User.find().select('name lastName userName email');
 
     if (!usersList) {
@@ -15,21 +16,33 @@ router.get(`/`, async (req, res) => {
         })
     }
     res.send(usersList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 //Retrieve a specific user using its id
 router.get(`/:id`, async(req,res)=>{
+    try{
     const user = await User.findById(req.params.id).select('-passwordHash');
 
     if(!user){
         res.status(500).json({message: 'ID not found'})
     }
     res.status(200).send(user);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 //Count all users
 router.get(`/get/count`, async (req, res) => {
+    try{
     User.countDocuments().then(count => {
         if (count) {
             return res.status(200).json({
@@ -46,11 +59,17 @@ router.get(`/get/count`, async (req, res) => {
             error: err
         })
     });
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 //Create a new user
 router.post('/', async (req,res)=>{
+    try{
     let user = new User({
             name: req.body.name,
             lastName: req.body.lastName,
@@ -71,11 +90,17 @@ router.post('/', async (req,res)=>{
         return res.status(400).send('the user cannot be created!')
 
     res.send(user);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 //Users authentication
 router.post('/login', async (req,res)=>{
+    try{
     const user =  await User.findOne({email: req.body.email})
     const secret = process.env.secret;
 
@@ -114,10 +139,15 @@ router.post('/login', async (req,res)=>{
         res.status(400).send('wrong password');
     }
 
-
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 router.post('/register', async (req, res) => {
+    try{
     let user = new User({
         name: req.body.name,
         email: req.body.email,
@@ -172,11 +202,17 @@ router.post('/register', async (req, res) => {
             {expiresIn: '1d'}
         )
         res.status(200).send({user: user.email , token: token})
+    }catch(e){
+        res.status(500).json({
+            success: false
+        })
+    }
 
 })
 
 
 router.put(`/:id`, async (req,res)=>{
+    try{
 
     console.log("OAISDJPAOAPèSKJDNAPOSUIDNAPSUDN UPDATING USER" );
 
@@ -244,10 +280,16 @@ router.put(`/:id`, async (req,res)=>{
             {expiresIn: '1d'}
         )
         res.status(200).send({user: user.email , token: token})
+    }catch(e){
+        res.status(500).json({
+            success: false
+        })
+    }
         
 })
 
 router.delete('/:id', (req, res) => {
+    try{
     User.findByIdAndRemove(req.params.id).then(user => {
         if (user) {
             return res.status(200).json({
@@ -266,6 +308,11 @@ router.delete('/:id', (req, res) => {
             error: err
         });
     })
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 

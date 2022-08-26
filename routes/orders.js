@@ -4,6 +4,7 @@ const { OrderItem } = require("../models/order-item");
 const router = express.Router();
 
 router.get(`/`, async (req, res) => {
+  try{
 
   console.log("******************************************************getting orders");
 
@@ -18,10 +19,16 @@ router.get(`/`, async (req, res) => {
   }
   console.log("orderList = " + orderList);
   res.send(orderList);
+}catch(e){
+  res.status(500).json({
+    success: false
+})
+}
 });
 
 
 router.get(`/byUser/:id`, async (req, res) => {
+  try{
 
 
   console.log("user: " + req.params.id);
@@ -32,13 +39,18 @@ router.get(`/byUser/:id`, async (req, res) => {
     });
   }
   res.send(order);
+}catch(e){
+  res.status(500).json({
+    success: false
+})
+}
  });
  
 
 
 router.get(`/:id`, async (req, res) => {
 
-
+try{
   const order = await Order.findById(req.params.id);
 
   console.log("*éé*é*é*é*é*é*é*é* ho trovato questo ordine: " + order);
@@ -57,12 +69,18 @@ router.get(`/:id`, async (req, res) => {
     });
   }
   res.send(order);
+} catch(e){
+  res.status(500).json({
+    success: false
+})
+}
 });
 
 
 
 
 router.get("/get/totalsales", async (req, res) => {
+  try{
   const totalSales = await Order.aggregate([
     {
       $group: {
@@ -81,9 +99,15 @@ router.get("/get/totalsales", async (req, res) => {
   res.send({
     totalsales: totalSales.pop().totalsales,
   });
+}catch(e){
+  res.status(500).json({
+    success: false
+})
+}
 });
 
 router.get(`/get/count`, async (req, res) => {
+  try{
   const orderCount = await Order.countDocuments();
 
   if (!orderCount) {
@@ -94,9 +118,15 @@ router.get(`/get/count`, async (req, res) => {
   res.send({
     orderCount: orderCount,
   });
+} catch(e){
+  res.status(500).json({
+    success: false
+})
+}
 });
 
 router.get(`/get/userorders/:userid`, async (req, res) => {
+  try{
   const userOrderList = await Order.find({
     user: req.params.userid,
   })
@@ -117,9 +147,15 @@ router.get(`/get/userorders/:userid`, async (req, res) => {
     });
   }
   res.send(userOrderList);
+}catch(e){
+  res.status(500).json({
+    success: false
+})
+}
 });
 
 router.post("/", async (req, res) => {
+  try{
   const orderItemsIds = Promise.all(
     req.body.orderItems.map(async (orderItem) => {
       let newOrderItem = new OrderItem({
@@ -165,9 +201,15 @@ router.post("/", async (req, res) => {
   if (!order) return res.status(400).send("the order cannot be created!");
 
   res.send(order);
+}catch(e){
+  res.status(500).json({
+    success: false
+})
+}
 });
 
 router.post("/createNewOrder", async (req, res) => {
+  try{
     console.log("creating a new order");
     let order = new Order({
       shippingAddress1: req.body.order.shippingAddress1,
@@ -197,11 +239,17 @@ router.post("/createNewOrder", async (req, res) => {
       return res.sendStatus(200);
     }
     
-
+  }catch(e){
+    res.status(500).json({
+      success: false,
+      error: e
+  })
+  }
     
 });
 
 router.put("/:id", async (req, res) => {
+  try{
   const order = await Order.findByIdAndUpdate(
     req.params.id,
     {
@@ -214,9 +262,15 @@ router.put("/:id", async (req, res) => {
   if (!order) return res.status(400).send("the order cannot be updated");
 
   res.send(order);
+  }catch(e){
+    res.status(500).json({
+      success: false
+  })
+  }
 });
 
 router.delete("/:id", (req, res) => {
+  try{
   Order.findByIdAndRemove(req.params.id)
     .then(async (order) => {
       if (order) {
@@ -240,6 +294,11 @@ router.delete("/:id", (req, res) => {
         error: err,
       });
     });
+  }catch(e){
+    res.status(500).json({
+      success: false
+  })
+  }
 });
 
 module.exports = router;

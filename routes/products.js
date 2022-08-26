@@ -92,6 +92,7 @@ let s3 = new S3Client({
 // Get all products in the database - OPTIONAL CATEGORY FILTER
 
 router.get(`/`, async (req, res) =>{
+    try{
     // localhost:3000/api/v1/products?categories=2342342,234234
     let filter = {};
     if(req.query.categories)
@@ -106,10 +107,16 @@ router.get(`/`, async (req, res) =>{
         res.status(500).json({success: false})
     } 
     res.send(productList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 // Get products for men - OPTIONAL CATEGORY FILTER
 router.get(`/get/men-prods`, async (req, res) =>{
+    try{
 
     let filter = {};
     if (req.query.categories) {
@@ -135,10 +142,16 @@ router.get(`/get/men-prods`, async (req, res) =>{
         res.status(500).json({success: false})
     } 
     res.send(filteredprods);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 // Get products for women - OPTIONAL CATEGORY FILTER
 router.get(`/get/women-prods`, async (req, res) => {
+    try{
 
     let filter = {};
     if (req.query.categories) {
@@ -165,10 +178,16 @@ router.get(`/get/women-prods`, async (req, res) => {
     }
 
     res.send(filteredprods);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 // Get products for men - OPTIONAL BRAND FILTER ONLY
 
 router.get(`/get/brand/men`, async (req, res) => {
+    try{
 
     if (req.query.brand) {
         brand = {
@@ -187,11 +206,17 @@ router.get(`/get/brand/men`, async (req, res) => {
         const specificProductList = productsList.filter((x) => x.sex === 'M');
 
     res.send(specificProductList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 // Get products for women - OPTIONAL BRAND FILTER ONLY
 
 router.get(`/get/brand/women`, async (req, res) => {
+    try{
 
     if (req.query.brand) {
         brand = {
@@ -209,12 +234,18 @@ router.get(`/get/brand/women`, async (req, res) => {
     const specificProductList = productsList.filter((x) => x.sex === 'F');
 
     res.send(specificProductList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 
 // Get all products - OPTIONAL BRAND FILTER ONLY
 router.get(`/get/brand/all`, async (req,res)=>{
+    try{
     
     if(req.query.brand){
         brand = { brand: req.query.brand};
@@ -228,11 +259,17 @@ router.get(`/get/brand/all`, async (req,res)=>{
     }
 
     res.send(productsList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 // Get products for men - OPTIONAL PARAMS FOR BRAND AND CATEGORY COMBINED
 router.get(`/get/brand-and-category/men`, async (req, res) => {
+    try{
     // http://localhost:3000/api/v1/products/get/brand/men?categories=61e1a62d81572bb64bd8d73b,61e7cdc42eedad9135296d50&brand=6213c89e9309de960180da4d
 
 
@@ -274,12 +311,17 @@ router.get(`/get/brand-and-category/men`, async (req, res) => {
                 }
     }
     
-    
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 // Get products for Women - OPTIONAL PARAMS FOR BRAND AND CATEGORY COMBINED
 
 router.get(`/get/brand-and-category/women`, async (req, res) => {
+    try{
     // http://localhost:3000/api/v1/products/get/brand/women?categories=61abf4a257450fc2517488f0&?brand=6213c7889309de960180da4a
 
     let filter = {};
@@ -320,6 +362,11 @@ router.get(`/get/brand-and-category/women`, async (req, res) => {
                 })
             }
         }
+    }catch(e){
+        res.status(500).json({
+            success: false
+        })
+    }
 
 })
 
@@ -332,6 +379,7 @@ router.get(`/get/brand-and-category/women`, async (req, res) => {
 // Get any product by name
 
 router.get(`/prodname/:name`, async (req,res)=>{
+    try{
     let prodName = req.params.name;
 
     const productsList = await Product.find({name: prodName});
@@ -340,6 +388,11 @@ router.get(`/prodname/:name`, async (req,res)=>{
         res.status(500).json({success: false});
     }
     res.send(productsList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
@@ -366,6 +419,7 @@ router.get(`/prodname/:name`, async (req,res)=>{
 
 // Get specific product by ID
 router.get(`/:id`, async (req,res)=>{
+    try{
     const product = await Product.findById(req.params.id).populate('category');
 
     if (!product){
@@ -374,21 +428,33 @@ router.get(`/:id`, async (req,res)=>{
         });
     }
     res.send(product);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 // Get featured products
 router.get(`/get/featured`, async (req,res)=>{
+    try{
     const products = await Product.find({isFeatured: true})
 
     if(!products){
         res.status(500).json({success: false})
     }
     res.send(products);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 // Get products count
 router.get(`/get/count`, async (req,res)=>{
+    try{
     Product.countDocuments().then(count =>{
         if (count){
             return res.status(200).json({productCount: count});
@@ -401,12 +467,18 @@ router.get(`/get/count`, async (req,res)=>{
             error: err
         })
     });
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 //Post a new product with an optional single image
 
 router.post(`/`, uploadOptions.single('image'), async (req, res) => {
+    try{
     const category = await Category.findById(req.body.category);
     if (!category) return res.status(400).send('Invalid category')
 
@@ -444,11 +516,17 @@ router.post(`/`, uploadOptions.single('image'), async (req, res) => {
 
         res.send(product)
         console.log(product);
+    }catch(e){
+        res.status(500).json({
+            success: false
+        })
+    }
 })
 
 
 // Put data in specific product
 router.put('/:id', uploadS3.single('image'), async (req, res) => {
+    try{
     if (!mongoose.isValidObjectId(req.params.id)) {
         return res.status(400).send('Invalid Product Id')
     }
@@ -511,10 +589,16 @@ router.put('/:id', uploadS3.single('image'), async (req, res) => {
         return res.status(400).send('the product cannot be updated');
 
     res.send(updatedProduct);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 // (WIP) Add variant
 router.put('/:id/add/variant', uploadOptions.single('image'), async (req, res) => {
+    try{
     if (!mongoose.isValidObjectId(req.params.id)) {
         return res.status(400).send('Invalid Product Id')
     }
@@ -566,12 +650,18 @@ router.put('/:id/add/variant', uploadOptions.single('image'), async (req, res) =
         return res.status(400).send('the product cannot be updated');
 
     res.send(updatedProdWithVariant);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 // (WIP) Add gallery
 router.post('/gallery-images/:id', uploadS3.array('image'), async (req, res) => {
     
+    try{
 
 
     console.log("***********************************************************************adding images");
@@ -612,11 +702,16 @@ router.post('/gallery-images/:id', uploadS3.array('image'), async (req, res) => 
         return res.status(400).send('the product cannot be updated');
 
     res.send(product);
-
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 //Delete specific product
 router.delete('/:id', (req,res)=>{
+    try{
     Product.findByIdAndRemove(req.params.id).then(product =>{
         if(product){
             return res.status(200).json({
@@ -635,6 +730,11 @@ router.delete('/:id', (req,res)=>{
             error: err
         });
     })
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 module.exports = router;

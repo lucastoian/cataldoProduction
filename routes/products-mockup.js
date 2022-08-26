@@ -1,6 +1,7 @@
 // GET ALL PRODUCTS IN THE DATABASE - NO FILTERS
 
 router.get(`/`, async (req, res) => {
+    try{
     // localhost:3000/api/v1/products?categories=2342342,234234
     let filter = {};
     if (req.query.categories) {
@@ -18,10 +19,16 @@ router.get(`/`, async (req, res) => {
         })
     }
     res.send(productList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 // GET ALL PRODUCTS - OPTIONAL BRAND FILTER ONLY
 router.get(`/get/brand/all`, async (req, res) => {
+    try{
 
     if (req.query.brand) {
         brand = {
@@ -37,12 +44,18 @@ router.get(`/get/brand/all`, async (req, res) => {
     }
 
     res.send(productsList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
 // GET ALL PRODUCTS FOR MEN - OPTIONAL BRAND FILTER ONLY
 
 router.get(`/get/brand/men`, async (req, res) => {
+    try{
 
     if (req.query.brand) {
         brand = {
@@ -60,6 +73,11 @@ router.get(`/get/brand/men`, async (req, res) => {
     const specificProductList = productList.filter((x) => x.sex === 'M');
 
     res.send(specificProductList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })
 
 
@@ -67,6 +85,7 @@ router.get(`/get/brand/men`, async (req, res) => {
 // GET ALL PRODUCTS FOR WOMEN - OPTIONAL BRAND FILTER ONLY
 
 router.get(`/get/brand/women`, async (req, res) => {
+    try{
 
     if (req.query.brand) {
         brand = {
@@ -84,4 +103,9 @@ router.get(`/get/brand/women`, async (req, res) => {
     const specificProductList = productList.filter((x) => x.sex === 'F');
 
     res.send(specificProductList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
 })

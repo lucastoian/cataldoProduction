@@ -33,7 +33,7 @@ const orderSchema = mongoose.Schema({
     },
     phone: {
         type: String,
-        required: true
+        default: '',
     },
     status: {
         type: String,
