@@ -8,12 +8,12 @@
     "rxjs": "~7.4.0",
     "@angular/forms": "^13.0.0",
     "@angular/router": "^13.0.0",
+    "primeng": "^13.0.2",
     "i18n-iso-countries": "^7.2.0",
     "@ngrx/store": "~13.0.0",
     "@ngrx/effects": "~13.0.0",
     "@nrwl/angular": "13.2.4",
-    "@ngrx/entity": "~13.0.0",
-    "primeng": "^13.0.2"
+    "@ngrx/entity": "~13.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { LocalstorageService } from '../../services/localstorage.service';
 import { Location } from '@angular/common';
+import { MessageService } from 'primeng/api';
 import * as i0 from "@angular/core";
 export declare class LoginComponent implements OnInit {
     private formBuilder;
@@ -11,11 +12,12 @@ export declare class LoginComponent implements OnInit {
     private localstorageService;
     private router;
     private location;
+    private messageService;
     loginFormGroup: FormGroup;
     isSubmitted: boolean;
     authError: boolean;
     authMessage: string;
-    constructor(formBuilder: FormBuilder, auth: AuthService, localstorageService: LocalstorageService, router: Router, location: Location);
+    constructor(formBuilder: FormBuilder, auth: AuthService, localstorageService: LocalstorageService, router: Router, location: Location, messageService: MessageService);
     ngOnInit(): void;
     private _initLoginForm;
     onSubmit(): void;
