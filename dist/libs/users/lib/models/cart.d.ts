@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
-import { ProductLuca } from './ProductLuca';
 import { ProductVariant } from './productVariant';
+import { ProductLuca } from './productLuca';
 import * as i0 from "@angular/core";
 export declare class Cart {
     private products;
