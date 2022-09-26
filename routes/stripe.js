@@ -58,6 +58,7 @@ app.post('/checkout', async(req, res) => {
 });
 
 app.post('/charge-source', async (req, res, next) => {
+  try{
   const stripe2 = Stripe("sk_test_51LYUCGDEyiX3e3PlOF9sfkE3RE3eyjDbq9kzY39MZmErzUDUKIfURmQ7raSXznjlT1gQP6hUI8VBraRlzZzp6EW700HHZP3bpO");
   console.log("customer = " + req.body.sourceId);
 
@@ -68,5 +69,13 @@ app.post('/charge-source', async (req, res, next) => {
   source: req.body.sourceId
   });
   return charge;
+  }catch(error){
+    console.log("error : " + err);
+    res.json({
+      data: "failure",
+    });
+  }
+
   });
+
 module.exports = app; 
