@@ -56,4 +56,17 @@ app.post('/checkout', async(req, res) => {
     return false;
   }
 });
+
+app.post('/charge-source', async (req, res, next) => {
+  const stripe2 = Stripe("sk_test_51LYUCGDEyiX3e3PlOF9sfkE3RE3eyjDbq9kzY39MZmErzUDUKIfURmQ7raSXznjlT1gQP6hUI8VBraRlzZzp6EW700HHZP3bpO");
+  console.log("customer = " + req.body.sourceId);
+
+  console.log("stai pagando con klarna");
+  const charge = await stripe2.charges.create({
+  amount: req.body.amount * 100,
+  currency: "EUR",
+  source: req.body.sourceId
+  });
+  return charge;
+  });
 module.exports = app; 
