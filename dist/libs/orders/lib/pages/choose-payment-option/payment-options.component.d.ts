@@ -13,7 +13,7 @@ import { CheckoutService } from '../../services/checkout.service';
 import { Cart } from '@eshop-frontend/users';
 import { User } from '../../models/user';
 import * as i0 from "@angular/core";
-export declare class CheckoutPageComponent implements OnInit {
+export declare class PaymentOptions implements OnInit {
     private router;
     private usersService;
     private formBuilder;
@@ -45,13 +45,13 @@ export declare class CheckoutPageComponent implements OnInit {
     private _getCountries;
     backToCart(): void;
     placeOrder(): Promise<void>;
-    checkShippingAddress(): Boolean;
+    checkSelectedOptions(): string;
     get checkoutForm(): {
         [key: string]: import("@angular/forms").AbstractControl;
     };
     makePayment(amount: number): void;
     invokeStripe(): void;
-    static ɵfac: i0.ɵɵFactoryDeclaration<CheckoutPageComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<CheckoutPageComponent, "orders-checkout-page", never, {}, {}, never, never>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PaymentOptions, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PaymentOptions, "payment-options", never, {}, {}, never, never>;
 }
-//# sourceMappingURL=checkout-page.component.d.ts.map
+//# sourceMappingURL=payment-options.component.d.ts.map

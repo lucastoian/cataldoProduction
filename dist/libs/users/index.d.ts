@@ -16,4 +16,5 @@ export * from './lib/services/auth-guard-not-admin.service';
 export * from './lib/services/jwt.interceptor';
 export * from './lib/services/auth.service';
 export * from './lib/services/localstorage.service';
+export * from './lib/klarna/klarna.component';
 //# sourceMappingURL=index.d.ts.map

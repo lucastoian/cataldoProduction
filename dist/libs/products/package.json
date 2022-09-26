@@ -8,6 +8,7 @@
     "@angular/router": "^13.0.0",
     "primeng": "^13.0.2",
     "@eshop-frontend/users": "0.0.1",
+    "@stripe/stripe-js": "^1.38.1",
     "@angular/forms": "^13.0.0",
     "i18n-iso-countries": "^7.2.0",
     "@ngrx/store": "~13.0.0",
