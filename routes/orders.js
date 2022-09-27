@@ -209,6 +209,7 @@ router.post("/", async (req, res) => {
 });
 
 router.post("/createNewOrder", async (req, res) => {
+  console.log("creating a new order ->" + JSON.stringify(req.body.order));
   try{
     console.log("creating a new order");
     let order = new Order({
@@ -223,6 +224,9 @@ router.post("/createNewOrder", async (req, res) => {
       id: getRandomInt(9999999) * getRandomInt(9999999)
     });
 
+
+
+    console.log("ho ricevuto2: " + JSON.stringify(req.body.order.orderItems));
 
     let items = req.body.order.orderItems;
 
@@ -241,6 +245,7 @@ router.post("/createNewOrder", async (req, res) => {
     }
     
   }catch(e){
+    console.log("errore nella creazione di un nuovo ordine " + e);
     res.status(500).json({
       success: false,
       
