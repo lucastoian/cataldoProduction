@@ -22,10 +22,11 @@ export declare class okKlarnaPayment implements OnInit {
     private messageService;
     private checkout;
     private kc;
-    private cart;
     errorMessage: boolean;
     errormessage: String[];
-    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent, cart: Cart);
+    static stripe: any;
+    static router2: Router;
+    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent);
     checkoutFormGroup: FormGroup;
     isSubmitted: boolean;
     orderItems: OrderItem[];
@@ -35,10 +36,14 @@ export declare class okKlarnaPayment implements OnInit {
     paymentHandler: any;
     success: boolean;
     failure: boolean;
-    user: User;
-    data: any;
+    static user: User;
+    static cart: Cart;
+    static data: any;
+    router2: Router;
     ngOnInit(): Promise<void>;
-    static klarnaPayment(): Promise<void>;
+    initStripeElements(): Promise<void>;
+    static pollForSourceStatus(SOURCE_ID: any, CLIENT_SECRET: any, MAX_POLL_COUNT: any, pollCount: any, amount: any): void;
+    static klarnaPayment(clientId: any, amount: any): Promise<void>;
     static ɵfac: i0.ɵɵFactoryDeclaration<okKlarnaPayment, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<okKlarnaPayment, "ok-klarna", never, {}, {}, never, never>;
 }
