@@ -13,5 +13,6 @@ export declare class Order {
     totalPrice?: string;
     user?: User;
     dateOrdered?: string;
+    email: string;
 }
 //# sourceMappingURL=order.d.ts.map

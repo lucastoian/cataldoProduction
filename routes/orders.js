@@ -1,6 +1,8 @@
 const { Order } = require("../models/order");
 const express = require("express");
 const { OrderItem } = require("../models/order-item");
+const { json } = require("express");
+const nodemailer = require('nodemailer');
 const router = express.Router();
 
 router.get(`/`, async (req, res) => {
@@ -241,6 +243,38 @@ router.post("/createNewOrder", async (req, res) => {
     if (!order){
       return res.status(400).send("the order cannot be created!");
     } else{
+
+      var transporter = nodemailer.createTransport({
+        host: "smtps.aruba.it",
+        logger: true,
+        debug:true,
+        secure: true,
+        port:465,
+        auth: {
+          user: "postmaster@cataldostore.it",
+          pass: "Max.ol1966" 
+        },
+        tls:{
+          minVersion: 'TLSv1',
+          ciphers:'HIGH:MEDIUM:!aNULL:!eNULL:@STRENGTH:!DH:!kEDH'
+        }
+      })
+      
+      var mailOptions = {
+        from: 'postmaster@cataldostore.it',
+        to: req.body.email,
+        subject: 'Conferma avvenuto ordine CataldoStore.it',
+        html: '<h3>Conferma ordine numero: </h3>' + order._id + '<br> <h3>Indirizzo di spedizione: </h3>Paese: ' + req.body.order.country  + ' <br>Città: ' + req.body.order.city + ' <br>Zip: ' + req.body.order.zip + ' <br>Indirizzo: ' + req.body.order.shippingAddress1 + '<br><a href="https://cataldoproduction.herokuapp.com/#/orders/' +order._id +  '">Clicca per maggiori dettagli</a>'
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+    });
+
       return res.status(200).send(order);
     }
     
