@@ -7,6 +7,7 @@ export declare class FeaturedProductsComponent implements OnInit, OnDestroy {
     private prodService;
     featuredProducts: Product123[];
     endSubs$: Subject<any>;
+    responsiveOptions: any;
     constructor(prodService: ProductsService);
     ngOnInit(): void;
     ngOnDestroy(): void;
