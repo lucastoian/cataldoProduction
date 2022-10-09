@@ -5,6 +5,7 @@ import { ProductsService } from '../../services/products.service';
 import * as i0 from "@angular/core";
 export declare class FeaturedProductsComponent implements OnInit, OnDestroy {
     private prodService;
+    brandName: string;
     featuredProducts: Product123[];
     endSubs$: Subject<any>;
     responsiveOptions: any;
@@ -13,6 +14,6 @@ export declare class FeaturedProductsComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void;
     private _getFeaturedProducts;
     static ɵfac: i0.ɵɵFactoryDeclaration<FeaturedProductsComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<FeaturedProductsComponent, "eshop-frontend-featured-products", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<FeaturedProductsComponent, "eshop-frontend-featured-products", never, { "brandName": "brandName"; }, {}, never, never>;
 }
 //# sourceMappingURL=featured-products.component.d.ts.map

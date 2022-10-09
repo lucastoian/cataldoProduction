@@ -6,10 +6,12 @@ export declare class ProductItemComponent implements OnInit {
     private route;
     w: boolean;
     url: any;
+    imgBlob: any;
     product: Product123;
     constructor(route: ActivatedRoute);
-    ngOnInit(): void;
+    ngOnInit(): Promise<void>;
     private _retrieveParam;
+    ajaxGetImageData(url: any): Promise<Blob>;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductItemComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<ProductItemComponent, "eshop-frontend-product-item", never, { "product": "product"; }, {}, never, never>;
 }
