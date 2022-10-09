@@ -452,6 +452,41 @@ router.get(`/get/featured`, async (req,res)=>{
 }
 })
 
+
+// Get featured products by brand
+router.get(`/get/featured/:brand`, async (req,res)=>{
+
+    const map = new Map();
+    map.set("blauer", "6213c7889309de960180da4a");
+    map.set("old river", "6213c89e9309de960180da4d");
+    map.set("Old River", "6213c89e9309de960180da4d");
+    map.set("colmar", "62167bd1cba8a1e0d9c1af88");
+    map.set("ea7", "62189efe1d62386cc22525b6");
+    map.set("fred perry","62189f1e1d62386cc22525b9");
+    map.set("kway", "62189f371d62386cc22525bc");
+    map.set("lacoste","62189f481d62386cc22525bf");
+    map.set("murphy&nye","62189f7d1d62386cc22525c2");
+    map.set("peninsula", "62189f981d62386cc22525c5");
+    map.set("saucony", "62189fad1d62386cc22525c8");
+    map.set("sundek", "62189fbb1d62386cc22525cb");
+    map.set("barbour", "632e05f3b8c567de5ea83669");
+
+    try{
+    const products = await Product.find({"brand": map.get(req.params.brand), "isFeatured":true});
+
+    if(!products){
+        res.status(500).json({success: false})
+    }
+    res.send(products);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
+})
+
+
+
 // Get products count
 router.get(`/get/count`, async (req,res)=>{
     try{
