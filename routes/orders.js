@@ -195,6 +195,8 @@ router.post("/", async (req, res) => {
     country: req.body.country,
     phone: req.body.phone,
     status: req.body.status,
+    paymentOption: req.body.paymentOption,
+    confirmed: req.body.confirmed,
     totalPrice: totalPrice,
     user: req.body.user,
   });
@@ -223,6 +225,8 @@ router.post("/createNewOrder", async (req, res) => {
       totalPrice: req.body.order.totalPrice,
       user: req.body.order.user,
       email: req.body.email,
+      paymentOption: req.body.order.paymentOption,
+      confirmed: req.body.order.confirmed,
       id: getRandomInt(9999999) * getRandomInt(9999999)
     });
 
@@ -234,7 +238,7 @@ router.post("/createNewOrder", async (req, res) => {
 
     items.forEach(data => {
       let item = {id: data.id, quantity: data.selected, size: data.size, mainImg: data.mainProductImage, name: data.mainProductName, barcode: data.barcode};
-      console.log("*éç*°ç*éç°ç*éç§°ç*éç*°    item: " + JSON.stringify(item));
+     // console.log("*éç*°ç*éç°ç*éç§°ç*éç*°    item: " + JSON.stringify(item));
       order.items.push(item);
     });
 

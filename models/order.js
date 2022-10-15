@@ -51,6 +51,14 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    confirmed: {
+        type: Boolean,
+        required: true,
+    },
+    paymentOption: {
+        type: String,
+        required: true,
+    },
     dateOrdered: {
         type: Date,
         default: Date.now
