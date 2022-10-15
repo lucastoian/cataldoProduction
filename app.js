@@ -36,6 +36,7 @@ const variantsRoutes = require('./routes/products-variants');
 const W_variantsRoutes = require('./routes/w-products-variants')
 const brandsRoutes = require('./routes/brands');
 const stripeRoutes = require('./routes/stripe');
+const smsRoutes = require('./routes/sms');
 
 
 const api = process.env.API_URL;
@@ -48,6 +49,7 @@ app.use(`${api}/orders`, ordersRoutes);
 app.use(`${api}/variants`, variantsRoutes);
 app.use(`${api}/w-variants`, W_variantsRoutes)
 app.use(`${api}/brands`, brandsRoutes);
+app.use(`${api}/sms`, smsRoutes);
 app.use(`${api}`, stripeRoutes);
 
 app.get('/', (req,res) => {
