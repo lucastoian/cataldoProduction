@@ -49,6 +49,7 @@ export declare class okKlarnaPayment implements OnInit {
     loadLocalVariables(): void;
     static pollForSourceStatus(SOURCE_ID: any, CLIENT_SECRET: any, MAX_POLL_COUNT: any, pollCount: any, amount: any): void;
     static klarnaPayment(clientId: any, amount: any): Promise<void>;
+    static parseJwt(token: any): any;
     static ɵfac: i0.ɵɵFactoryDeclaration<okKlarnaPayment, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<okKlarnaPayment, "ok-klarna", never, {}, {}, never, never>;
 }
