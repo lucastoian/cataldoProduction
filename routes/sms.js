@@ -21,13 +21,14 @@ router.get(`/send`, async (req,res)=>{
         statusCallback: 'https://cataldoproduction.herokuapp.com/api/v1/sms/recive'
 })
     .then(message => console.log(message.sid));
+    res.sendStatus(200).send();
     });
       
 
 
     router.get(`/recive`, async (req,res)=>{
 
-        console.log(JSON.stringify(req.body));
+        console.log("ho ricevuto questo messaggio : " + JSON.stringify(req.body) + "  non è stringyfy " + req.body  + " params : " + req.params );
 
     });
              
