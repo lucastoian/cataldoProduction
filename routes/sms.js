@@ -28,7 +28,14 @@ router.get(`/send`, async (req,res)=>{
 
     router.post(`/recive`, async (req,res)=>{
 
-        console.log("ho ricevuto questo messaggio : " + JSON.stringify(req.body) + "  non è stringyfy " + req.body  + " params : " + req.params );
+        console.log("ho ricevuto questo messaggio : " + JSON.stringify(req.body) );
+
+    });
+
+
+    router.post(`/failed`, async (req,res)=>{
+
+        console.log("errore nel ricevere il messaggio: " + JSON.stringify(req.body) );
 
     });
              
