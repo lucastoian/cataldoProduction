@@ -26,7 +26,7 @@ router.get(`/send`, async (req,res)=>{
       
 
 
-    router.get(`/recive`, async (req,res)=>{
+    router.post(`/recive`, async (req,res)=>{
 
         console.log("ho ricevuto questo messaggio : " + JSON.stringify(req.body) + "  non è stringyfy " + req.body  + " params : " + req.params );
 
