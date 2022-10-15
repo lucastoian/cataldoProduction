@@ -12,6 +12,7 @@ import { OrderItem } from '../../models/order-item';
 import { CheckoutService } from '../../services/checkout.service';
 import { Cart } from '@eshop-frontend/users';
 import { User } from '../../models/user';
+import { ConfirmationService } from 'primeng/api';
 import * as i0 from "@angular/core";
 export declare class PaymentOptions implements OnInit {
     private router;
@@ -23,9 +24,10 @@ export declare class PaymentOptions implements OnInit {
     private checkout;
     private kc;
     private cart;
+    private confirmationService;
     errorMessage: boolean;
     errormessage: String[];
-    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent, cart: Cart);
+    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent, cart: Cart, confirmationService: ConfirmationService);
     checkoutFormGroup: FormGroup;
     isSubmitted: boolean;
     orderItems: OrderItem[];

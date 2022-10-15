@@ -15,11 +15,12 @@ import * as i12 from "primeng/inputnumber";
 import * as i13 from "@angular/forms";
 import * as i14 from "primeng/inputtext";
 import * as i15 from "primeng/inputmask";
-import * as i16 from "primeng/dropdown";
+import * as i16 from "primeng/confirmdialog";
+import * as i17 from "primeng/dropdown";
 export declare class OrdersModule {
     constructor(cartService: CartService);
     static ɵfac: i0.ɵɵFactoryDeclaration<OrdersModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<OrdersModule, [typeof i1.CartIconComponent, typeof i2.OrderSummaryComponent, typeof i3.CartPageComponent, typeof i4.CheckoutPageComponent, typeof i5.ThankYouComponent, typeof i6.MyProfileCheckOutComponent, typeof i7.PaymentOptions], [typeof i8.CommonModule, typeof i9.BadgeModule, typeof i10.RouterModule, typeof i11.ButtonModule, typeof i12.InputNumberModule, typeof i13.FormsModule, typeof i13.ReactiveFormsModule, typeof i14.InputTextModule, typeof i15.InputMaskModule, typeof i16.DropdownModule], [typeof i1.CartIconComponent, typeof i2.OrderSummaryComponent]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<OrdersModule, [typeof i1.CartIconComponent, typeof i2.OrderSummaryComponent, typeof i3.CartPageComponent, typeof i4.CheckoutPageComponent, typeof i5.ThankYouComponent, typeof i6.MyProfileCheckOutComponent, typeof i7.PaymentOptions], [typeof i8.CommonModule, typeof i9.BadgeModule, typeof i10.RouterModule, typeof i11.ButtonModule, typeof i12.InputNumberModule, typeof i13.FormsModule, typeof i13.ReactiveFormsModule, typeof i14.InputTextModule, typeof i15.InputMaskModule, typeof i16.ConfirmDialogModule, typeof i17.DropdownModule], [typeof i1.CartIconComponent, typeof i2.OrderSummaryComponent]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<OrdersModule>;
 }
 //# sourceMappingURL=orders.module.d.ts.map
