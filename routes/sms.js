@@ -21,7 +21,7 @@ router.get(`/send`, async (req,res)=>{
         statusCallback: 'https://cataldoproduction.herokuapp.com/api/v1/sms/recive'
 })
     .then(message => console.log(message.sid));
-    res.sendStatus(200).send();
+    res.sendStatus(200);
     });
       
 
