@@ -1,9 +1,5 @@
 
-const { encodeBase64 } = require("bcryptjs");
 const express = require("express");
-const { json } = require("express");
-const fetch = require('node-fetch');
-const buffer = require('buffer/').Buffer
 const router = express.Router();
 
 
