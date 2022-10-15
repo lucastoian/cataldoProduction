@@ -14,5 +14,7 @@ export declare class Order {
     user?: User;
     dateOrdered?: string;
     email: string;
+    paymentOption: string;
+    confirmed: boolean;
 }
 //# sourceMappingURL=order.d.ts.map
