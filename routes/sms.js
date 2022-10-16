@@ -14,6 +14,7 @@ const client = require('twilio')(accountSid, authToken);
 
 router.post(`/send`, async (req,res)=>{
 
+    try{
     let orderId = req.body.orderId;
     let clientNumber = req.body.clientNumber;
     let clientPrefix = req.body.clientPrefix;
@@ -27,6 +28,13 @@ router.post(`/send`, async (req,res)=>{
 })
     .then(message => console.log(message.sid));
     res.sendStatus(200);
+}catch(e){
+    console.log("errore nel'invio dell'sms " + e);
+    res.status(500).json({
+      success: false,
+      
+  })
+}
     });
       
 
