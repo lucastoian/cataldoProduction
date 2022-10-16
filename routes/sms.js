@@ -56,18 +56,14 @@ router.post(`/send`, async (req,res)=>{
             from = from.substring(1);
 
             console.log("from = " + from);
+            
 
             const order = await Order.find({
-                query: {
+               
                     fullNumber: from,
                     confirmed: false,
                     paymentOption: 'Contanti'
-                    }
-          
-
-             }).lean().exec(function(err, docs) {
-                console.log(docs);
-            });
+             });
 
              console.log("updated order = " + order);
              const updatedOrder = await Order.findByIdAndUpdate(
