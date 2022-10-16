@@ -9,6 +9,7 @@ export declare class Order {
     zip?: string;
     country?: string;
     phone?: string;
+    prefix?: string;
     status?: number;
     totalPrice?: string;
     user?: User;

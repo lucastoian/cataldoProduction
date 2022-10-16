@@ -41,11 +41,34 @@ router.post(`/send`, async (req,res)=>{
       
 
 
+ 
     router.post(`/recive`, async (req,res)=>{
 
 
         
         console.log("ho ricevuto questo messaggio : " + JSON.stringify(req.body) );
+
+        let smsStatus = req.body.SmsStatus;
+        let body = req.body.Body;
+
+        if(smsStatus == 'received' && (body == 'SI' || body =='si' || body == 'Si')){
+            console.log("Ho ricevuto un messaggio");
+            let from = req.body.From;
+            from = from.substring(1);
+
+            const order = await Order.findAndModify({
+                query: {
+                    fullNumber: from,
+                    confirmed: false
+                    },
+                sort: {$natural: -1},
+                update: {$set: {confirmed: 'true'}}
+
+
+             })
+
+        }
+
         res.sendStatus(200);
 
     });
