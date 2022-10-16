@@ -63,7 +63,6 @@ router.post(`/send`, async (req,res)=>{
                     confirmed: false,
                     paymentOption : 'contanti'
                     },
-                sort: {$natural: 1},
                 update: {$set: {confirmed: true}}
 
 
