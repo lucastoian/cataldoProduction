@@ -13,11 +13,16 @@ const client = require('twilio')(accountSid, authToken);
 
 
 router.get(`/send`, async (req,res)=>{
+
+    let orderId = req.body.orderId;
+    let clientNumber = req.body.clientNumber;
+    let clientPrefix = req.body.clientPrefix;
+
     client.messages
     .create({
         body: 'Hi there', 
         from: '+12059474811', 
-        to: '+393482115991',
+        to: '+' + clientPrefix + clientNumber,
         statusCallback: 'https://cataldoproduction.herokuapp.com/api/v1/sms/recive'
 })
     .then(message => console.log(message.sid));
