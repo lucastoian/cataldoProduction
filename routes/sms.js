@@ -67,6 +67,13 @@ router.post(`/send`, async (req,res)=>{
 
              });
 
+             const updatedOrder = await User.findByIdAndUpdate(
+                order._id,
+                {
+                    confirmed:true
+                }
+             );
+
 
             console.log("updated order = " + order);
 
