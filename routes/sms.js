@@ -66,9 +66,9 @@ router.post(`/send`, async (req,res)=>{
              });
 
              console.log("order = " + order);
-             console.log("order id =(toString) " + order._id.toString() + "   (without parse) " + (order)._id );
+             console.log("order id =(toString) " + order.id);
              const updatedOrder = await Order.findByIdAndUpdate(
-                order._id,
+                order.id,
                 {
                     confirmed: true
                 }
