@@ -63,7 +63,7 @@ router.post(`/send`, async (req,res)=>{
             };
             const update = { confirmed: true };
 
-            let doc = await Character.findOneAndUpdate(filter, update, {
+            let doc = await Order.findOneAndUpdate(filter, update, {
                 new: true
               });
 
