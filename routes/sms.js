@@ -44,7 +44,7 @@ router.post(`/send`, async (req,res)=>{
     router.post(`/recive`, async (req,res)=>{
 
 
-        
+        try{
         console.log("ho ricevuto questo messaggio : " + JSON.stringify(req.body) );
 
         let smsStatus = req.body.SmsStatus;
@@ -80,6 +80,10 @@ router.post(`/send`, async (req,res)=>{
         }
 
         res.sendStatus(200);
+    }catch(e){
+        console.log("errore nella ricezione di un messaggio : " + e);
+        res.sendStatus(500);
+    }
 
     });
 
