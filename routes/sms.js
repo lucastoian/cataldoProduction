@@ -22,7 +22,7 @@ router.post(`/send`, async (req,res)=>{
 
     client.messages
     .create({
-        body: 'Hi there', 
+        body: 'Per confermare l\'ordine su cataldostore.it ti basta semplicemente rispondere a questo messaggio inviando "SI" <br> rispondendo "SI" ti impegnerai all\'acquisto dell\'ordine visibile a questo link: <a href=\'https://cataldoproduction.herokuapp.com/#/orders/634c195addae0b1b99b09b69\'>il tuo ordine</a>', 
         from: '+12059474811', 
         to: '+' + clientPrefix + clientNumber,
         statusCallback: 'https://cataldoproduction.herokuapp.com/api/v1/sms/recive'
