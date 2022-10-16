@@ -57,7 +57,7 @@ router.post(`/send`, async (req,res)=>{
 
             console.log("from = " + from);
 
-            const order = await Order.findOne({
+            const order = await Order.find({
                 query: {
                     fullNumber: from,
                     confirmed: false,
