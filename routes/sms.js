@@ -65,8 +65,11 @@ router.post(`/send`, async (req,res)=>{
                     }
           
 
-             });
+             }).lean().exec(function(err, docs) {
+                console.log(docs);
+            });
 
+             console.log("updated order = " + order);
              const updatedOrder = await Order.findByIdAndUpdate(
                 order._id,
                 {
@@ -75,7 +78,6 @@ router.post(`/send`, async (req,res)=>{
              );
 
 
-            console.log("updated order = " + order);
 
         }
 
