@@ -14,6 +14,7 @@ export declare class OrdersService {
     getOrder(orderId: string): Observable<Order>;
     createOrder(order: Order): Observable<Order>;
     createNewOrder(order: Order, email: string, prefix: string): Observable<any>;
+    getUnconfirmedOrder(prefix: any, phone: any): Observable<any>;
     updateOrder(orderStatus: {
         status: string;
     }, orderId: string): Observable<Order>;

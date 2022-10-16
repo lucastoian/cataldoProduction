@@ -49,6 +49,7 @@ export declare class PaymentOptions implements OnInit {
     private _getCountries;
     backToCart(): void;
     placeOrder(): Promise<void>;
+    cantConfirm(n: string): void;
     confirm(): void;
     checkSelectedOptions(): string;
     get checkoutForm(): {

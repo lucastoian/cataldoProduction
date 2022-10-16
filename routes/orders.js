@@ -329,6 +329,38 @@ router.post("/delete", async (req, res) => {
     }
   });
 
+  router.post("/findUnconfirmedOrders", async (req, res) => {
+
+    console.log("certo di trovare gli ordini unconfirmed: " + req.body.fullNumber);
+  
+    const filter = { 
+      fullNumber: req.body.fullNumber,
+      confirmed: false,
+      paymentOption: 'Contanti' 
+  };
+  
+    try{
+        Order.find(filter).exec(function (err, results) {
+        var count = results.length
+  
+  
+        res.status(200).json({
+          count: count
+      })
+      
+      });
+    
+  
+    
+    
+      }catch(e){
+        res.status(500).json({
+          success: false
+      })
+      }
+    });
+  
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
