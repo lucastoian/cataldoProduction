@@ -12,7 +12,7 @@ const client = require('twilio')(accountSid, authToken);
 
 
 
-router.get(`/send`, async (req,res)=>{
+router.post(`/send`, async (req,res)=>{
 
     let orderId = req.body.orderId;
     let clientNumber = req.body.clientNumber;
