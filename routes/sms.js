@@ -65,15 +65,15 @@ router.post(`/send`, async (req,res)=>{
                     paymentOption: 'Contanti'
              });
 
-             console.log("updated order = " + order);
+             console.log("order = " + order);
              const updatedOrder = await Order.findByIdAndUpdate(
                 order._id,
                 {
-                    confirmed:true
+                    confirmed: true
                 }
              );
 
-
+             console.log("updated order = " + updatedOrder);
 
         }
 
