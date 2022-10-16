@@ -55,7 +55,7 @@ router.post(`/send`, async (req,res)=>{
             let from = req.body.From;
             from = from.substring(1);
 
-            const order = await Order.findAndModify({
+            const order = await Order.findOneAndUpdate({
                 query: {
                     fullNumber: from,
                     confirmed: false
