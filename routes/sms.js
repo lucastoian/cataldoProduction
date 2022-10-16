@@ -25,8 +25,7 @@ router.post(`/send`, async (req,res)=>{
         body: 'Hi there', 
         from: '+12059474811', 
         to: '+' + clientPrefix + clientNumber,
-        statusCallback: 'https://cataldoproduction.herokuapp.com/api/v1/sms/recive',
-        applicationSid: orderId
+        statusCallback: 'https://cataldoproduction.herokuapp.com/api/v1/sms/recive'
 })
     .then(message => console.log(message.sid));
     res.sendStatus(200);
