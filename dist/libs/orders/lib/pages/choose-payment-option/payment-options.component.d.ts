@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { UsersService } from '@eshop-frontend/users';
 import { KlarnaComponent } from '@eshop-frontend/users';
-import { MessageService } from 'primeng/api';
+import { Message, MessageService, PrimeNGConfig } from 'primeng/api';
 import { Subject } from 'rxjs';
 import { OrdersService } from '../../services/orders.service';
 import { CartService } from '../../services/cart.service';
@@ -25,9 +25,11 @@ export declare class PaymentOptions implements OnInit {
     private kc;
     private cart;
     private confirmationService;
+    private primengConfig;
     errorMessage: boolean;
     errormessage: String[];
-    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent, cart: Cart, confirmationService: ConfirmationService);
+    msgs: Message[];
+    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent, cart: Cart, confirmationService: ConfirmationService, primengConfig: PrimeNGConfig);
     checkoutFormGroup: FormGroup;
     isSubmitted: boolean;
     orderItems: OrderItem[];
@@ -47,6 +49,7 @@ export declare class PaymentOptions implements OnInit {
     private _getCountries;
     backToCart(): void;
     placeOrder(): Promise<void>;
+    confirm(): void;
     checkSelectedOptions(): string;
     get checkoutForm(): {
         [key: string]: import("@angular/forms").AbstractControl;
