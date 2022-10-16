@@ -55,6 +55,8 @@ router.post(`/send`, async (req,res)=>{
             let from = req.body.From;
             from = from.substring(1);
 
+            console.log("from = " + from);
+
             const order = await Order.findOneAndUpdate({
                 query: {
                     fullNumber: from,
@@ -64,7 +66,10 @@ router.post(`/send`, async (req,res)=>{
                 update: {$set: {confirmed: true}}
 
 
-             })
+             });
+
+
+            console.log("updated order = " + order);
 
         }
 
