@@ -222,6 +222,8 @@ router.post("/createNewOrder", async (req, res) => {
       zip: req.body.order.zip,
       country: req.body.order.country,
       phone: req.body.order.phone,
+      prefix: req.body.order.prefix,
+      fullNumber: req.body.order.prefix+ req.body.order.phone,
       totalPrice: req.body.order.totalPrice,
       user: req.body.order.user,
       email: req.body.email,

@@ -35,6 +35,14 @@ const orderSchema = mongoose.Schema({
         type: String,
         default: '',
     },
+    prefix: {
+        type: String,
+        default: '',
+    },
+    fullNumber: {
+        type: String,
+        default: '',
+    },
     status: {
         type: String,
         required: true,
