@@ -63,19 +63,22 @@ router.post(`/send`, async (req,res)=>{
                     fullNumber: from,
                     confirmed: false,
                     paymentOption: 'Contanti'
+             }).then(async () =>{
+
+                console.log("order = " + order);
+                console.log("order id =(toString) " + order._id);
+                const updatedOrder = await Order.findByIdAndUpdate(
+                   order._id,
+                   {
+                       confirmed: true
+                   },
+                   {new: true}
+                );
+   
+                console.log("updated order = " + updatedOrder);
              });
 
-             console.log("order = " + order);
-             console.log("order id =(toString) " + order.id);
-             const updatedOrder = await Order.findByIdAndUpdate(
-                order.id,
-                {
-                    confirmed: true
-                },
-                {new: true}
-             );
-
-             console.log("updated order = " + updatedOrder);
+ 
 
         }
 
