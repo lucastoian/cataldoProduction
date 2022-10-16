@@ -59,9 +59,9 @@ router.post(`/send`, async (req,res)=>{
 
             const order = await Order.findOneAndUpdate({
                 query: {
-                    fullNumber: from,
-                    confirmed: false,
-                    paymentOption : 'contanti'
+                    'fullNumber': from,
+                    'confirmed': false,
+                    'paymentOption': 'contanti'
                     },
                 update: {$set: {confirmed: true}}
 
