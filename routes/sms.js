@@ -71,7 +71,8 @@ router.post(`/send`, async (req,res)=>{
                 order.id,
                 {
                     confirmed: true
-                }
+                },
+                {new: true}
              );
 
              console.log("updated order = " + updatedOrder);
