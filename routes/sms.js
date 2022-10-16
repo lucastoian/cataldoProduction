@@ -61,7 +61,7 @@ router.post(`/send`, async (req,res)=>{
                 query: {
                     fullNumber: from,
                     confirmed: false,
-                    paymentOption: 'contanti'
+                    paymentOption: 'Contanti'
                     }
           
 
