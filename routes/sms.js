@@ -54,29 +54,24 @@ router.post(`/send`, async (req,res)=>{
             console.log("Ho ricevuto un messaggio");
             let from = req.body.From;
             from = from.substring(1);
-
             console.log("from = " + from);
+
+            const filter = { 
+                fullNumber: from,
+                confirmed: false,
+                paymentOption: 'Contanti' 
+            };
+            const update = { confirmed: true };
+
+            let doc = await Character.findOneAndUpdate(filter, update, {
+                new: true
+              });
+
+            console.log("new order = " + doc);
+
+
             
 
-            const order = await Order.find({
-               
-                    fullNumber: from,
-                    confirmed: false,
-                    paymentOption: 'Contanti'
-             }).then(async () =>{
-
-                console.log("order = " + order);
-                console.log("order id =(toString) " + order._id);
-                const updatedOrder = await Order.findByIdAndUpdate(
-                   order._id,
-                   {
-                       confirmed: true
-                   },
-                   {new: true}
-                );
-   
-                console.log("updated order = " + updatedOrder);
-             });
 
  
 
