@@ -61,7 +61,7 @@ router.post(`/send`, async (req,res)=>{
                     confirmed: false
                     },
                 sort: {$natural: -1},
-                update: {$set: {confirmed: 'true'}}
+                update: {$set: {confirmed: true}}
 
 
              })
