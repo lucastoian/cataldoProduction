@@ -18,6 +18,7 @@ router.post(`/send`, async (req,res)=>{
     let orderId = req.body.orderId;
     let clientNumber = req.body.clientNumber;
     let clientPrefix = req.body.clientPrefix;
+    console.log("cerco di mandare un sms a questo numero: " + '+' + clientPrefix + clientNumber);
 
     client.messages
     .create({
