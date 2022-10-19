@@ -8,11 +8,12 @@ export declare class ProductItemComponent implements OnInit {
     url: any;
     imgBlob: any;
     product: Product123;
+    appBackImg: any;
     constructor(route: ActivatedRoute);
     ngOnInit(): Promise<void>;
     private _retrieveParam;
     ajaxGetImageData(url: any): Promise<Blob>;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductItemComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<ProductItemComponent, "eshop-frontend-product-item", never, { "product": "product"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<ProductItemComponent, "eshop-frontend-product-item", never, { "product": "product"; "appBackImg": "appBackImg"; }, {}, never, never>;
 }
 //# sourceMappingURL=product-item.component.d.ts.map
