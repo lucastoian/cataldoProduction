@@ -150,12 +150,23 @@ router.get(`/get/men-prods`, async (req, res) =>{
 })
 
 router.get(`/filteredProducts`, async (req, res) => {
+
+    console.log("query = " + JSON.stringify(req.query));
+
     try{
 
     let filter = {};
     if (req.query.brand) {
         filter.brand = req.query.brand   
     }
+
+    if (req.query.category) {
+
+        let categorie = req.query.category.split(',')
+
+        filter.category = categorie
+    }
+
     if (req.query.sex) {
         filter.sex = req.query.sex
     }
