@@ -149,6 +149,41 @@ router.get(`/get/men-prods`, async (req, res) =>{
 }
 })
 
+router.get(`/filteredProducts`, async (req, res) => {
+    try{
+
+    let filter = {};
+    if (req.query.brand) {
+        filter.brand = req.query.brand   
+    }
+    if (req.query.sex) {
+        filter.sex = req.query.sex
+    }
+
+        console.log("sto cercando i prodotti con questo filtro: " + JSON.stringify(filter))
+
+        const productsList = await Product.find(filter).populate('category').populate('brand');
+    
+    
+        res.send(productsList);
+
+
+        // let brand = {};
+
+        // if (req.query.brand) {
+        //     brand = {
+        //         brand: req.query.brand
+        //     }
+        // }
+   
+}catch(e){
+    console.log("errore : " + e)
+    res.status(500).json({
+        success: false
+    })
+}
+})
+
 // Get products for women - OPTIONAL CATEGORY FILTER
 router.get(`/get/women-prods`, async (req, res) => {
     try{
