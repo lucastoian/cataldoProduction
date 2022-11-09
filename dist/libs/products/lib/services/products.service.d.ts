@@ -8,7 +8,7 @@ export declare class ProductsService {
     private apiUrlProducts;
     constructor(http: HttpClient, environment: any);
     getProducts(categoriesFilter?: string[]): Observable<Product123[]>;
-    getFilteredProducts(brand?: string, sex?: string): Observable<Product123[]>;
+    getFilteredProducts(brand?: string, category?: string[], sex?: string): Observable<Product123[]>;
     getMProducts(categoriesFilter?: string[]): Observable<Product123[]>;
     getWProducts(categoriesFilter?: string[]): Observable<Product123[]>;
     getAllProductsByBrand(brandFilter?: string): Observable<Product123[]>;

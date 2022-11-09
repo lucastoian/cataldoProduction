@@ -24,13 +24,11 @@ export declare class ProductsBrandsComponent implements OnInit {
     url: any;
     _urlSegment: any;
     fromCarousel: boolean;
+    sex: string;
     constructor(route: ActivatedRoute, productsService: ProductsService, catService: CategoriesService, wProdService: W_ProductsService);
     ngOnInit(): void;
     private _retrieveId;
     private _getProdByBrand;
-    private _getWProdByBrand;
-    private _getProducts;
-    private _getWProducts;
     private _getCategories;
     categoryFilter(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsBrandsComponent, never>;

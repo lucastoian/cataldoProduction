@@ -6,7 +6,7 @@ import { CategoriesService } from '../../services/categories.service';
 import { ProductsService } from '../../services/products.service';
 import * as i0 from "@angular/core";
 export declare class ProductsListComponent implements OnInit {
-    private prodService;
+    private productsService;
     private catService;
     private route;
     isChecked: boolean;
@@ -16,10 +16,12 @@ export declare class ProductsListComponent implements OnInit {
     isCategoryPage: boolean;
     url: any;
     _urlSegment: any;
-    constructor(prodService: ProductsService, catService: CategoriesService, route: ActivatedRoute);
+    categoryId: any;
+    selectedCategories: any[];
+    sex: string;
+    constructor(productsService: ProductsService, catService: CategoriesService, route: ActivatedRoute);
     ngOnInit(): void;
     private _getProducts;
-    private _getWProducts;
     private _getCategories;
     categoryFilter(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsListComponent, never>;
