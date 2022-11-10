@@ -7,6 +7,8 @@ export declare class ProductItemComponent implements OnInit {
     w: boolean;
     url: any;
     imgBlob: any;
+    discount: number;
+    finalPrice: number;
     product: Product123;
     appBackImg: any;
     constructor(route: ActivatedRoute);
