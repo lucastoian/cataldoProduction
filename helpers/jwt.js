@@ -41,7 +41,7 @@ function authJwt() {
       },
       {
         url: /(.*)/,
-        methods: ["GET", "OPTIONS", "POST"],
+        methods: ["GET", "OPTIONS", "POST", "PUT"],
        },
       "/api/v1/users/login",
       "/",
