@@ -40,6 +40,7 @@ export declare class ProductsBrandsComponent implements OnInit {
     wProds: W_Product[];
     filteredProducts: Product123[];
     categories: Category[];
+    currentBrand: Brand;
     url: any;
     currentPage: any;
     _urlSegment: any;
@@ -54,8 +55,11 @@ export declare class ProductsBrandsComponent implements OnInit {
     selectedBrand: Brand[];
     taglia: Taglia[];
     selectedTaglia: Taglia[];
+    categoryMap: Map<string, string>;
+    brandMap: Map<string, string>;
     constructor(route: ActivatedRoute, productsService: ProductsService, catService: CategoriesService, wProdService: W_ProductsService);
     ngOnInit(): void;
+    getKeyByValue(obj: any, value: any): string;
     changePage(event: any): void;
     search(event: any): void;
     private _retrieveId;
