@@ -55,7 +55,6 @@ export declare class ProductsBrandsComponent implements OnInit {
     selectedBrand: Brand[];
     taglia: Taglia[];
     selectedTaglia: Taglia[];
-    categoryMap: Map<string, string>;
     brandMap: Map<string, string>;
     constructor(route: ActivatedRoute, productsService: ProductsService, catService: CategoriesService, wProdService: W_ProductsService);
     ngOnInit(): void;
