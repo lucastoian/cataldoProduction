@@ -55,6 +55,8 @@ export declare class ProductsListComponent implements OnInit {
     selectedBrand: Brand[];
     taglia: Taglia[];
     selectedTaglia: Taglia[];
+    categoryMap: Map<string, string>;
+    currentCategory: Categoria;
     constructor(productsService: ProductsService, catService: CategoriesService, route: ActivatedRoute);
     ngOnInit(): void;
     changePage(event: any): void;
