@@ -52,6 +52,8 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     maxInv: number;
     url: any;
     p: ProductLuca;
+    brandLogo: string;
+    brandMap: Map<string, string>;
     constructor(prodService: ProductsService, WprodService: W_ProductsService, route: ActivatedRoute, router: Router, cartService: CartService, variantService: VariantsService, messageService: MessageService, icon: CartIconComponent, location: Location, cart: Cart);
     ngOnInit(): void;
     ngOnDestroy(): void;
