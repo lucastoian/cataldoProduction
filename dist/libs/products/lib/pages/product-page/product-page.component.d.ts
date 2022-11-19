@@ -52,6 +52,7 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     minInv: number;
     maxInv: number;
     url: any;
+    discount: number;
     p: ProductLuca;
     brandLogo: string;
     brandMap: Map<string, string>;
