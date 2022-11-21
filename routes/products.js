@@ -204,6 +204,25 @@ router.get(`/filteredProducts`, async (req, res) => {
 }
 })
 
+router.get(`/prodid/:name`, async (req,res)=>{
+    try{
+    let prodName = req.params.name;
+
+  
+
+    const productsList = await Product.find({productId: prodName});
+
+    if(!productsList){
+        res.status(500).json({success: false});
+    }
+    res.send(productsList);
+}catch(e){
+    res.status(500).json({
+        success: false
+    })
+}
+})
+
 // Get products for women - OPTIONAL CATEGORY FILTER
 router.get(`/get/women-prods`, async (req, res) => {
     try{

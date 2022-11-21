@@ -48,6 +48,10 @@ const productSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+        productId:{
+        type: String,
+        required: false
+    },
     factoryCode:{
         type: String,
     },

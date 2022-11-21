@@ -32,6 +32,7 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     product: Product123;
     W_product: W_Product;
     prodName: string;
+    prodId: string;
     W_prodname: string;
     menProd: boolean;
     wProd: boolean;
@@ -78,6 +79,7 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     /**questa funzione sembra solo gestire il max input */
     selectSize(event: any, index: any): void;
     getProdByname(): void;
+    getProdByProdId(): void;
     getWProdByname(): void;
     selectColor(prodId: any): void;
     selectWColor(prodId: any): void;
