@@ -37,7 +37,8 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     wProd: boolean;
     products: Product123[];
     len: number;
-    colors: string[];
+    colors: Product123[];
+    simalProducts: string[];
     multipleColors: boolean;
     endSubs$: Subject<any>;
     quantity: number;
@@ -54,9 +55,11 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     p: ProductLuca;
     brandLogo: string;
     brandMap: Map<string, string>;
+    brandLogoBlob: any;
     constructor(prodService: ProductsService, WprodService: W_ProductsService, route: ActivatedRoute, router: Router, cartService: CartService, variantService: VariantsService, messageService: MessageService, icon: CartIconComponent, location: Location, cart: Cart);
-    ngOnInit(): void;
+    ngOnInit(): Promise<void>;
     ngOnDestroy(): void;
+    ajaxGetImageData(url: any): Promise<Blob>;
     /**
      * Se il prodotto esiste già, aggiungo una variants, senno aggiungo un nuovo prodotto con la sua variants
      * @returns
