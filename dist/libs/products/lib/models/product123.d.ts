@@ -2,6 +2,7 @@ import { Category } from "./category";
 import { Variant } from "./variant";
 export declare class Product123 {
     id: string;
+    productId: string;
     name?: string;
     description?: string;
     category?: Category;

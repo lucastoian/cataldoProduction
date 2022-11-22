@@ -21,6 +21,7 @@ export declare class ProductsService {
     getProduct(productId: string): Observable<Product123>;
     getProduct2(productId: string): Observable<any>;
     getProductByName(prodName: string): Observable<Product123[]>;
+    getProductById(prodId: string): Observable<Product123[]>;
     createProduct(productData: FormData): Observable<Product123>;
     updateProduct(productData: FormData, productid: string): Observable<Product123>;
     updateProductWithVariant(productData: FormData, productid: string): Observable<Product123>;

@@ -151,13 +151,16 @@ router.get(`/get/men-prods`, async (req, res) =>{
 
 router.get(`/filteredProducts`, async (req, res) => {
 
+    
     console.log("query = " + JSON.stringify(req.query));
 
     try{
 
     let filter = {};
     if (req.query.brand) {
-        filter.brand = req.query.brand   
+        let brands = req.query.brand.split(',')
+
+        filter.brand = brands   
     }
 
     if (req.query.category) {
@@ -168,7 +171,13 @@ router.get(`/filteredProducts`, async (req, res) => {
     }
 
     if (req.query.sex) {
-        filter.sex = req.query.sex
+        let sesso = req.query.sex.split(',')
+        filter.sex = sesso
+    }
+
+    if (req.query.taglie) {
+        let taglie = req.query.taglie.split(',')
+        filter.size = taglie
     }
 
         console.log("sto cercando i prodotti con questo filtro: " + JSON.stringify(filter))
@@ -189,6 +198,25 @@ router.get(`/filteredProducts`, async (req, res) => {
    
 }catch(e){
     console.log("errore : " + e)
+    res.status(500).json({
+        success: false
+    })
+}
+})
+
+router.get(`/prodid/:name`, async (req,res)=>{
+    try{
+    let prodName = req.params.name;
+
+  
+
+    const productsList = await Product.find({productId: prodName});
+
+    if(!productsList){
+        res.status(500).json({success: false});
+    }
+    res.send(productsList);
+}catch(e){
     res.status(500).json({
         success: false
     })
