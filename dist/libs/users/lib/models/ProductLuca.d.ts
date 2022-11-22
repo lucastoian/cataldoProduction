@@ -41,4 +41,4 @@ export declare class ProductLuca {
      */
     containsVariant(productVariant: ProductVariant): boolean;
 }
-//# sourceMappingURL=ProductLuca.d.ts.map
+//# sourceMappingURL=productLuca.d.ts.map
