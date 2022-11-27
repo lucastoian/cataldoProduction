@@ -29,7 +29,9 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     variant: Variant;
     variants: Variant[];
     filteredVariants: Variant[];
+    nonEmptyVariants: Variant[];
     product: Product123;
+    klarnaPrice: number;
     W_product: W_Product;
     prodName: string;
     prodId: string;
@@ -75,7 +77,6 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     private _getProduct2;
     private _getWproduct;
     _getSizes(): void;
-    _getWSizes(): void;
     /**questa funzione sembra solo gestire il max input */
     selectSize(event: any, index: any): void;
     getProdByname(): void;
