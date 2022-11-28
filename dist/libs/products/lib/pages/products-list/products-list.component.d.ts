@@ -62,6 +62,7 @@ export declare class ProductsListComponent implements OnInit {
     changePage(event: any): void;
     search(event: any): void;
     private _getProducts;
+    shuffleArray(array: any): void;
     categoryFilter(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsListComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<ProductsListComponent, "eshop-frontend-products-list", never, { "product": "product"; }, {}, never, never>;
