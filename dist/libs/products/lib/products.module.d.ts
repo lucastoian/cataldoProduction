@@ -18,9 +18,10 @@ import * as i16 from "@eshop-frontend/ui";
 import * as i17 from "primeng/carousel";
 import * as i18 from "primeng/multiselect";
 import * as i19 from "primeng/paginator";
+import * as i20 from "primeng/accordion";
 export declare class ProductsModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<ProductsModule, [typeof i1.ProductsSearchComponent, typeof i2.CategoriesBannerComponent, typeof i3.ProductItemComponent, typeof i4.FeaturedProductsComponent, typeof i5.ProductsListComponent, typeof i6.ProductPageComponent, typeof i7.ProductsBrandsComponent, typeof i8.CarouselProductsBrandsComponent], [typeof i9.CommonModule, typeof i10.RouterModule, typeof i11.ButtonModule, typeof i12.CheckboxModule, typeof i13.FormsModule, typeof i14.RatingModule, typeof i15.InputNumberModule, typeof i16.UiModule, typeof i17.CarouselModule, typeof i18.MultiSelectModule, typeof i19.PaginatorModule], [typeof i1.ProductsSearchComponent, typeof i2.CategoriesBannerComponent, typeof i3.ProductItemComponent, typeof i4.FeaturedProductsComponent, typeof i5.ProductsListComponent]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<ProductsModule, [typeof i1.ProductsSearchComponent, typeof i2.CategoriesBannerComponent, typeof i3.ProductItemComponent, typeof i4.FeaturedProductsComponent, typeof i5.ProductsListComponent, typeof i6.ProductPageComponent, typeof i7.ProductsBrandsComponent, typeof i8.CarouselProductsBrandsComponent], [typeof i9.CommonModule, typeof i10.RouterModule, typeof i11.ButtonModule, typeof i12.CheckboxModule, typeof i13.FormsModule, typeof i14.RatingModule, typeof i15.InputNumberModule, typeof i16.UiModule, typeof i17.CarouselModule, typeof i18.MultiSelectModule, typeof i19.PaginatorModule, typeof i20.AccordionModule], [typeof i1.ProductsSearchComponent, typeof i2.CategoriesBannerComponent, typeof i3.ProductItemComponent, typeof i4.FeaturedProductsComponent, typeof i5.ProductsListComponent]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<ProductsModule>;
 }
 //# sourceMappingURL=products.module.d.ts.map
