@@ -6,7 +6,7 @@
     "@angular/core": "^13.0.0",
     "rxjs": "~7.4.0",
     "@angular/router": "^13.0.0",
-    "primeng": "^13.0.2",
+    "primeng": "^13.4.1",
     "@eshop-frontend/users": "0.0.1",
     "@stripe/stripe-js": "^1.38.1",
     "@angular/forms": "^13.0.0",
