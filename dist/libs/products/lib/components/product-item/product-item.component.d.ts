@@ -11,6 +11,7 @@ export declare class ProductItemComponent implements OnInit {
     imgBlob: any;
     discount: number;
     finalPrice: number;
+    clickedIndex: number;
     varianti: any[];
     product: Product123;
     appBackImg: any;
@@ -18,7 +19,7 @@ export declare class ProductItemComponent implements OnInit {
     ngOnInit(): Promise<void>;
     private _retrieveParam;
     ajaxGetImageData(url: any): Promise<Blob>;
-    changeCardVariant(variant: any): Promise<void>;
+    changeCardVariant(variant: any, index: any): Promise<void>;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductItemComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<ProductItemComponent, "eshop-frontend-product-item", never, { "product": "product"; "appBackImg": "appBackImg"; }, {}, never, never>;
 }
