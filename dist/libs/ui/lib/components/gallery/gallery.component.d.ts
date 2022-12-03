@@ -15,8 +15,10 @@ export declare class GalleryComponent implements OnInit {
     images: string[];
     constructor(productsService: ProductsService, route: ActivatedRoute);
     ngOnInit(): Promise<void>;
+    loadImages(): Promise<void>;
     private _retrieveId;
     changeSelectedImage(imageUrl: string): void;
+    printitem(item: any): void;
     goToNextImage(): void;
     goToPreviouseImage(): void;
     zoomImage(i: string): void;
