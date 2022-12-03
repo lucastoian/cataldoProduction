@@ -6,6 +6,7 @@ import * as i0 from "@angular/core";
 export declare class FeaturedProductsComponent implements OnInit, OnDestroy {
     private prodService;
     brandName: string;
+    brandMap: Map<string, string>;
     featuredProducts: Product123[];
     endSubs$: Subject<any>;
     responsiveOptions: any;
