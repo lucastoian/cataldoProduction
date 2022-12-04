@@ -5,16 +5,23 @@ import { ProductsService } from '../../services/products.service';
 import * as i0 from "@angular/core";
 export declare class FeaturedProductsComponent implements OnInit, OnDestroy {
     private prodService;
+    maxComponentWidth: number;
     brandName: string;
     brandMap: Map<string, string>;
     featuredProducts: Product123[];
     endSubs$: Subject<any>;
     responsiveOptions: any;
+    innerWidth: number;
+    maxCards: number;
+    displayedProducts: Product123[];
+    currentIndex: number;
     constructor(prodService: ProductsService);
     ngOnInit(): void;
     ngOnDestroy(): void;
     private _getFeaturedProducts;
+    goToPreviouseImage(): void;
+    goToNextImage(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<FeaturedProductsComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<FeaturedProductsComponent, "eshop-frontend-featured-products", never, { "brandName": "brandName"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<FeaturedProductsComponent, "eshop-frontend-featured-products", never, { "maxComponentWidth": "maxComponentWidth"; "brandName": "brandName"; }, {}, never, never>;
 }
 //# sourceMappingURL=featured-products.component.d.ts.map
