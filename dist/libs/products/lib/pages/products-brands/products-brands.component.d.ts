@@ -39,6 +39,7 @@ export declare class ProductsBrandsComponent implements OnInit {
     productOnThisPage: Product123[];
     wProds: W_Product[];
     filteredProducts: Product123[];
+    filtered: Product123[];
     categories: Category[];
     currentBrand: Brand;
     url: any;
@@ -62,6 +63,7 @@ export declare class ProductsBrandsComponent implements OnInit {
     changePage(event: any): void;
     search(event: any): void;
     private _retrieveId;
+    findSameProducts(productsArray: any, productItem: any): number;
     private _getProdByBrand;
     categoryFilter(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsBrandsComponent, never>;

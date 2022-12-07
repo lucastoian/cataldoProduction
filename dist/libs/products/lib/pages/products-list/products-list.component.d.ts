@@ -55,6 +55,7 @@ export declare class ProductsListComponent implements OnInit {
     selectedBrand: Brand[];
     taglia: Taglia[];
     selectedTaglia: Taglia[];
+    filtered: Product123[];
     categoryMap: Map<string, string>;
     currentCategory: Categoria;
     constructor(productsService: ProductsService, catService: CategoriesService, route: ActivatedRoute);
@@ -62,6 +63,7 @@ export declare class ProductsListComponent implements OnInit {
     changePage(event: any): void;
     search(event: any): void;
     private _getProducts;
+    findSameProducts(productsArray: any, productItem: any): number;
     shuffleArray(array: any): void;
     categoryFilter(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsListComponent, never>;
