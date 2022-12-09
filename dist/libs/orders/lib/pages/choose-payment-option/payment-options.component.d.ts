@@ -13,6 +13,7 @@ import { CheckoutService } from '../../services/checkout.service';
 import { Cart } from '@eshop-frontend/users';
 import { User } from '../../models/user';
 import { ConfirmationService } from 'primeng/api';
+import { HttpClient } from '@angular/common/http';
 import * as i0 from "@angular/core";
 export declare class PaymentOptions implements OnInit {
     private router;
@@ -23,13 +24,14 @@ export declare class PaymentOptions implements OnInit {
     private messageService;
     private checkout;
     private kc;
+    private http;
     private cart;
     private confirmationService;
     private primengConfig;
     errorMessage: boolean;
     errormessage: String[];
     msgs: Message[];
-    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent, cart: Cart, confirmationService: ConfirmationService, primengConfig: PrimeNGConfig);
+    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent, http: HttpClient, cart: Cart, confirmationService: ConfirmationService, primengConfig: PrimeNGConfig);
     checkoutFormGroup: FormGroup;
     isSubmitted: boolean;
     orderItems: OrderItem[];

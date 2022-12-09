@@ -14,4 +14,5 @@ export * from './lib/models/variant';
 export * from './lib/components/cart-icon/cart-icon.component';
 export * from './lib/components/order-summary/order-summary.component';
 export * from './lib/order.constants';
+export * from './lib/models/productVariant';
 //# sourceMappingURL=index.d.ts.map

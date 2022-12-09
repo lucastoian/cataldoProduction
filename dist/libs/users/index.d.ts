@@ -7,6 +7,7 @@ export * from './lib/users.module';
 export * from './lib/models/user';
 export * from './lib/models/cart';
 export * from './lib/models/productLuca';
+export * from './lib/models/order';
 export * from './lib/models/productVariant';
 export * from './lib/pages/login/login.component';
 export * from './lib/register-component/register-component.component';
