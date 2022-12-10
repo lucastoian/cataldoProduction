@@ -147,7 +147,7 @@ let paypalOrder;
       } else {
           console.log(JSON.stringify(payment));
           res.writeHead(301, {
-            Location: `https://cataldoproduction.herokuapp.com/#/paypal`
+            Location: `https://cataldoproduction.herokuapp.com/#/paypal/`
           }).end();
         }
   });
