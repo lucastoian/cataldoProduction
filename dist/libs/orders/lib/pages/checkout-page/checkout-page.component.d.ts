@@ -12,7 +12,6 @@ import { OrderItem } from '../../models/order-item';
 import { CheckoutService } from '../../services/checkout.service';
 import { Cart } from '@eshop-frontend/users';
 import { User } from '../../models/user';
-import { HttpClient } from '@angular/common/http';
 import * as i0 from "@angular/core";
 export declare class CheckoutPageComponent implements OnInit {
     private router;
@@ -22,12 +21,11 @@ export declare class CheckoutPageComponent implements OnInit {
     private ordersService;
     private messageService;
     private checkout;
-    private http;
     private kc;
     private cart;
     errorMessage: boolean;
     errormessage: String[];
-    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, http: HttpClient, kc: KlarnaComponent, cart: Cart);
+    constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent, cart: Cart);
     checkoutFormGroup: FormGroup;
     isSubmitted: boolean;
     orderItems: OrderItem[];

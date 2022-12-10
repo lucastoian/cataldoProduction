@@ -11,6 +11,7 @@ export declare class OrdersService {
     constructor(http: HttpClient, environment: any);
     getOrders(): Observable<Order[]>;
     getOrdersDoneByUser(): Observable<Order[]>;
+    payPal(s: string): Observable<any>;
     getOrder(orderId: string): Observable<Order>;
     createOrder(order: Order): Observable<Order>;
     createNewOrder(order: Order, email: string, prefix: string): Observable<any>;
