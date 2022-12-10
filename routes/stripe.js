@@ -146,8 +146,8 @@ let paypalOrder;
           throw error;
       } else {
           console.log(JSON.stringify(payment));
-          res.redirect("/#/paypal");
-      }
+          res.redirect("https://cataldoproduction.herokuapp.com/#/paypal");
+        }
   });
   });
     paypal.payment.create(create_payment_json, function (error, payment) {
