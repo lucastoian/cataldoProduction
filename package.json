@@ -30,6 +30,7 @@
     "node-fetch": "^3.2.10",
     "nodemailer": "^6.8.0",
     "nodemon": "^2.0.15",
+    "paypal-rest-sdk": "^1.8.1",
     "random-words": "^1.2.0",
     "stripe": "^10.3.0",
     "twilio": "^3.82.2"

@@ -7,6 +7,14 @@ app.use(bodyparser.json())
 const stripe = require("stripe")("sk_test_51LYUCGDEyiX3e3PlOF9sfkE3RE3eyjDbq9kzY39MZmErzUDUKIfURmQ7raSXznjlT1gQP6hUI8VBraRlzZzp6EW700HHZP3bpO");
 const cors = require('cors')
 
+
+const paypal = require('paypal-rest-sdk');
+paypal.configure({
+  'mode': 'sandbox', //sandbox or live
+  'client_id': 'ARAUdbf5PTYyBEdPANdY7M7NeKeSlQvmvS7KQQrniZytrfh6yKUuqaQc88ADZF3ImgmhmP1uhh3m2bTc',
+  'client_secret': 'ECPln4tq_ZJbjDAcx2BJX6vulsnDF6CmSUd1MzCBlC6O2W0E0sEusDA6Z4cnJ05AmnYpUbSiTlyGXSbA'
+});
+
 app.use(cors())
 
 app.post('/checkout', async(req, res) => {
@@ -36,7 +44,7 @@ app.post('/checkout', async(req, res) => {
         return stripe.charges.create({
           amount: req.body.amount * 100,
           description: "Cataldo Store",
-          currency: "USD",
+          currency: "EUR",
           customer: customer.id,
         });
       })
@@ -80,4 +88,80 @@ app.post('/charge-source', async (req, res, next) => {
 }
   });
 
+
+ let paypalAmount;
+let paypalOrder;
+
+
+  app.post('/paypal', (req, res) => {
+
+
+    console.log("amount for transaction = " + req.body.amount)
+    paypalAmount = req.body.amount;
+
+    const create_payment_json = {
+      "intent": "sale",
+      "payer": {
+          "payment_method": "paypal"
+      },
+      "redirect_urls": {
+          "return_url": "cataldoproduction.herokuapp.com/api/v1/success",
+          "cancel_url": "cataldoproduction.herokuapp.com/api/v1/cancel"
+      },
+      "transactions": [{
+          "item_list": {
+              "items": [{
+                  "name": "Articoli Cataldo Store",
+                  "sku": "001",
+                  "price": req.body.amount,
+                  "currency": "EUR",
+                  "quantity": 1
+              }]
+          },
+          "amount": {
+              "currency": "EUR",
+              "total": req.body.amount
+          },
+          "description": "Articoli Cataldo Store"
+      }]
+  };
+  
+  app.get('/success', (req, res) => {
+    const payerId = req.query.PayerID;
+    const paymentId = req.query.paymentId;
+  
+    const execute_payment_json = {
+      "payer_id": payerId,
+      "transactions": [{
+          "amount": {
+              "currency": "EUR",
+              "total": paypalAmount
+          }
+      }]
+    };
+  
+    paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+      if (error) {
+          console.log(error.response);
+          throw error;
+      } else {
+          console.log(JSON.stringify(payment));
+          res.redirect("/#/paypal");
+      }
+  });
+  });
+    paypal.payment.create(create_payment_json, function (error, payment) {
+        if (error) {
+            throw error;
+        } else {
+            for(let i = 0;i < payment.links.length;i++){
+              if(payment.links[i].rel === 'approval_url'){
+                res.status(200).send({ redirect:payment.links[i].href})
+              
+              }
+            }
+        }
+      });
+      
+      }); 
 module.exports = app; 
