@@ -96,7 +96,7 @@ let paypalOrder;
   app.post('/paypal', (req, res) => {
 
 
-    console.log("amount for transaction = " + req.body.amount)
+    console.log("ORDER for transaction #######################################################À= " +  req.body.order)
     paypalAmount = req.body.amount;
 
                                               const create_payment_json = {
@@ -105,7 +105,7 @@ let paypalOrder;
                                                     "payment_method": "paypal"
                                                 },
                                                 "redirect_urls": {
-                                                    "return_url": "https://cataldoproduction.herokuapp.com/api/v1/success?amount=" + req.body.amount + "&order=" + req.body.order,
+                                                    "return_url": "https://cataldoproduction.herokuapp.com/api/v1/success?amount=" + req.body.amount,
                                                     "cancel_url": "https://cataldoproduction.herokuapp.com/api/v1/cancel"
                                                 },
                                                 "transactions": [{
