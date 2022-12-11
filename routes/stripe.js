@@ -186,7 +186,7 @@ let paypalOrder;
                 fetch('https://cataldoproduction.herokuapp.com/api/v1/orders/createNewOrder', options )
                     .then( response => response.json() )
                     .then( response => {
-                       console.log("HO CREATO QUESTO ORDINE CON PAYPAL: ################################################################################ÀÀ " + response)
+                       console.log("HO CREATO QUESTO ORDINE CON PAYPAL: ################################################################################ÀÀ " + JSON.stringify(response))
                     } );
             }
         });
