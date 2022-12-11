@@ -105,7 +105,7 @@ let paypalOrder;
                                                     "payment_method": "paypal"
                                                 },
                                                 "redirect_urls": {
-                                                    "return_url": "https://cataldoproduction.herokuapp.com/api/v1/success?amount=" + req.body.amount + "&order=" + JSON.stringify(req.body.order),
+                                                    "return_url": "https://cataldoproduction.herokuapp.com/api/v1/success?amount=" + req.body.amount + "&order=" + encodeURIComponent(JSON.stringify(req.body.order)),
                                                     "cancel_url": "https://cataldoproduction.herokuapp.com/api/v1/cancel"
                                                 },
                                                 "transactions": [{
