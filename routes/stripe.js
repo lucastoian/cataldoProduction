@@ -105,7 +105,7 @@ let paypalOrder;
                                                     "payment_method": "paypal"
                                                 },
                                                 "redirect_urls": {
-                                                    "return_url": "https://cataldoproduction.herokuapp.com/api/v1/success?amount=" + req.body.amount,
+                                                    "return_url": "https://cataldoproduction.herokuapp.com/api/v1/success?amount=" + req.body.amount + "&order=" + req.body.order,
                                                     "cancel_url": "https://cataldoproduction.herokuapp.com/api/v1/cancel"
                                                 },
                                                 "transactions": [{
@@ -150,6 +150,7 @@ let paypalOrder;
           const payerId = req.query.PayerID;
           const paymentId = req.query.paymentId;
           const amount = req.query.amount;
+          const order = req.query.order;
 
           const execute_payment_json = {
             "payer_id": payerId,
@@ -167,7 +168,7 @@ let paypalOrder;
                 throw error;
             } else {
                 console.log(JSON.stringify(payment));
-                res.send('Success');
+                res.send(order);
             }
         });
       });
