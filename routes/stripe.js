@@ -146,7 +146,7 @@ let paypalOrder;
 
 
       app.get('/success', (req, res) => {
-          res.send("success");
+     
 
           const payerId = req.query.PayerID;
           const paymentId = req.query.paymentId;
