@@ -214,6 +214,9 @@ router.post("/", async (req, res) => {
 
 router.post("/createNewOrder", async (req, res) => {
   console.log("creating a new order ->" + JSON.stringify(req.body.order));
+
+    orderData = JSON.parse(req.body.order)
+
   try{
     console.log("creating a new order");
     let order = new Order({
@@ -234,9 +237,9 @@ router.post("/createNewOrder", async (req, res) => {
 
 
 
-    console.log("ho ricevuto2: " + JSON.stringify(req.body.order.orderItems));
+    console.log("ho ricevuto2: " + JSON.stringify(orderData.orderItems));
 
-    let items = req.body.order.orderItems;
+    let items = orderData.orderItems;
 
     items.forEach(data => {
       let item = {id: data.id, quantity: data.selected, size: data.size, mainImg: data.mainProductImage, name: data.mainProductName, barcode: data.barcode};
