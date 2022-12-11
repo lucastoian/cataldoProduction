@@ -168,7 +168,7 @@ let paypalOrder;
                 throw error;
             } else {
                 console.log(JSON.stringify(payment));
-                res.send(order);
+                
                 
                   const params = {
                     order: orderData
