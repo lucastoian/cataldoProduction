@@ -99,69 +99,55 @@ let paypalOrder;
     console.log("amount for transaction = " + req.body.amount)
     paypalAmount = req.body.amount;
 
-    const create_payment_json = {
-      "intent": "sale",
-      "payer": {
-          "payment_method": "paypal"
-      },
-      "redirect_urls": {
-          "return_url": "cataldoproduction.herokuapp.com/api/v1/success",
-          "cancel_url": "cataldoproduction.herokuapp.com/api/v1/cancel"
-      },
-      "transactions": [{
-          "item_list": {
-              "items": [{
-                  "name": "Articoli Cataldo Store",
-                  "sku": "001",
-                  "price": req.body.amount,
-                  "currency": "EUR",
-                  "quantity": 1
-              }]
-          },
-          "amount": {
-              "currency": "EUR",
-              "total": req.body.amount
-          },
-          "description": "Articoli Cataldo Store"
-      }]
-  };
-  
-  app.get('/success', (req, res) => {
-    const payerId = req.query.PayerID;
-    const paymentId = req.query.paymentId;
-  
-    const execute_payment_json = {
-      "payer_id": payerId,
-      "transactions": [{
-          "amount": {
-              "currency": "EUR",
-              "total": paypalAmount
-          }
-      }]
-    };
-  
-    paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
-      if (error) {
-          console.log(error.response);
-          throw error;
-      } else {
-          console.log(JSON.stringify(payment));
-          res.redirect(301, 'https://cataldoproduction.herokuapp.com/#/paypal/');
-        }
-  });
-  });
-    paypal.payment.create(create_payment_json, function (error, payment) {
-        if (error) {
-            throw error;
-        } else {
-            for(let i = 0;i < payment.links.length;i++){
-              if(payment.links[i].rel === 'approval_url'){
-                res.status(200).send({ redirect:payment.links[i].href})
-              
-              }
-            }
-        }
-      });
+                                              const create_payment_json = {
+                                                "intent": "sale",
+                                                "payer": {
+                                                    "payment_method": "paypal"
+                                                },
+                                                "redirect_urls": {
+                                                    "return_url": "cataldoproduction.herokuapp.com/api/v1/success",
+                                                    "cancel_url": "cataldoproduction.herokuapp.com/api/v1/cancel"
+                                                },
+                                                "transactions": [{
+                                                    "item_list": {
+                                                        "items": [{
+                                                            "name": "Articoli Cataldo Store",
+                                                            "sku": "001",
+                                                            "price": req.body.amount,
+                                                            "currency": "EUR",
+                                                            "quantity": 1
+                                                        }]
+                                                    },
+                                                    "amount": {
+                                                        "currency": "EUR",
+                                                        "total": req.body.amount
+                                                    },
+                                                    "description": "Articoli Cataldo Store"
+                                                }]
+                                            };
+
+                    paypal.payment.create(create_payment_json, function (error, payment) {
+                        if (error) {
+                            throw error;
+                        } else {
+                            for(let i = 0;i < payment.links.length;i++){
+                              if(payment.links[i].rel === 'approval_url'){
+                                res.status(200).send({ redirect:payment.links[i].href})
+                              
+                              }
+                            }
+                        }
+                      });
+    
       
       }); 
+
+
+
+      app.get('/success', (req, res) => {
+          res.send("success");
+      });
+
+
+
 module.exports = app; 
