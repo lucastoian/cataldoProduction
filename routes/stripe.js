@@ -187,7 +187,7 @@ let paypalOrder;
                     .then( response => response.json() )
                     .then( response => {
                        console.log("HO CREATO QUESTO ORDINE CON PAYPAL: ################################################################################ÀÀ " + JSON.stringify(response))
-                       res.send(response._id)
+                       res.send("https://cataldoproduction.herokuapp.com/#/orders/" + response._id)
                     } );
             }
         });
