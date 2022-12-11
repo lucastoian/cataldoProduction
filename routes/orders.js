@@ -229,7 +229,7 @@ router.post("/createNewOrder", async (req, res) => {
       fullNumber: orderData.prefix+ orderData.phone,
       totalPrice: orderData.totalPrice,
       user: orderData.user,
-      email: "missing email",
+      email: orderData.email,
       paymentOption: orderData.paymentOption,
       confirmed: orderData.confirmed,
       id: getRandomInt(9999999) * getRandomInt(9999999)
