@@ -220,18 +220,18 @@ router.post("/createNewOrder", async (req, res) => {
   try{
     console.log("creating a new order");
     let order = new Order({
-      shippingAddress1: req.body.order.shippingAddress1,
-      city: req.body.order.city,
-      zip: req.body.order.zip,
-      country: req.body.order.country,
-      phone: req.body.order.phone,
-      prefix: req.body.order.prefix,
-      fullNumber: req.body.order.prefix+ req.body.order.phone,
-      totalPrice: req.body.order.totalPrice,
-      user: req.body.order.user,
-      email: req.body.email,
-      paymentOption: req.body.order.paymentOption,
-      confirmed: req.body.order.confirmed,
+      shippingAddress1: orderData.shippingAddress1,
+      city: orderData.city,
+      zip: orderData.zip,
+      country: orderData.country,
+      phone: orderData.phone,
+      prefix: orderData.prefix,
+      fullNumber: orderData.prefix+ orderData.phone,
+      totalPrice: orderData.totalPrice,
+      user: orderData.user,
+      email: "missing email",
+      paymentOption: orderData.paymentOption,
+      confirmed: orderData.confirmed,
       id: getRandomInt(9999999) * getRandomInt(9999999)
     });
 
