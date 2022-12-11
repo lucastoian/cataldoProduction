@@ -214,8 +214,13 @@ router.post("/", async (req, res) => {
 
 router.post("/createNewOrder", async (req, res) => {
   console.log("creating a new order ->" + JSON.stringify(req.body.order));
+    let orderData = "";
 
+    try{
     orderData = JSON.parse(req.body.order)
+    }catch(e){
+    orderData = req.body.order
+    }
 
   try{
     console.log("creating a new order");
