@@ -168,7 +168,7 @@ let paypalOrder;
                 console.log(error.response);
                 throw error;
             } else {
-                console.log(JSON.stringify(payment));
+                console.log("STO CERCANDO DI REGISTRARE QUESTO ORDINE CON PAYPAL:  ############" + decodeURIComponent(orderData));
                 
                 
                   const params = {
