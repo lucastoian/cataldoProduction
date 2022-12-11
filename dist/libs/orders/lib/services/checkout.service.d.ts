@@ -12,7 +12,7 @@ export declare class CheckoutService {
     constructor(http: HttpClient, environment: any);
     makePayment(stripeToken: any, amount: number): Observable<any>;
     sendSms(orderId: any, clientNumber: any, clientPrefix: any): Observable<any>;
-    payPal(cart: Cart, order: Order): Observable<any>;
+    payPal(cart: Cart, order2: Order): Observable<any>;
     parseJwt(token: any): any;
     static ɵfac: i0.ɵɵFactoryDeclaration<CheckoutService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<CheckoutService>;
