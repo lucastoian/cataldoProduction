@@ -25,6 +25,7 @@ export declare class ProductLuca {
     getVariants(): ProductVariant[];
     getId(): String;
     getName(): string;
+    getDiscount(): number;
     getJson(): string;
     getPricec(): number;
     setId(id: string): void;
