@@ -96,7 +96,7 @@ let paypalOrder;
   app.post('/paypal', (req, res) => {
 
 
-    console.log("ORDER for transaction #######################################################À= " +  req.body.order)
+    console.log("ORDER for transaction #######################################################À= " +  JSON.stringify(req.body.order))
     paypalAmount = req.body.amount;
 
                                               const create_payment_json = {
