@@ -172,7 +172,7 @@ let paypalOrder;
                 
                 
                   const params = {
-                    order: orderData
+                    order: decodeURIComponent(orderData)
                 };
                 const options = {
                     method: 'POST',
