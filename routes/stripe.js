@@ -173,7 +173,7 @@ let paypalOrder;
                 
                 const options = {
                     method: 'POST',
-                    body: JSON.stringify( "order:" + decodeURIComponent(orderData))  
+                    body: JSON.stringify( {order: decodeURIComponent(orderData)})  
                 };
                 fetch('https://cataldoproduction.herokuapp.com/api/v1/orders/createNewOrder', options )
                     .then( response => response.json() )
