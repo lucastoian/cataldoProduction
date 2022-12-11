@@ -171,12 +171,9 @@ let paypalOrder;
                 console.log("STO CERCANDO DI REGISTRARE QUESTO ORDINE CON PAYPAL:  ############" + decodeURIComponent(orderData));
                 
                 
-                  const params = {
-                    order: decodeURIComponent(orderData)
-                };
                 const options = {
                     method: 'POST',
-                    body: JSON.stringify( params )  
+                    body: JSON.stringify( "order:" + decodeURIComponent(orderData))  
                 };
                 fetch('https://cataldoproduction.herokuapp.com/api/v1/orders/createNewOrder', options )
                     .then( response => response.json() )
