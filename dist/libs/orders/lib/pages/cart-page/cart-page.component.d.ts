@@ -17,6 +17,7 @@ export declare class CartPageComponent implements OnInit, OnDestroy {
     trackByMethod(index: number, p: ProductVariant): string;
     getProductVariantByIdAndDeleteVariant(p: ProductVariant): any;
     updateCartItemQuantity(cartItem: ProductVariant): void;
+    removeProductFromCart(p: ProductVariant): void;
     getElementByXpath(path: string): Node;
     static ɵfac: i0.ɵɵFactoryDeclaration<CartPageComponent, never>;
     static ɵcmp: i0.ɵɵComponentDeclaration<CartPageComponent, "orders-cart-page", never, {}, {}, never, never>;

@@ -16,6 +16,7 @@ export declare class CartService implements OnInit {
     initCartLocalStorage(): void;
     emptyCart(): void;
     getCart(): Cart;
+    setNewCart(c: Cart): void;
     /**
      * Triggerato da "Add to kart"
      * @param cartItem
