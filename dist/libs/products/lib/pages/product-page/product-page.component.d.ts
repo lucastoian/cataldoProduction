@@ -1,5 +1,4 @@
 import { MessageService } from 'primeng/api';
-import { Cart } from '@eshop-frontend/users';
 import { ProductLuca } from '@eshop-frontend/users';
 import { OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -24,7 +23,6 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     private messageService;
     private icon;
     private location;
-    private cart;
     clickedIndex: number;
     variant: Variant;
     variants: Variant[];
@@ -60,7 +58,8 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     brandLogo: string;
     brandMap: Map<string, string>;
     brandLogoBlob: any;
-    constructor(prodService: ProductsService, WprodService: W_ProductsService, route: ActivatedRoute, router: Router, cartService: CartService, variantService: VariantsService, messageService: MessageService, icon: CartIconComponent, location: Location, cart: Cart);
+    private cart;
+    constructor(prodService: ProductsService, WprodService: W_ProductsService, route: ActivatedRoute, router: Router, cartService: CartService, variantService: VariantsService, messageService: MessageService, icon: CartIconComponent, location: Location);
     ngOnInit(): Promise<void>;
     ngOnDestroy(): void;
     ajaxGetImageData(url: any): Promise<Blob>;

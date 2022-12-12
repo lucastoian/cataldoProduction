@@ -11,6 +11,7 @@ export declare class CartService implements OnInit {
     private environment;
     cart$: BehaviorSubject<Cart>;
     cart2$: BehaviorSubject<Cart>;
+    constructor();
     ngOnInit(): void;
     initCartLocalStorage(): void;
     emptyCart(): void;

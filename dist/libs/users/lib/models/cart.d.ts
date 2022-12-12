@@ -1,11 +1,15 @@
 import { Observable } from 'rxjs';
 import { ProductLuca } from './productLuca';
+import { OnInit } from '@angular/core';
 import { ProductVariant } from './productVariant';
 import * as i0 from "@angular/core";
-export declare class Cart {
+export declare class Cart implements OnInit {
+    private static sortedCart;
     private products;
     private items;
     constructor();
+    ngOnInit(): void;
+    static getInstance(): Cart;
     addProductLuca(ProductLuca: ProductLuca): void;
     emptyCart(): void;
     getproducts(): ProductLuca[];

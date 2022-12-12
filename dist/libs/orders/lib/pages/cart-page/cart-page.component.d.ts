@@ -1,15 +1,16 @@
 import { ProductVariant } from '@eshop-frontend/users';
 import { OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Cart } from '@eshop-frontend/users';
+import { CartService } from '../../services/cart.service';
 import * as i0 from "@angular/core";
 export declare class CartPageComponent implements OnInit, OnDestroy {
     private router;
-    private cart;
+    private cartService;
     productVariants: ProductVariant[];
     items: number;
     productNames: string[];
-    constructor(router: Router, cart: Cart);
+    private cart;
+    constructor(router: Router, cartService: CartService);
     ngOnInit(): void;
     ngOnDestroy(): void;
     backToShop(): void;
