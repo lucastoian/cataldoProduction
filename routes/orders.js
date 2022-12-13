@@ -1,4 +1,5 @@
 const { Order } = require("../models/order");
+const { ProductVariant }= require("../models/productVariant");
 const express = require("express");
 const { OrderItem } = require("../models/order-item");
 const { json } = require("express");
@@ -257,6 +258,20 @@ router.post("/createNewOrder", async (req, res) => {
     if (!order){
       return res.status(400).send("the order cannot be created!");
     } else{
+
+      items.forEach(async data => {
+        console.log("QUESTA TAGLIA HA IN TUTTO " + data.maxInventory + " ARTICOLI   NE RIMUOVO " +  data.selected + "  QUINDI I NUOVI ARTICOLI SARANNO:  " + (data.maxInventory - data.selected))
+
+
+        await ProductVariant.findByIdAndUpdate(
+          data.id,
+          {
+            inventory: data.maxInventory - data.selected
+          }
+          );
+
+       
+      });
 
       var transporter = nodemailer.createTransport({
         host: "smtps.aruba.it",
