@@ -45,7 +45,7 @@ app.post('/checkout', async(req, res) => {
         return stripe.charges.create({
           amount: req.body.amount * 100,
           description: "Cataldo Store",
-          currency: "eur",
+          currency: "EUR",
           customer: customer.id,
         });
       })
