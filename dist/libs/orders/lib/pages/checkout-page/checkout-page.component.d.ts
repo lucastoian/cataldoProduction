@@ -25,6 +25,7 @@ export declare class CheckoutPageComponent implements OnInit {
     private cart;
     errorMessage: boolean;
     errormessage: String[];
+    loading: boolean;
     constructor(router: Router, usersService: UsersService, formBuilder: FormBuilder, cartService: CartService, ordersService: OrdersService, messageService: MessageService, checkout: CheckoutService, kc: KlarnaComponent, cart: Cart);
     checkoutFormGroup: FormGroup;
     isSubmitted: boolean;

@@ -25,6 +25,7 @@ export declare class PaymentOptions implements OnInit {
     private confirmationService;
     private primengConfig;
     errorMessage: boolean;
+    loading: boolean;
     errormessage: String[];
     msgs: Message[];
     private cart;

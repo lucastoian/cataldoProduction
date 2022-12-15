@@ -15,6 +15,7 @@ export declare class RegisterComponentComponent implements OnInit {
     loginFormGroup: FormGroup;
     isSubmitted: boolean;
     authError: boolean;
+    loading: boolean;
     authMessage: string;
     user: User;
     constructor(formBuilder: FormBuilder, authService: AuthService, localstorageService: LocalstorageService, router: Router, location: Location);

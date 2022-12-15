@@ -7,6 +7,8 @@ export declare class OrderSummaryComponent implements OnInit, OnDestroy {
     private cartService;
     private router;
     totalPrice: number;
+    isLoading: boolean;
+    canPay: boolean;
     cart: Cart;
     isCheckOut: boolean;
     constructor(//private cartService: CartService,
