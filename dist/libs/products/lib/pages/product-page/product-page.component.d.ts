@@ -23,7 +23,7 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     private messageService;
     private icon;
     private location;
-    clickedIndex: number;
+    clickedSize: String;
     variant: Variant;
     variants: Variant[];
     filteredVariants: Variant[];
