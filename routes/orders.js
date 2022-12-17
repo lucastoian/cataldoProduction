@@ -293,7 +293,7 @@ router.post("/createNewOrder", async (req, res) => {
         from: 'postmaster@cataldostore.it',
         to: req.body.email,
         subject: 'Conferma avvenuto ordine CataldoStore.it',
-        html: '<h3>Conferma ordine numero: </h3>' + order._id + '<br> <h3>Indirizzo di spedizione: </h3>Paese: ' + req.body.order.country  + ' <br>Città: ' + req.body.order.city + ' <br>Zip: ' + req.body.order.zip + ' <br>Indirizzo: ' + req.body.order.shippingAddress1 + '<br><a href="https://cataldoproduction.herokuapp.com/#/orders/' +order._id +  '">Clicca per maggiori dettagli</a>'
+        html: '<h3>Conferma ordine numero: </h3>' + order._id + '<br> <h3>Indirizzo di spedizione: </h3>Paese: ' + req.body.order.country  + ' <br>Città: ' + req.body.order.city + ' <br>Zip: ' + req.body.order.zip + ' <br>Indirizzo: ' + req.body.order.shippingAddress1 + '<br><a href="https://www.cataldostore.it/#/orders/' +order._id +  '">Clicca per maggiori dettagli</a>'
       };
       
       transporter.sendMail(mailOptions, function(error, info){
@@ -365,13 +365,11 @@ router.post("/delete", async (req, res) => {
     try{
         Order.find(filter).exec(function (err, results) {
         var count = results.length
-  
-  
         res.status(200).json({
           count: count
       })
       
-      });
+    });
     
   
     
