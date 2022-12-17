@@ -15,11 +15,13 @@ const errorHandler = require('./helpers/error-handler');
 app.use(cors());
 app.enable('trust proxy')
 
-app.use(function(request, response, next) {
+app.use((req, res, next) => {
+    if (req.protocol === 'http') {
+        return res.redirect(301, `https://${req.headers.host}${req.url}`);
+    }
 
-  return response.redirect("https://" + request.headers.host + request.url);
-  
-})
+    next();
+});
 
 const shouldCompress = (req, res) => {
   if (req.headers['x-no-compression']) {
