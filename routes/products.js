@@ -496,11 +496,7 @@ router.get(`/:id`, async (req,res)=>{
     try{
     const product = await Product.findById(req.params.id).populate('category');
 
-    if (!product){
-        res.status(500).json({
-            success: false
-        });
-    }
+
     res.send(product);
 }catch(e){
     res.status(500).json({
@@ -515,9 +511,7 @@ router.get(`/get/featured`, async (req,res)=>{
     try{
     const products = await Product.find({isFeatured: true})
 
-    if(!products){
-        res.status(500).json({success: false})
-    }
+
     res.send(products);
 }catch(e){
     res.status(500).json({
