@@ -544,6 +544,7 @@ router.get(`/get/featured/:brand`, async (req,res)=>{
     map.set("saucony", "62189fad1d62386cc22525c8");
     map.set("sundek", "62189fbb1d62386cc22525cb");
     map.set("barbour", "632e05f3b8c567de5ea83669");
+    map.set("canadiens", "636b5806506ba65e593baa87");
 
     try{
     const products = await Product.find({"brand": map.get(req.params.brand), "isFeatured":true});
