@@ -11,9 +11,9 @@ const fetch = require('node-fetch')
 
 const paypal = require('paypal-rest-sdk');
 paypal.configure({
-  'mode': 'sandbox', //sandbox or live
-  'client_id': 'ARAUdbf5PTYyBEdPANdY7M7NeKeSlQvmvS7KQQrniZytrfh6yKUuqaQc88ADZF3ImgmhmP1uhh3m2bTc',
-  'client_secret': 'ECPln4tq_ZJbjDAcx2BJX6vulsnDF6CmSUd1MzCBlC6O2W0E0sEusDA6Z4cnJ05AmnYpUbSiTlyGXSbA'
+  'mode': 'live', //sandbox or live
+  'client_id': 'AZZU3wNkGHvF2lHIT-hUjsEOZqjlUOAiCoRFCD7HlwFRdX1LmvnmSd_BjLyZDPfiSRvIQ_PiiLxrFqO7',
+  'client_secret': 'EMeDcQUwmC5EK9pGfPGZ3fC9eJoW1nkl69_7XH0txgkTgbj81EA3GFnvF8Wg7HbE73ifb9INKOGqyOKp'
 });
 
 app.use(cors())
