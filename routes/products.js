@@ -678,13 +678,13 @@ router.put('/:id', uploadS3.single('image'), async (req, res) => {
             description: req.body.description,
             category: req.body.category,
             sex: req.body.sex,
-            image: "https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file),
+         //   image: "https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file),
             brand: req.body.brand,
             price: req.body.price,
             isFeatured: req.body.isFeatured,
             color: req.body.color,
             discount: req.body.discount,
-            factoryCode: req.body.factoryCode,
+          //  factoryCode: req.body.factoryCode,
         },{
             new: true
         }
