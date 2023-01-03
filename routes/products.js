@@ -39,6 +39,7 @@ const storage = multer.diskStorage({
 })
 
 function filename (file) {
+    try{
     // const fileName = file.originalname.split(' ').join('-');
     // console.log("original name = " + JSON.stringify(file));
     // const extension = FILE_TYPE_MAP[file.mimetype];
@@ -48,6 +49,9 @@ function filename (file) {
     const extension = FILE_TYPE_MAP[file.mimetype];
      //return randomWords({ exactly: 5, join: '' }) +"." + extension;
      return  `${fileName}.${extension}`;
+    }catch(e){
+        return null;
+    }
  }
 
 
@@ -645,16 +649,14 @@ router.put('/:id', uploadS3.single('image'), async (req, res) => {
     if (!product) return res.status(400).send('Invalid product');
 
     //File exists check
-    const file = req.file;
+    const file =  filename(req.file);
     let imagepath;
 
-    if (file) {
+    if (file != null) {
         //const fileName = file.filename;
         //const basePath = `${req.protocol}://${req.get('host')}/public/uploads/`;
         imagepath = "https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file);
-    } else {
-        imagepath ="https://cataldostore.s3.eu-west-3.amazonaws.com/" + filename(file);
-    } 
+    }
 
     // const variants = Promise.all(
     //     req.body.variants.map(async (variant) => {
@@ -696,7 +698,8 @@ router.put('/:id', uploadS3.single('image'), async (req, res) => {
     res.send(updatedProduct);
 }catch(e){
     res.status(500).json({
-        success: false
+        success: false,
+        error: e
     })
 }
 })
