@@ -546,13 +546,44 @@ router.get(`/get/featured/:brand`, async (req,res)=>{
     map.set("husky", "636b57f3506ba65e593baa84");
 
     try{
-    const products = await Product.find({"brand": map.get(req.params.brand), "isFeatured":true});
 
-    if(!products){
-        res.status(500).json({success: false})
-    }
-    res.send(products);
-}catch(e){
+        const products= await Product.find({"brand": map.get(req.params.brand), "isFeatured":true, "sex":req.query.sex}).limit(150);
+        //console.log("featured products : " + products)
+    
+        if(!products){
+            res.status(500).json({success: false})
+        }
+    
+        let distinctProducts = [];
+        for(let i = 0; i<products.length-1; i++){
+            let p1 = products.pop() ;
+            let p2= products.pop() ;
+            console.log("p1 = " + p1 + " p2 = " + p2)
+            if(p1.productId == p2.productId){
+                continue
+            }else{
+                distinctProducts.push(p1);
+                distinctProducts.push(p2);
+            }
+        }
+    
+        console.log(distinctProducts)
+        if(distinctProducts.length <5){
+            const moreProducts= await Product.find({"isFeatured":true, "sex":req.query.sex}).limit(50);
+            for(let i = 0; i<moreProducts.length-1; i++){
+                let p1 = moreProducts.pop() ;
+                let p2= moreProducts.pop() ;
+                console.log("p1 = " + p1 + " p2 = " + p2)
+                if(p1.productId == p2.productId){
+                    continue
+                }else{
+                    distinctProducts.push(p1);
+                    distinctProducts.push(p2);
+                }
+            }
+        }
+        res.send(distinctProducts);
+    }catch(e){
     res.status(500).json({
         success: false
     })

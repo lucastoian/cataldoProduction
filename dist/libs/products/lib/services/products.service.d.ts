@@ -28,7 +28,7 @@ export declare class ProductsService {
     deleteProduct(productId: string): Observable<any>;
     getProductsCount(): Observable<number>;
     getFeaturedProducts(): Observable<Product123[]>;
-    getFeaturedProductsByBrand(brand: string): Observable<Product123[]>;
+    getFeaturedProductsByBrand(brand: string, sex: string): Observable<Product123[]>;
     addGallery(productId: string, galleryFormData: FormData): Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsService, never>;
     static ɵprov: i0.ɵɵInjectableDeclaration<ProductsService>;

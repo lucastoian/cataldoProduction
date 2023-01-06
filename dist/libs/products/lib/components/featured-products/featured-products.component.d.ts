@@ -6,6 +6,7 @@ import * as i0 from "@angular/core";
 export declare class FeaturedProductsComponent implements OnInit, OnDestroy {
     private prodService;
     maxComponentWidth: number;
+    featuredSex: string;
     brandName: string;
     brandMap: Map<string, string>;
     featuredProducts: Product123[];
@@ -22,6 +23,6 @@ export declare class FeaturedProductsComponent implements OnInit, OnDestroy {
     goToPreviouseImage(): void;
     goToNextImage(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<FeaturedProductsComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<FeaturedProductsComponent, "eshop-frontend-featured-products", never, { "maxComponentWidth": "maxComponentWidth"; "brandName": "brandName"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<FeaturedProductsComponent, "eshop-frontend-featured-products", never, { "maxComponentWidth": "maxComponentWidth"; "featuredSex": "featuredSex"; "brandName": "brandName"; }, {}, never, never>;
 }
 //# sourceMappingURL=featured-products.component.d.ts.map
