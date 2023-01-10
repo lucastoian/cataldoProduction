@@ -4,7 +4,7 @@ const app = express();
 const Stripe = require('stripe');
 app.use(bodyparser.urlencoded({ extended: false }))
 app.use(bodyparser.json())
-const stripe = require("stripe")("sk_test_51LYUCGDEyiX3e3PlOF9sfkE3RE3eyjDbq9kzY39MZmErzUDUKIfURmQ7raSXznjlT1gQP6hUI8VBraRlzZzp6EW700HHZP3bpO");
+const stripe = require("stripe")("pk_live_51LYUCGDEyiX3e3PlZ6YXzMTMSvGkcCPrbxY7HU3N4PHkJgo00eXmUxV65d81LeSks3ZCkr4jY7liJdzIPMoH6RNZ00qmPvQJMW");
 const cors = require('cors')
 const fetch = require('node-fetch')
 
@@ -70,7 +70,7 @@ app.post('/checkout', async(req, res) => {
 app.post('/charge-source', async (req, res, next) => {
   console.log("stai pagando con klarna");
   try{
-  const stripe2 = Stripe("sk_test_51LYUCGDEyiX3e3PlOF9sfkE3RE3eyjDbq9kzY39MZmErzUDUKIfURmQ7raSXznjlT1gQP6hUI8VBraRlzZzp6EW700HHZP3bpO");
+  const stripe2 = Stripe("pk_live_51LYUCGDEyiX3e3PlZ6YXzMTMSvGkcCPrbxY7HU3N4PHkJgo00eXmUxV65d81LeSks3ZCkr4jY7liJdzIPMoH6RNZ00qmPvQJMW");
   console.log("customer = " + req.body.sourceId);
 
   console.log("stai pagando con klarna");
