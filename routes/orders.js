@@ -117,10 +117,12 @@ router.get(`/get/count`, async (req, res) => {
     res.status(500).json({
       success: false,
     });
+  }else{
+    res.send({
+      orderCount: orderCount,
+    });
   }
-  res.send({
-    orderCount: orderCount,
-  });
+
 } catch(e){
   res.status(500).json({
     success: false
