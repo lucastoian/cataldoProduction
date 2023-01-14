@@ -10,6 +10,7 @@
     "@eshop-frontend/users": "0.0.1",
     "@stripe/stripe-js": "^1.38.1",
     "@angular/forms": "^13.0.0",
+    "@angular/platform-browser": "^13.0.0",
     "i18n-iso-countries": "^7.2.0",
     "@ngrx/store": "~13.0.0",
     "@ngrx/effects": "~13.0.0",

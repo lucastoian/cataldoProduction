@@ -1,16 +1,16 @@
 import { OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { LocalstorageService } from '../../services/localstorage.service';
 import { Location } from '@angular/common';
 import { MessageService } from 'primeng/api';
+import { Title } from "@angular/platform-browser";
 import * as i0 from "@angular/core";
 export declare class LoginComponent implements OnInit {
     private formBuilder;
     private auth;
     private localstorageService;
-    private router;
+    private titleService;
     private location;
     private messageService;
     loginFormGroup: FormGroup;
@@ -18,7 +18,7 @@ export declare class LoginComponent implements OnInit {
     authError: boolean;
     loading: boolean;
     authMessage: string;
-    constructor(formBuilder: FormBuilder, auth: AuthService, localstorageService: LocalstorageService, router: Router, location: Location, messageService: MessageService);
+    constructor(formBuilder: FormBuilder, auth: AuthService, localstorageService: LocalstorageService, titleService: Title, location: Location, messageService: MessageService);
     ngOnInit(): void;
     private _initLoginForm;
     onSubmit(): void;

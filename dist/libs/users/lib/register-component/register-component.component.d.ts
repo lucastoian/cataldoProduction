@@ -3,13 +3,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
-import { LocalstorageService } from '../services/localstorage.service';
 import { Location } from '@angular/common';
+import { Title } from "@angular/platform-browser";
 import * as i0 from "@angular/core";
 export declare class RegisterComponentComponent implements OnInit {
     private formBuilder;
     private authService;
-    private localstorageService;
+    private titleService;
     private router;
     private location;
     loginFormGroup: FormGroup;
@@ -18,7 +18,7 @@ export declare class RegisterComponentComponent implements OnInit {
     loading: boolean;
     authMessage: string;
     user: User;
-    constructor(formBuilder: FormBuilder, authService: AuthService, localstorageService: LocalstorageService, router: Router, location: Location);
+    constructor(formBuilder: FormBuilder, authService: AuthService, titleService: Title, router: Router, location: Location);
     ngOnInit(): void;
     private _initLoginForm;
     onSubmit(): void;
