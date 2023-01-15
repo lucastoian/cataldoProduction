@@ -14,7 +14,7 @@ export declare class OrdersService {
     payPal(s: string): Observable<any>;
     getOrder(orderId: string): Observable<Order>;
     createOrder(order: Order): Observable<Order>;
-    createNewOrder(order: Order, email: string, prefix: string): Observable<any>;
+    createNewOrder(order: Order, email: string, prefix?: string): Observable<any>;
     getUnconfirmedOrder(prefix: any, phone: any): Observable<any>;
     updateOrder(orderStatus: {
         status: string;
