@@ -6,6 +6,7 @@ import { Product123 } from '../../models/product123';
 import { W_Product } from '../../models/w-product';
 import { ProductsService } from '../../services/products.service';
 import { Title, Meta } from "@angular/platform-browser";
+import { BrandsService } from '../../services/brands.services';
 import * as i0 from "@angular/core";
 interface Sesso {
     name: string;
@@ -26,6 +27,7 @@ interface Taglia {
 export declare class ProductsBrandsComponent implements OnInit {
     private route;
     private productsService;
+    private brandService;
     private titleService;
     private metaService;
     isChecked: boolean;
@@ -41,6 +43,8 @@ export declare class ProductsBrandsComponent implements OnInit {
     filtered: Product123[];
     categories: Category[];
     currentBrand: Brand;
+    descrizioneBrand: String;
+    immagineBrand: String;
     url: any;
     currentPage: any;
     _urlSegment: any;
@@ -56,7 +60,7 @@ export declare class ProductsBrandsComponent implements OnInit {
     taglia: Taglia[];
     selectedTaglia: Taglia[];
     brandMap: Map<string, string>;
-    constructor(route: ActivatedRoute, productsService: ProductsService, titleService: Title, metaService: Meta);
+    constructor(route: ActivatedRoute, productsService: ProductsService, brandService: BrandsService, titleService: Title, metaService: Meta);
     ngOnInit(): void;
     getKeyByValue(obj: any, value: any): string;
     changePage(event: any): void;
