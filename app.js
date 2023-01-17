@@ -84,20 +84,16 @@ app.use(`${api}/brands`, brandsRoutes);
 app.use(`${api}/sms`, smsRoutes);
 app.use(`${api}`, stripeRoutes);
 
-
-  app.get('/*', (req, res) => {
-    console.log("process.cwd = " + process.cwd())
-    res.sendFile(process.cwd())+"/dist/apps/cataldo-store/index.html"
+app.get('/*', (req,res) => {
+    res.sendFile(process.cwd()+"/dist/apps/cataldo-store/index.html");
   });
 
 
-
-/*
   app.get('/admin', (req,res) => {
     res.sendFile(process.cwd()+"/dist/apps/admin/index.html");
   });  
 
-*/
+
 //Database connection
 mongoose.connect(process.env.CONNECTION_STRING).then(() => {
     console.log('Database connection ready...');
