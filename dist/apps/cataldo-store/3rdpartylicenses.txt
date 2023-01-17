@@ -249,6 +249,9 @@ MIT
 @ngrx/store
 MIT
 
+@ngx-lite/json-ld
+MIT
+
 @stripe/stripe-js
 MIT
 MIT License
