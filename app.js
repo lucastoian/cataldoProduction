@@ -89,7 +89,7 @@ app.use(`${api}`, stripeRoutes);
 
   const fs = require("fs");
   app.use((req, res)=>{
-    let rs = fs.createReadStream(`${__dirname}/dist/{your project name}/index.html`);
+    let rs = fs.createReadStream(`${__dirname}/dist/apps/cataldo-store/index.html`);
     res.writeHead(200, {"Content-type": "text/html"});
     rs.pipe(res);
   })
