@@ -51,7 +51,7 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use(errorHandler);
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname,"/dist/apps/cataldo-store")));
+app.use(express.static(process.cwd()+"/dist/apps/cataldo-store"));
 app.use(history({
   disableDotRule: true,
   verbose: true
