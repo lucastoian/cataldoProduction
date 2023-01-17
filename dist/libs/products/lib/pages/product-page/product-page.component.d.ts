@@ -4,6 +4,7 @@ import { OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CartService } from '@eshop-frontend/orders';
 import { Subject } from 'rxjs';
+import { Title, Meta } from "@angular/platform-browser";
 import { Location } from '@angular/common';
 import { CartIconComponent } from '@eshop-frontend/orders';
 import { Variant } from '../../models/variant';
@@ -20,6 +21,8 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     private router;
     private cartService;
     private variantService;
+    private titleService;
+    private meta;
     private messageService;
     private icon;
     private location;
@@ -59,7 +62,7 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     brandMap: Map<string, string>;
     brandLogoBlob: any;
     private cart;
-    constructor(prodService: ProductsService, WprodService: W_ProductsService, route: ActivatedRoute, router: Router, cartService: CartService, variantService: VariantsService, messageService: MessageService, icon: CartIconComponent, location: Location);
+    constructor(prodService: ProductsService, WprodService: W_ProductsService, route: ActivatedRoute, router: Router, cartService: CartService, variantService: VariantsService, titleService: Title, meta: Meta, messageService: MessageService, icon: CartIconComponent, location: Location);
     ngOnInit(): Promise<void>;
     ngOnDestroy(): void;
     ajaxGetImageData(url: any): Promise<Blob>;

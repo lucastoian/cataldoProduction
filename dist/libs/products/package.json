@@ -16,6 +16,7 @@
     "@nrwl/angular": "13.2.4",
     "@ngrx/entity": "~13.0.0",
     "@eshop-frontend/orders": "0.0.1",
+    "@angular/platform-browser": "^13.0.0",
     "@eshop-frontend/ui": "0.0.1"
   },
   "dependencies": {
