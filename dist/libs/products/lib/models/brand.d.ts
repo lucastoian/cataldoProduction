@@ -4,7 +4,5 @@ export declare class Brand {
     image?: any;
     m?: boolean;
     w?: boolean;
-    descrizione?: String;
-    immagineProdList?: String;
 }
 //# sourceMappingURL=brand.d.ts.map
