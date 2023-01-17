@@ -56,7 +56,7 @@ app.use(history({
   disableDotRule: true,
   verbose: true
 }));
-app.use(express.static(process.cwd()+"/dist/apps/admin"));
+//app.use(express.static(process.cwd()+"/dist/apps/admin"));
 
 //Routes
 const categoriesRoutes = require('./routes/categories');
