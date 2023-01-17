@@ -85,14 +85,12 @@ app.use(`${api}/sms`, smsRoutes);
 app.use(`${api}`, stripeRoutes);
 
 
-  //app.get('/*', (req, res) => res.sendFile(process.cwd())+"/dist/apps/cataldo-store/index.html");
+  app.get('/*', (req, res) => {
+    console.log("process.cwd = " + process.cwd())
+    res.sendFile(process.cwd())+"/dist/apps/cataldo-store/index.html"
+  });
 
-  const fs = require("fs");
-  app.use((req, res)=>{
-    let rs = fs.createReadStream(`${__dirname}/dist/apps/cataldo-store/index.html`);
-    res.writeHead(200, {"Content-type": "text/html"});
-    rs.pipe(res);
-  })
+
 
 
   app.get('/admin', (req,res) => {
