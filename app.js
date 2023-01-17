@@ -87,7 +87,7 @@ app.use(`${api}`, stripeRoutes);
 app.get('/', (req,res) => {
     res.sendFile(process.cwd()+"/dist/apps/cataldo-store/index.html");
   });
-
+  app.get('/*', (req, res) => res.sendFile(process.cwd()));
 
   app.get('/admin', (req,res) => {
     res.sendFile(process.cwd()+"/dist/apps/admin/index.html");
