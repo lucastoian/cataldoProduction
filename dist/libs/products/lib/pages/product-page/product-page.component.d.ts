@@ -84,8 +84,6 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     getProdByname(): void;
     getProdByProdId(): void;
     getWProdByname(): void;
-    selectColor(prodId: any): void;
-    selectWColor(prodId: any): void;
     updateSelectedSize(index: any): void;
     checkQuantity(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductPageComponent, never>;
