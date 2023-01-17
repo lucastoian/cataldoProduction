@@ -85,7 +85,7 @@ app.use(`${api}/sms`, smsRoutes);
 app.use(`${api}`, stripeRoutes);
 
 app.get('/*', (req, res) => {
-  res.render('index', {req, res});
+  res.sendFile(process.cwd()+"/dist/apps/cataldo-store/index.html");
 });
 
 
