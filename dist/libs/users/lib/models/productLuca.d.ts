@@ -8,6 +8,7 @@ export declare class ProductLuca {
     mainImage: string;
     private images;
     variants: ProductVariant[];
+    materiali: string;
     constructor();
     setImg(img: any): void;
     setVariant(variant: ProductVariant): void;
