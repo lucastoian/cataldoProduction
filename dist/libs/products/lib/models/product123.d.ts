@@ -18,6 +18,7 @@ export declare class Product123 {
     factoryCode: string;
     variants?: Variant[];
     brandLogo?: string;
+    brandName?: String;
     materiali?: string;
 }
 //# sourceMappingURL=product123.d.ts.map
