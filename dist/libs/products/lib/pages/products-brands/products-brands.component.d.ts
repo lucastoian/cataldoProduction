@@ -7,6 +7,7 @@ import { W_Product } from '../../models/w-product';
 import { ProductsService } from '../../services/products.service';
 import { BrandsService } from '../../services/brands.services';
 import { Title, Meta } from "@angular/platform-browser";
+import { MessageService } from 'primeng/api';
 import * as i0 from "@angular/core";
 interface Sesso {
     name: string;
@@ -27,6 +28,7 @@ interface Taglia {
 export declare class ProductsBrandsComponent implements OnInit {
     private route;
     private productsService;
+    private messageService;
     private meta;
     private titleService;
     private brandService;
@@ -60,7 +62,7 @@ export declare class ProductsBrandsComponent implements OnInit {
     brandImg: String;
     brandDescription: String;
     brandMap: Map<string, string>;
-    constructor(route: ActivatedRoute, productsService: ProductsService, meta: Meta, titleService: Title, brandService: BrandsService);
+    constructor(route: ActivatedRoute, productsService: ProductsService, messageService: MessageService, meta: Meta, titleService: Title, brandService: BrandsService);
     ngOnInit(): void;
     getKeyByValue(obj: any, value: any): string;
     changePage(event: any): void;
