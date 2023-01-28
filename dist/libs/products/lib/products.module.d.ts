@@ -16,14 +16,15 @@ import * as i14 from "primeng/checkbox";
 import * as i15 from "@angular/forms";
 import * as i16 from "primeng/rating";
 import * as i17 from "primeng/inputnumber";
-import * as i18 from "@eshop-frontend/ui";
-import * as i19 from "primeng/carousel";
-import * as i20 from "primeng/multiselect";
-import * as i21 from "primeng/paginator";
-import * as i22 from "primeng/accordion";
+import * as i18 from "primeng/messages";
+import * as i19 from "@eshop-frontend/ui";
+import * as i20 from "primeng/carousel";
+import * as i21 from "primeng/multiselect";
+import * as i22 from "primeng/paginator";
+import * as i23 from "primeng/accordion";
 export declare class ProductsModule {
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsModule, never>;
-    static ɵmod: i0.ɵɵNgModuleDeclaration<ProductsModule, [typeof i1.ProductsSearchComponent, typeof i2.CategoriesBannerComponent, typeof i3.ProductItemComponent, typeof i4.FeaturedProductsComponent, typeof i5.ProductsListComponent, typeof i6.ProductPageComponent, typeof i7.ProductsBrandsComponent, typeof i8.CarouselProductsBrandsComponent, typeof i9.ProductJsonLdComponent], [typeof i10.CommonModule, typeof i11.RouterModule, typeof i12.NgxJsonLdModule, typeof i13.ButtonModule, typeof i14.CheckboxModule, typeof i15.FormsModule, typeof i16.RatingModule, typeof i17.InputNumberModule, typeof i18.UiModule, typeof i19.CarouselModule, typeof i20.MultiSelectModule, typeof i21.PaginatorModule, typeof i22.AccordionModule], [typeof i1.ProductsSearchComponent, typeof i2.CategoriesBannerComponent, typeof i3.ProductItemComponent, typeof i4.FeaturedProductsComponent, typeof i5.ProductsListComponent]>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<ProductsModule, [typeof i1.ProductsSearchComponent, typeof i2.CategoriesBannerComponent, typeof i3.ProductItemComponent, typeof i4.FeaturedProductsComponent, typeof i5.ProductsListComponent, typeof i6.ProductPageComponent, typeof i7.ProductsBrandsComponent, typeof i8.CarouselProductsBrandsComponent, typeof i9.ProductJsonLdComponent], [typeof i10.CommonModule, typeof i11.RouterModule, typeof i12.NgxJsonLdModule, typeof i13.ButtonModule, typeof i14.CheckboxModule, typeof i15.FormsModule, typeof i16.RatingModule, typeof i17.InputNumberModule, typeof i18.MessagesModule, typeof i19.UiModule, typeof i20.CarouselModule, typeof i21.MultiSelectModule, typeof i22.PaginatorModule, typeof i23.AccordionModule], [typeof i1.ProductsSearchComponent, typeof i2.CategoriesBannerComponent, typeof i3.ProductItemComponent, typeof i4.FeaturedProductsComponent, typeof i5.ProductsListComponent]>;
     static ɵinj: i0.ɵɵInjectorDeclaration<ProductsModule>;
 }
 //# sourceMappingURL=products.module.d.ts.map

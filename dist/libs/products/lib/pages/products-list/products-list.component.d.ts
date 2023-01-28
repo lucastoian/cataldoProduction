@@ -7,6 +7,7 @@ import { W_Product } from '../../models/w-product';
 import { CategoriesService } from '../../services/categories.service';
 import { ProductsService } from '../../services/products.service';
 import { Title, Meta } from "@angular/platform-browser";
+import { Message, MessageService } from 'primeng/api';
 import * as i0 from "@angular/core";
 interface Sesso {
     name: string;
@@ -27,6 +28,7 @@ interface Taglia {
 export declare class ProductsListComponent implements OnInit {
     private productsService;
     private catService;
+    private messageService;
     private titleService;
     private meta;
     private route;
@@ -58,10 +60,11 @@ export declare class ProductsListComponent implements OnInit {
     selectedBrand: Brand[];
     taglia: Taglia[];
     selectedTaglia: Taglia[];
+    msgs: Message[];
     filtered: Product123[];
     categoryMap: Map<string, string>;
     currentCategory: Categoria;
-    constructor(productsService: ProductsService, catService: CategoriesService, titleService: Title, meta: Meta, route: ActivatedRoute);
+    constructor(productsService: ProductsService, catService: CategoriesService, messageService: MessageService, titleService: Title, meta: Meta, route: ActivatedRoute);
     ngOnInit(): void;
     changePage(event: any): void;
     search(event: any): void;
