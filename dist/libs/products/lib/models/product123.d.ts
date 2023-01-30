@@ -20,5 +20,7 @@ export declare class Product123 {
     brandLogo?: string;
     brandName?: String;
     materiali?: string;
+    totaleInventario: number;
+    totaleProdId: number;
 }
 //# sourceMappingURL=product123.d.ts.map

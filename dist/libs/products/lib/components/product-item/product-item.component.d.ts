@@ -13,7 +13,7 @@ export declare class ProductItemComponent implements OnInit {
     discount: number;
     finalPrice: number;
     clickedIndex: number;
-    varianti: any[];
+    varianti: Product123[];
     product: Product123;
     appBackImg: any;
     constructor(route: ActivatedRoute, prodService: ProductsService, router: Router);
