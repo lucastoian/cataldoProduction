@@ -14,6 +14,6 @@ export declare class CarouselComponent implements OnInit {
     ngOnInit(): Promise<void>;
     ngOnChanges(changes: SimpleChanges): Promise<void>;
     static ɵfac: i0.ɵɵFactoryDeclaration<CarouselComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<CarouselComponent, "eshop-frontend-carousel", never, { "images": "images"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<CarouselComponent, "eshop-frontend-carousel", never, { "images": "images"; }, {}, never, never, false, never>;
 }
 //# sourceMappingURL=carousel.component.d.ts.map

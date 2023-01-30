@@ -23,6 +23,6 @@ export declare class CartPageComponent implements OnInit, OnDestroy {
     removeProductFromCart(p: ProductVariant): void;
     getElementByXpath(path: string): Node;
     static ɵfac: i0.ɵɵFactoryDeclaration<CartPageComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<CartPageComponent, "orders-cart-page", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<CartPageComponent, "orders-cart-page", never, {}, {}, never, never, false, never>;
 }
 //# sourceMappingURL=cart-page.component.d.ts.map

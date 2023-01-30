@@ -83,6 +83,6 @@ export declare class ProductPageComponent implements OnInit, OnDestroy {
     updateSelectedSize(index: any): void;
     checkQuantity(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductPageComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<ProductPageComponent, "eshop-frontend-product-page", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<ProductPageComponent, "eshop-frontend-product-page", never, {}, {}, never, never, false, never>;
 }
 //# sourceMappingURL=product-page.component.d.ts.map

@@ -16,6 +16,6 @@ export declare class PaypalComponent implements OnInit {
     createNewOrder(order: Order, email: string, prefix: string): Observable<any>;
     parseJwt(token: any): any;
     static ɵfac: i0.ɵɵFactoryDeclaration<PaypalComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<PaypalComponent, "ng-component", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PaypalComponent, "ng-component", never, {}, {}, never, never, false, never>;
 }
 //# sourceMappingURL=paypal.component.d.ts.map

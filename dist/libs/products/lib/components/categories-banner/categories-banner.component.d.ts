@@ -11,6 +11,6 @@ export declare class CategoriesBannerComponent implements OnInit, OnDestroy {
     ngOnInit(): void;
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<CategoriesBannerComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<CategoriesBannerComponent, "eshop-frontend-products-categories-banner", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<CategoriesBannerComponent, "eshop-frontend-products-categories-banner", never, {}, {}, never, never, false, never>;
 }
 //# sourceMappingURL=categories-banner.component.d.ts.map

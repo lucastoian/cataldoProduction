@@ -25,7 +25,7 @@ CartIconComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: CartIconC
     } if (rf & 2) {
         i0.ɵɵadvance(1);
         i0.ɵɵproperty("value", ctx.cartCount);
-    } }, directives: [i2.BadgeDirective, i3.RouterLink], styles: ["@media screen and (min-width: 633px){.pi[_ngcontent-%COMP%]{font-size:40px!important;padding-right:15px}}"] });
+    } }, dependencies: [i2.BadgeDirective, i3.RouterLink], styles: ["@media screen and (min-width: 633px){.pi[_ngcontent-%COMP%]{font-size:40px!important;padding-right:15px}}"] });
 CartIconComponent.ɵprov = /*@__PURE__*/ i0.ɵɵdefineInjectable({ token: CartIconComponent, factory: CartIconComponent.ɵfac, providedIn: 'root' });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(CartIconComponent, [{
         type: Injectable,

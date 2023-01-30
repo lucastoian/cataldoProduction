@@ -72,7 +72,7 @@ export declare class ProductsBrandsComponent implements OnInit {
     private _getProdByBrand;
     categoryFilter(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsBrandsComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<ProductsBrandsComponent, "eshop-frontend-products-brands", never, { "product": "product"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<ProductsBrandsComponent, "eshop-frontend-products-brands", never, { "product": "product"; }, {}, never, never, false, never>;
 }
 export {};
 //# sourceMappingURL=products-brands.component.d.ts.map

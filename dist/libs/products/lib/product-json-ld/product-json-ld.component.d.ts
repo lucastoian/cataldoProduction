@@ -7,6 +7,6 @@ export declare class ProductJsonLdComponent {
     constructor();
     ngOnInit(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductJsonLdComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<ProductJsonLdComponent, "eshop-frontend-product-json-ld", never, { "prodotto": "prodotto"; "brandName": "brandName"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<ProductJsonLdComponent, "eshop-frontend-product-json-ld", never, { "prodotto": "prodotto"; "brandName": "brandName"; }, {}, never, never, false, never>;
 }
 //# sourceMappingURL=product-json-ld.component.d.ts.map

@@ -39,6 +39,6 @@ export declare class CarouselProductsBrandsComponent implements OnInit {
     selectWomenFromBrandAllProds(event: any): void;
     categoryFilter(event: any): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<CarouselProductsBrandsComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<CarouselProductsBrandsComponent, "eshop-frontend-carousel-products-brands", never, { "product": "product"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<CarouselProductsBrandsComponent, "eshop-frontend-carousel-products-brands", never, { "product": "product"; }, {}, never, never, false, never>;
 }
 //# sourceMappingURL=carousel-products-brands.component.d.ts.map

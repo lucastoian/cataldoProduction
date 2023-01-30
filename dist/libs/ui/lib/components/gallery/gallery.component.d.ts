@@ -27,6 +27,6 @@ export declare class GalleryComponent implements OnInit {
     ajaxGetImageData(url: any): Promise<Blob>;
     get hasImages(): boolean;
     static ɵfac: i0.ɵɵFactoryDeclaration<GalleryComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<GalleryComponent, "ui-gallery", never, { "product": "product"; "image": "image"; "images": "images"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<GalleryComponent, "ui-gallery", never, { "product": "product"; "image": "image"; "images": "images"; }, {}, never, never, false, never>;
 }
 //# sourceMappingURL=gallery.component.d.ts.map

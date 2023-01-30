@@ -73,7 +73,7 @@ export declare class ProductsListComponent implements OnInit {
     shuffleArray(array: any): void;
     categoryFilter(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductsListComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<ProductsListComponent, "eshop-frontend-products-list", never, { "product": "product"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<ProductsListComponent, "eshop-frontend-products-list", never, { "product": "product"; }, {}, never, never, false, never>;
 }
 export {};
 //# sourceMappingURL=products-list.component.d.ts.map

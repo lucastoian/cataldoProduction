@@ -12,6 +12,7 @@ export declare class AuthService {
     private apiURLUsers;
     constructor(http: HttpClient, environment: any, router: Router, token: LocalstorageService);
     login(email: string, password: string): Observable<User>;
+    google(credential: string): Observable<User>;
     logout(): void;
     register(user: User): Observable<any>;
     static ɵfac: i0.ɵɵFactoryDeclaration<AuthService, never>;

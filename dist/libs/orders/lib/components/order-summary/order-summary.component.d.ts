@@ -18,6 +18,6 @@ export declare class OrderSummaryComponent implements OnInit, OnDestroy {
     _getOrderSummary(): void;
     navigateToCheckout(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<OrderSummaryComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<OrderSummaryComponent, "orders-order-summary", never, { "isCheckOut": "isCheckOut"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<OrderSummaryComponent, "orders-order-summary", never, { "isCheckOut": "isCheckOut"; }, {}, never, never, false, never>;
 }
 //# sourceMappingURL=order-summary.component.d.ts.map

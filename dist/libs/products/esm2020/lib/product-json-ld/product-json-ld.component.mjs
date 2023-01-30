@@ -54,12 +54,12 @@ ProductJsonLdComponent.ɵcmp = /*@__PURE__*/ i0.ɵɵdefineComponent({ type: Prod
         i0.ɵɵelement(0, "ngx-json-ld", 0);
     } if (rf & 2) {
         i0.ɵɵproperty("json", ctx.schema);
-    } }, directives: [i1.NgxJsonLdComponent], styles: [""] });
+    } }, dependencies: [i1.NgxJsonLdComponent] });
 (function () { (typeof ngDevMode === "undefined" || ngDevMode) && i0.ɵsetClassMetadata(ProductJsonLdComponent, [{
         type: Component,
         args: [{ selector: 'eshop-frontend-product-json-ld', template: `
   <ngx-json-ld [json]="schema"></ngx-json-ld>
-`, styles: [""] }]
+` }]
     }], function () { return []; }, { prodotto: [{
             type: Input
         }], brandName: [{

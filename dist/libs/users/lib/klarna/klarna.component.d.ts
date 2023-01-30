@@ -19,6 +19,6 @@ export declare class KlarnaComponent implements OnInit {
     createNewOrder(order: any, email: string, prefix: string): Observable<any>;
     parseJwt(token: any): any;
     static ɵfac: i0.ɵɵFactoryDeclaration<KlarnaComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<KlarnaComponent, "eshop-frontend-klarna", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<KlarnaComponent, "eshop-frontend-klarna", never, {}, {}, never, never, false, never>;
 }
 //# sourceMappingURL=klarna.component.d.ts.map

@@ -51,6 +51,6 @@ export declare class okKlarnaPayment implements OnInit {
     static klarnaPayment(clientId: any, amount: any): Promise<void>;
     static parseJwt(token: any): any;
     static ɵfac: i0.ɵɵFactoryDeclaration<okKlarnaPayment, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<okKlarnaPayment, "ok-klarna", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<okKlarnaPayment, "ok-klarna", never, {}, {}, never, never, false, never>;
 }
 //# sourceMappingURL=okKlarnaPayment.d.ts.map

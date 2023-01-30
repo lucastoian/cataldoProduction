@@ -53,11 +53,11 @@ export declare class PaymentOptions implements OnInit {
     confirm(): void;
     checkSelectedOptions(): string;
     get checkoutForm(): {
-        [key: string]: import("@angular/forms").AbstractControl;
+        [key: string]: import("@angular/forms").AbstractControl<any, any>;
     };
     makePayment(amount: number): void;
     invokeStripe(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<PaymentOptions, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<PaymentOptions, "payment-options", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PaymentOptions, "payment-options", never, {}, {}, never, never, false, never>;
 }
 //# sourceMappingURL=payment-options.component.d.ts.map

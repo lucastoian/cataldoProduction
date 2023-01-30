@@ -12,6 +12,6 @@ export declare class MyProfileCheckOutComponent implements OnInit {
     logout(): void;
     ngOnInit(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<MyProfileCheckOutComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<MyProfileCheckOutComponent, "eshop-frontend-checkout-my-profile", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<MyProfileCheckOutComponent, "eshop-frontend-checkout-my-profile", never, {}, {}, never, never, false, never>;
 }
 //# sourceMappingURL=my-profile-checkout.component.d.ts.map

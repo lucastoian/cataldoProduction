@@ -48,11 +48,11 @@ export declare class CheckoutPageComponent implements OnInit {
     placeOrder(): Promise<void>;
     checkShippingAddress(): Boolean;
     get checkoutForm(): {
-        [key: string]: import("@angular/forms").AbstractControl;
+        [key: string]: import("@angular/forms").AbstractControl<any, any>;
     };
     makePayment(amount: number): void;
     invokeStripe(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<CheckoutPageComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<CheckoutPageComponent, "orders-checkout-page", never, {}, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<CheckoutPageComponent, "orders-checkout-page", never, {}, {}, never, never, false, never>;
 }
 //# sourceMappingURL=checkout-page.component.d.ts.map

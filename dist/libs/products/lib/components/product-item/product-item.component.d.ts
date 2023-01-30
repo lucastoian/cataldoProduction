@@ -22,6 +22,6 @@ export declare class ProductItemComponent implements OnInit {
     ajaxGetImageData(url: any): Promise<Blob>;
     changeCardVariant(variant: any, index: any): Promise<void>;
     static ɵfac: i0.ɵɵFactoryDeclaration<ProductItemComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<ProductItemComponent, "eshop-frontend-product-item", never, { "product": "product"; "appBackImg": "appBackImg"; }, {}, never, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<ProductItemComponent, "eshop-frontend-product-item", never, { "product": "product"; "appBackImg": "appBackImg"; }, {}, never, never, false, never>;
 }
 //# sourceMappingURL=product-item.component.d.ts.map
