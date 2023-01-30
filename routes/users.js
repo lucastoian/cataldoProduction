@@ -53,17 +53,17 @@ try{
 
 }
 try{
-    givenLastName =payload['given_name']
+    givenLastName =payload['family_name']
 } catch(e){
 
 }
 try{
-    givenUserName =payload['given_name']
+    givenUserName =payload['name']
 } catch(e){
 
 }
 try{
-    givenEmail =payload['given_name']
+    givenEmail =payload['email']
 } catch(e){
 
 }
