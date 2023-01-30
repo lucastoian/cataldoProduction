@@ -3,7 +3,8 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt =  require('jsonwebtoken');
-
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client('908804749713-9q67kslreerltag8jpsi7tadf845mms6.apps.googleusercontent.com');
 
 //Retrieve all users
 router.get(`/`, async (req, res) => {
@@ -23,7 +24,74 @@ router.get(`/`, async (req, res) => {
 }
 })
 
-
+router.post('/google', async (req,res)=>{
+    console.log(req.body)
+ 
+ 
+    const ticket = await client.verifyIdToken({
+     idToken: req.body.credential,
+     audience: '908804749713-9q67kslreerltag8jpsi7tadf845mms6.apps.googleusercontent.com',  // Specify the CLIENT_ID of the app that accesses the backend
+     // Or, if multiple clients access the backend:
+     //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+ });
+ const payload = ticket.getPayload();
+ const userid = payload['sub'];
+ console.log(payload)
+ let user = await User.findOne({email: payload['email']})
+ console.log(user)
+ const secret = process.env.secret;
+     if(user == null){
+         let newUser = new User({
+             name: payload['given_name'],
+             lastName: payload['family_name'],
+             userName: payload['name'],
+             email: payload['email'],
+             passwordHash: payload['sub'],
+             phone: '',
+             isAdmin: false,
+             street: '',
+             apartment: '',
+             zip: '',
+             city: '',
+             country: '',
+             platform: 'google',
+             externalId: ''
+         })
+         user = await newUser.save();
+         if (!user){
+             return res.status(400).send('the user cannot be created!')
+         }
+     }
+ const tokenN = jwt.sign(
+     {
+      userId: user.id,
+      isAdmin: user.isAdmin,
+      country: user.country,
+      address1 : user.address1,
+      address2 : user.address2,
+      dateOfBirth : user.dateOfBirth,
+      email: user.email,
+      phone: user.phone,
+      postalCode: user.postalCode,
+      sex: user.gender,
+      gender: user.gender,
+      fName: user.name,
+      lName: user.lastName,
+      region: user.region,
+      city: user.city,
+      state: user.state,
+      prefix: user.prefix,
+      platform: user.platform,
+      externalId: user.externalId
+ 
+     },
+     secret,
+     {expiresIn: '1d'}
+ )
+ 
+ res.status(200).send({user: user.email , token: tokenN})
+ 
+ })
 //Retrieve a specific user using its id
 router.get(`/:id`, async(req,res)=>{
     try{
