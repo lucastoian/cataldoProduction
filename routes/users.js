@@ -40,12 +40,41 @@ router.post('/google', async (req,res)=>{
  let user = await User.findOne({email: payload['email']})
  console.log(user)
  const secret = process.env.secret;
+
+let givenName = ""
+let givenLastName = ""
+let givenUserName = ""
+let givenEmail= ""
+let passwordHash="" 
+
+try{
+    givenName =payload['given_name']
+} catch(e){
+
+}
+try{
+    givenLastName =payload['given_name']
+} catch(e){
+
+}
+try{
+    givenUserName =payload['given_name']
+} catch(e){
+
+}
+try{
+    givenEmail =payload['given_name']
+} catch(e){
+
+}
      if(user == null){
          let newUser = new User({
-             name: payload['given_name'],
-             lastName: payload['family_name'],
-             userName: payload['name'],
-             email: payload['email'],
+            platform: 'google',
+            externalId: '',
+             name: givenName,
+             lastName: givenLastName,
+             userName: givenUserName,
+             email: givenEmail,
              passwordHash: payload['sub'],
              phone: '',
              isAdmin: false,
@@ -53,9 +82,7 @@ router.post('/google', async (req,res)=>{
              apartment: '',
              zip: '',
              city: '',
-             country: '',
-             platform: 'google',
-             externalId: ''
+             country: ''
          })
          user = await newUser.save();
          if (!user){
