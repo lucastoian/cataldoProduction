@@ -29,6 +29,13 @@ const BOT_UA_PATTERN = new RegExp(BOTS.join('|'), 'i');
 const errorHandler = require('./helpers/error-handler');
 const history = require('connect-history-api-fallback');
 //Cors
+
+
+app.use(rendertron.makeMiddleware({
+  proxyUrl: 'https://cataldostore.appspot.com/render',
+  userAgentPattern: BOT_UA_PATTERN
+}));
+
 app.use(cors());
 app.enable('trust proxy')
 //app.use(require('prerender-node').set('prerenderToken', 'p4TrE3U839HAbkLsZeCz'));
@@ -60,10 +67,6 @@ app.use(compression({
 app.options('*', cors());
 
 
-app.use(rendertron.makeMiddleware({
-  proxyUrl: 'https://https://cataldostore.appspot.com/render',
-  userAgentPattern: BOT_UA_PATTERN
-}));
 
 
 //Middleware
