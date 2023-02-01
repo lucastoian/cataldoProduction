@@ -14,7 +14,7 @@ const history = require('connect-history-api-fallback');
 //Cors
 app.use(cors());
 app.enable('trust proxy')
-app.use(require('prerender-node').set('prerenderToken', 'p4TrE3U839HAbkLsZeCz'));
+//app.use(require('prerender-node').set('prerenderToken', 'p4TrE3U839HAbkLsZeCz'));
 app.use((req, res, next) => {
     if (req.protocol === 'http') {
         return res.redirect(301, `https://${req.headers.host}${req.url}`);
