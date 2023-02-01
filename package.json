@@ -38,6 +38,7 @@
     "paypal-rest-sdk": "^1.8.1",
     "prerender-node": "^3.5.0",
     "random-words": "^1.2.0",
+    "rendertron-middleware": "^0.1.5",
     "stripe": "^10.3.0",
     "twilio": "^3.82.2"
   }

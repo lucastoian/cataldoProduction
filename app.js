@@ -7,7 +7,9 @@ const cors = require('cors');
 const compression = require('compression');
 require('dotenv/config');
 const authJwt = require('./helpers/jwt');
-
+const rendertron = require('rendertron-middleware');
+const BOTS = rendertron.botUserAgents.concat('googlebot');
+const BOT_UA_PATTERN = new RegExp(BOTS.join('|'), 'i');
 //errorHandler
 const errorHandler = require('./helpers/error-handler');
 const history = require('connect-history-api-fallback');
@@ -41,6 +43,13 @@ app.use(compression({
   threshold: 0
 }));
 app.options('*', cors());
+
+
+app.use(rendertron.makeMiddleware({
+  proxyUrl: 'https://https://cataldostore.appspot.com/render',
+  userAgentPattern: BOT_UA_PATTERN
+}));
+
 
 //Middleware
 app.use(express.json());
