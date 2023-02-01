@@ -8,7 +8,7 @@ const compression = require('compression');
 require('dotenv/config');
 const authJwt = require('./helpers/jwt');
 const rendertron = require('rendertron-middleware');
-const BOTS = rendertron.botUserAgents.concat('googlebot');
+const BOTS = rendertron.botUserAgents.concat(['googlebot','yolobot','Chrome-Lighthouse']);
 const BOT_UA_PATTERN = new RegExp(BOTS.join('|'), 'i');
 //errorHandler
 const errorHandler = require('./helpers/error-handler');
