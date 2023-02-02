@@ -12,6 +12,7 @@ export declare class ProductItemComponent implements OnInit {
     imgBlob: any;
     discount: number;
     finalPrice: number;
+    ean: string;
     clickedIndex: number;
     varianti: Product123[];
     product: Product123;
