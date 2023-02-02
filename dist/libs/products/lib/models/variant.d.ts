@@ -6,5 +6,6 @@ export declare class Variant {
     inventory?: number;
     barcode?: number;
     available?: boolean;
+    EAN?: string;
 }
 //# sourceMappingURL=variant.d.ts.map
