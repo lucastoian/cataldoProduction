@@ -31,11 +31,12 @@ const history = require('connect-history-api-fallback');
 //Cors
 
 
+/*
 app.use(rendertron.makeMiddleware({
   proxyUrl: 'https://cataldostore.appspot.com/render',
   userAgentPattern: BOT_UA_PATTERN
 }));
-
+*/
 app.use(cors());
 app.enable('trust proxy')
 //app.use(require('prerender-node').set('prerenderToken', 'p4TrE3U839HAbkLsZeCz'));
